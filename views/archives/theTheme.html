@@ -1,0 +1,16 @@
+<ion-view>
+    <ion-content>
+        <div style="background: url('images/bgfollow.png');background-size: 100% 100%;width:100%;height:100%;font-family: PingFang-SC-Medium;padding:10px; "  >
+            <p style="font-size: 19px;color: #333333;letter-spacing: 0;margin-left:20px;">亲爱的顾客宝宝 <img src="images/eyes.png" style="width:40px;"></p>
+            <h4 style="font-size: 17px;color: #333333;text-align: center;margin-top:35px;">{{message.title}}</h4>
+            <div style="font-size: 16px;color: #666666;line-height: 24px;margin-top:10px;">
+                &nbsp;&nbsp;{{message.content}}
+            </div>
+            <div style="font-size: 16px;color: #333333;text-align: right;position: absolute;bottom: 20%;right:10px;">
+                <p>{{message.createBy}}</p>
+                <p>{{message.createDate|date:'yyyy-MM-dd'}}</p>
+                <img src="images/follow.png" style="position: absolute;top:-50px; right:40px;width:100px;">
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

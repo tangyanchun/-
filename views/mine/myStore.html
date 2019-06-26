@@ -1,0 +1,39 @@
+<ion-view class="bg">
+    <ion-content>
+        <div ng-repeat="item in shopList " ng-if="item.type=='0'">
+            <div class="tc" style="margin-top:40px;margin:40px auto;height:125px;background: url('{{item.shopImageUrl}}');background-repeat: no-repeat;background-position: center center;background-size: contain;width:60%;">
+               <!-- <img ng-src="{{item.shopImageUrl}}" style="width:60%;height: 125px;margin: auto">-->
+            </div>
+            <!--门店信息-->
+            <div style="width: 345px;margin:25px auto;border-radius: 5px;padding-bottom: 10px; " class="mt20 bgfff">
+                <p class="ph ml17"><img src="images/mine/shop.png" style="width: 20px;height: 20px;display: inline-block;"><span></span><span class="ml16 col33">{{item.name}}</span><span style="width: 55px;height: 20px;border: 1px solid #FF6666;border-radius: 2px;display: inline-block;float: right;font-size: 12px;color: #FF6666;text-align: center;line-height: 20px;margin: 10px" ng-show="false">支持上门</span></p>
+                <p class="ph ml17"><img src="images/mine/shoPhone.png" style="width: 19px;height: 19px;display: inline-block"><span></span><span class="ml16  col99">{{item.phone}}</span></p>
+                <div class=" ml17" style="display: flex" ><img src="images/mine/postionb.png" style="width: 15px;height: 20px;display: inline-block;margin-top:5px;"><span></span><div class="col99" style="display: inline-block;padding: 0 10px 0 16px;">{{item.province + item.city + item.address}}</div>
+                </div>
+        <!--价目表-->
+       <div class="list fs15 mt20" ng-show="false">
+           <p class="item p10" ng-click="goPrices()"><img src="images/mine/priceList.png" style="width: 18px;height: 13px;display: inline-block"><span class="ml10">价目表</span><i class="ion ion-ios-arrow-right fr"></i></p>
+           <p class="item p10 mt10">企业简介</p>
+           <p class="item p10">{{item.detail}}</p>
+         </div>
+        </div>
+        <!--分店列表-->
+       <!-- <div class="list bgfff mt10">
+            <p class="item p10"><span>分店列表</span><img src="images/mine/drop-down.png" style="width: 12px;height: 6px;display: inline-block;float: right;margin-top:8px" ng-show="false"></p>
+        </div>-->
+          <!--列表-->
+        <!--<div style="width: 100%;background: #ffffff;padding:20px;"  ng-click="branchShopGo(item.id)"  ng-repeat="item in shopList " ng-if="item.type=='1'">
+            <ion-item  class="row" style="width: 342px;height: 73px;background: #F6F6F6;margin:auto;">
+                <div class="col col-80" >
+                    <p style="font-size: 15px"><span>{{item.name}}</span></p >
+                    <p style="font-size: 12px;color: #888888">
+                        <span>{{item.city+item.address}}</span>
+                    </p >
+                </div>
+                <div class="col col-20">
+                  <i class=" ion ion-ios-arrow-right fr mt10"></i>
+                </div>
+            </ion-item>
+        </div>-->
+    </ion-content>
+</ion-view>

@@ -1,0 +1,43 @@
+<ion-view>
+    <ion-content class="partialFiles" style="margin-bottom: 50px;">
+     <div>
+         <ion-list>
+             <ion-item class="item-input" style="background: border-box;height: 40px; ">
+               <span class="item-input-wrapper" style="margin-right:10px;height:30px;margin-left:10px;" >
+                        <i class="icon ion-ios-search placeholder-icon" ng-click="search()"></i>
+                        <input id="search" type="search" placeholder="找人" ng-model="searchCont.key" >
+                        <i class="icon ion-close-circled placeholder-icon" style="vertical-align: middle;"
+                           on-tap="clearSearch()" ng-if="searchCont.key.length"></i>
+                 </span>
+             </ion-item>
+             <div>
+                 <p class="h45 sb bgfff bbl">
+                     <span class="fs15 colff66">
+                         <img src="images/inventory/fenShop.png" class="ml10 fenShopPic">
+                         美容院分店
+                     </span>
+                     <img src="images/inventory/shou.png" class="shouPic mr10" style="margin-top: 20px;">
+                 </p>
+                 <ul class="bgfff">
+                     <li class="h50  ml20 bbl" style="display: flex" ng-repeat="item in [0,1,2]">
+
+                          <img src="images/selRed.png" class="selGray  mr10 mt20">
+                          <p style="height:40px;line-height: 40px;width:40px;background: gainsboro;border-radius: 50%; "class="mt5" ></p>
+                          <span class="fs15 col333 ml10">花花</span>
+                          <p style="height:20px;line-height: 20px;border: solid 1px #FF6666;margin-top:17px;border-radius: 3px;" class="ml10 fs15 colff66">
+                              <span class="mr5 ml10 ">前台</span>
+                              <span class="mr5 ml5">boss</span>
+                              <span class="mr5 ml5">员工</span>
+                          </p>
+
+                     </li>
+                 </ul>
+             </div>
+         </ion-list>
+     </div>
+    </ion-content>
+    <div class="h50 sb bgfff" style="position: absolute;bottom: 0;width:100%;">
+        <p class="fs16 colff66 ml10">已选择0人：</p>
+        <p style="width:80px;" class="bgff66 colfff center">确认</p>
+    </div>
+</ion-view>

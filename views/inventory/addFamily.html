@@ -1,0 +1,67 @@
+<ion-view>
+    <ion-item class="item-input bgfff" style=";height: 40px;">
+                <span class="item-input-wrapper" style="margin-right:10px;height:30px;" >
+                        <i class="icon ion-ios-search placeholder-icon" ng-click="search()"></i>
+                        <input id="search" type="search" placeholder="根据手机号/姓名查询" ng-model="param.searchFile" ng-change="search()">
+                        <i class="icon ion-close-circled placeholder-icon" style="vertical-align: middle;"
+                           on-tap="clearSearch()" ng-if="param.searchFile.length" ng-click="clearSearch()"></i>
+                 </span>
+    </ion-item>
+    <ion-content class="partialFiles bgf6 mb45" style="margin-top:40px;">
+        <div ng-class="{'hidden':param.flag==true}" >
+            <ion-list>
+                <div>
+                   <!-- <p class="h45 sb bgfff bbl" ng-click="selShop()">
+                        <span class="fs15 colff66">
+                         <img src="images/inventory/fenShop.png" class="ml10 fenShopPic">
+                         美容院分店
+                     </span>
+                        <img src="images/more.png" class="more mr10" style="margin-top: 20px;" >
+                    </p>-->
+                    <ul class="bgfff">
+                        <li class="h50  ml20 bbl" style="display: flex;position: relative;" ng-repeat="item in addFamily" >
+                            <div style='display: flex;' ng-click="mployeesDtails(item.id)" ui-sref="mployeesDtails({id:item.id})">
+                                <p style="height:40px;line-height: 40px;width:40px;border-radius: 50%; "class="mt5" >
+                                    <img ng-src="{{item.photo}}" style="height:40px;line-height: 40px;width:40px;border-radius: 50%; ">
+                                </p>
+                                <span class="fs15 col333 ml10">{{item.name}}</span>
+                                <p style="height:20px;line-height: 20px;border: solid 1px #FF6666;margin-top:17px;border-radius: 3px;" class="ml10 fs15 colff66">
+                                    <span class="mr5 ml10 ">{{item.role}}</span>
+                                </p>
+                            </div>
+
+                            <p style="width:50px;position: absolute;right:10px;" ng-click="del1(item)">
+                                <!-- <div ng-if="item.sysClerkName!=null&&item.sysClerkName!=''">
+                                     <img src="images/associated.png" class="associated ml20 ">
+                                     <span class="fs11 colff66">{{item.sysClerkName}}</span>
+                                 </div>-->
+                                <i class="icon ion-trash-a" style="float: right;color:#ff6666;font-size:25px;"></i>
+                            </p>
+                        </li>
+                    </ul>
+                   <!-- <div style="position: absolute;height:100%;background:rgba(0,0,0,0.2);top:40px;width:100%;z-index: 1000" ng-show="param.flag" ng-click="all()">
+                        <div class="list bgfff">
+                            <p class="h50 item " ng-repeat="item in shopList" ng-click="selShopTrue(item.sysShopId)">
+                                <span class="ml10">{{item.sysShopName}}</span>
+                            </p>
+                        </div>
+                    </div>-->
+                </div>
+            </ion-list>
+        </div>
+    </ion-content>
+    <div style="position: absolute;width:80%;height:150px;left:10%;top:50%;margin-top:-75px;z-index: 1001;background: #fff;border-radius: 10px;" ng-show="param.delFalse">
+        <div style="height:100px;line-height: 100px;margin-left: 30px;">
+            确认删除么
+        </div>
+        <div style="display: flex;justify-content:space-between;height: 50px;line-height: 50px;">
+            <p style="width:50%;text-align: center;background: #eeeeee" ng-click="del(0)">取消</p>
+            <p style="width:50%;text-align: center;background: #ff6666;    border-bottom-right-radius: 10px;"  ng-click="del(1)">确定</p>
+        </div>
+    </div>
+    <div style="background: rgba(0,0,0,0.2);position: absolute;top:0;left:0;width:100%;height:100%;z-index:1000" ng-click="del(0)" ng-show="param.delFalse">
+    </div>
+    <div class="h50  bgff66" style="position: absolute;bottom: 0;width:100%;">
+        <p class="fs16 colfff ml10 center" ng-click="addEmployeesGo()">添加家人</p>
+    </div>
+</ion-view>

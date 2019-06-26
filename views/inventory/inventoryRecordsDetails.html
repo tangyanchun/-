@@ -1,0 +1,34 @@
+<ion-view>
+    <ion-content class="partialFiles">
+        <div>
+            <p class="h45 fs18 center colff66" style="background: rgba(255,102,102,0.15);">2018-04-14</p>
+            <div class="bgfff" >
+                <div class="h45 sb bbl">
+                    <P >
+                        <span style="width:3px;height:18px;display: inline-block;margin-top:12px;" class="bgff66 mr5 ml10"></span>
+                        <span>可丽金</span>
+                    </P>
+                    <p>
+                        <span class="col333 fs14">产品种类：2</span>
+                        <span class="colff66 fs14 mr10">产品种类：2</span>
+                    </p>
+                </div>
+                <div ng-repeat="item in [0,1]">
+                        <p class="h30 ml10 fs16 col333">洁面乳</p>
+                        <div class="sb">
+                            <div>
+                                <p class="fs14 col333 ml10 mt10">库存数 0</p>
+                                <p class="fs14 col333 ml10 mb10">实际数 5</p>
+                            </div>
+                            <p class="h30 sb mt10">
+                                <a class="h30 colfff fs14 bgff66 mr20 center" style="width:46px;" ng-click="reservoirRunningWaterGo()">详情</a>
+                                <a class="h30 colfff fs14 bgff66 mr10 center" style="width:46px;" ng-click="unwindGo()">平仓</a>
+                            </p>
+                        </div>
+
+                </div>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,34 @@
+<ion-view>
+    <ion-content class="partialFiles mb45">
+        <div>
+            <ion-list>
+                <ion-item class="item-input" style="background: border-box;height: 40px; ">
+                <span class="item-input-wrapper" style="margin-right:10px;height:30px;margin-left:10px;" >
+                        <i class="icon ion-ios-search placeholder-icon" ng-click="search()"></i>
+                        <input id="search" type="search" placeholder="请输出您想查找的姓名" ng-model="searchCont.key" class="fs16">
+                        <i class="icon ion-close-circled placeholder-icon" style="vertical-align: middle;"
+                           on-tap="clearSearch()" ng-if="searchCont.key.length"></i>
+                 </span>
+                    <i  class=" fs15 col333 mr10 colff66" >取消</i>
+                </ion-item>
+            </ion-list>
+            <div style="position: relative;height:100%;">
+                <ion-list ng-repeat="item in [0,1]">
+                    <ion-item  class="h40 bge6 row" >
+                        <p class="ml10">A</p>
+                    </ion-item>
+                    <ion-item  class="h50 bgfff row sb" ng-repeat="item in [0,1]">
+                        <p>
+                            <img src="images/selRed.png" class="selGray ml10 mr5">
+                            阿敏
+                        </p>
+                        <p class="mr30">15801676785</p>
+                    </ion-item>
+                </ion-list>
+            </div>
+        </div>
+    </ion-content>
+    <div class="h45 bgff66 colfff fs15 tabs">
+        完成
+    </div>
+</ion-view>

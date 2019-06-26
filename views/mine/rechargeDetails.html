@@ -1,0 +1,23 @@
+<ion-view class="bg">
+    <ion-content>
+        <div style="height:375px;width:100%;">
+            <img ng-src="{{cardInfo.imageUrl}}" style="width:100%;height: 375px;">
+        </div>
+        <div class="list">
+            <ion-item  class=" bgfff row">
+                <div class="col col-100" >
+                    <p ><span class="fs16">{{cardInfo.name}}</span></p >
+                    <p class="fs12" style="color: #FF6666!important;">
+                       <span>面额：¥{{cardInfo.amount}}</span>
+                    </p >
+                </div>
+            </ion-item>
+        </div>
+        <!--<p class="col99 fs13 mt-9 p5">折扣</p>-->
+        <!--<div class="list fs14">
+            <p class="item p10"><span></span><span class="fr"><i class=" ion ion-ios-arrow-right ml5"></i></span></p>
+        </div>-->
+        <p class="col99 fs13 mt-9 p5">充值卡介绍</p>
+        <textarea style="height:2rem;width:100%;font-size: 0.3rem;color: #333333;padding: 20px;" ng-model="cardInfo.introduce"></textarea>
+    </ion-content>
+</ion-view>

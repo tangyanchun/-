@@ -1,0 +1,40 @@
+<ion-view class="bg">
+    <p class="h45 bgfff fs16 colff66">
+        <span ng-click="sel()"><img src="images/screening.png" class="screeningPic ml10 mr10">筛选</span>
+    </p>
+    <ion-content delegate-handle="dashboard"  style="margin-top: 45px">
+        <div ng-show="!param.picFlag">
+        <!--消费 充值 还欠款-->
+            <div class="list"  >
+                <p class="item p8 fs15" ng-repeat="item in detailedPerformance track by $index" ng-click="expenditureDetailsGo(item.flowNo)">
+                    <span  class="fl" ng-if="item.type=='0'">充值</span>
+                    <span  class="fl" ng-if="item.type=='1'">消费</span>
+                    <span  class="fl" ng-if="item.type=='2'">划卡</span>
+                    <span  class="fl" ng-if="item.type=='3'">消费单次耗卡</span>
+                    <span  class="fl" ng-if="item.type=='4'">卡耗消费</span>
+                    <span  class="fr col4BC647">+{{item.sumAmount}}</span><br>
+                    <span  class="col99">{{item.createDate|date : 'yyyy-MM-dd hh:mm:ss'}}</span>
+                </p>
+            </div>
+        </div>
+        <div style="position: absolute;height:100%;background: #000;opacity: 0.2;top:0;width:100%;z-index: 100" ng-show="flag" ng-click="all()"></div>
+        <div  style="position: absolute;top:0;z-index: 101;width:100%;">
+            <div  class="bgfff pd15" ng-show="flag==true&&userConsumeRequest.searchFile=='1'">
+                <p class="h50 col333 fs15bl bbl" ng-click="getInfo('-1')">全部</p>
+                <p class="h50 col333 fs15bl bbl" ng-click="getInfo('1')">消费</p>
+                <p class="h50 col333 fs15bl bbl" ng-click="getInfo('0')">充值</p>
+                <p class="h50 col333 fs15bl bbl" ng-show="false">还欠款</p>
+                <p class="h50 col333 fs15bl bbl" ng-show="false">退款</p>
+            </div>
+            <div  class="bgfff pd15" ng-show="flag==true&&userConsumeRequest.searchFile=='2'">
+                <p class="h50 col333 fs15bl bbl" ng-click="getInfo('2')">划卡</p>
+                <p class="h50 col333 fs15bl bbl" ng-click="getInfo('3')">消费单次耗卡</p>
+            </div>
+            <div  class="bgfff pd15" ng-show="flag==true&&userConsumeRequest.searchFile=='3'">
+                <p class="h50 col333 fs15bl bbl" ng-click="getInfo('4')">消费</p>
+            </div>
+        </div>
+        <!--空白页面-->
+        <void-pic></void-pic>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,53 @@
+<ion-view class="bg">
+    <ion-content>
+        <div class="list">
+            <li class="item p10">
+                <span style="width: 2px;height: 20px;display: inline-block;background: #FF6666;"></span>
+                <span class="fs17 col33 ml10">{{param.productDetail.productTypeOneName + param.productDetail.productTypeTwoName}}</span>
+            </li>
+            <ion-item  class="bgfff row">
+                <div class="col col-20">
+                    <img ng-src="{{param.productDetail.productImage}}" style="height:70px;width:75px;">
+                </div>
+                <div class="col col-80 ml10" style="margin-left:20px">
+                    <p class="fs14 col33"><span>{{param.productDetail.shopProcName}}</span></p >
+                    <p class="fs12 col88">编号：{{param.productDetail.productCode}}</p >
+                    <p class="fs12 col88">
+                        <span>单位：{{param.productDetail.productUnit}}</span>
+                        <span class="ml5">规格：{{param.productDetail.productSpec}}</span>
+                    </p>
+                </div>
+            </ion-item>
+                <li class="item">
+                    <span class="col33 ml10">占用成本：</span>
+                    <span class=" colff66">￥{{param.productDetail.allUseCost}}</span>
+                    <span class="fr" style="float: left">
+                        <span class="col33">库存数量：</span>
+                        <span class=" colff66">{{param.productDetail.allStoreNumber}}件</span>
+                    </span>
+                </li>
+        </div>
+        <div class="list">
+            <ion-item  class="row" ng-repeat="item in param.productDetail.shopStockResponseDTO">
+                <div class="col ml10" >
+                    <p class="fs14 col33">
+                        <span>仓库名称：{{item.shopStoreName}}</span>
+                    </p >
+                    <p class="fs12 col88">
+                        <span class="col33">占用成本：</span>
+                        <span class="colff66">￥{{item.useCost}}</span>
+                    </p >
+                    <p>
+                         <span >数量：
+                            <span class="colff66">{{item.storeNumberSelf}}件</span>
+                        </span>
+                    </p>
+                </div>
+            </ion-item>
+        </div>
+        <!--<div class="tc">-->
+            <!--<button style="width: 349px;height:36px;border-radius:0.46rem;color: #FFFFFF;background: #FFFFFF;font-size: 0.34rem;color: #FF6666;border: 1px solid #FF6666"-->
+                    <!--class="button " ng-click="historicalRecordGo()" >历史记录</button>-->
+        <!--</div>-->
+    </ion-content>
+</ion-view>

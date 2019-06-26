@@ -1,0 +1,54 @@
+<ion-view class="bg">
+    <ion-content class="mb45">
+      <div class="list">
+          <!--ng-click="tabShop()"-->
+          <li class="item tc" ><span>{{param.sysShopName}}</span><!--<img src="images/mine/drop-down.png" style="width: 10px;height: 5px;display: inline-block;margin-left: 10px">--></li>
+          <li class="item item-toggle">
+              开启排班功能
+              <label class="toggle toggle-assertive">
+                  <input type="checkbox" ng-model="param.settingStatus" ng-click="settingStatus()">
+                  <div class="track">
+                      <div class="handle"></div>
+                  </div>
+              </label>
+          </li>
+      </div>
+        <div>
+            <div class="list" ng-repeat="item in reminder">
+                    <li class="item item-toggle" ng-if=" item.typeName!=null">
+                        <span ng-if="item.typeName == '0'">早班</span>
+                        <span ng-if="item.typeName == '1'">中班</span>
+                        <span ng-if="item.typeName == '2'">晚班</span>
+                        <span ng-if="item.typeName == '3'">全班</span>
+                        <span ng-if="item.typeName == '4'">休</span>
+                        <label class="toggle toggle-assertive">
+                            <input type="checkbox" ng-model="param.statusArr[$index]" ng-click="changeStatus($index)">
+                            <div class="track">
+                                <div class="handle"></div>
+                            </div>
+                        </label>
+                    </li>
+                    <li class="item" ng-if=" item.typeName!=null">
+                        <span>上班时间
+                            <input type="text" ng-model="item.startTime" style="width:50px;display: inline-block"   ng-focus="depaly($index)" ng-change="num(item.startTime,$index,'startTime')">
+                        </span>
+                        <span class="fr mr10">下班时间
+                            <input type="text" ng-model="item.endTime" style="width:50px;display: inline-block" ng-focus="depaly($index)" ng-change="num(item.endTime,$index,'endTime')">
+                        </span>
+                    </li>
+
+
+            </div>
+        </div>
+      <!--  <div style="width:100%;height:100%;background:rgba(0,0,0,0.2);position: absolute;top:0;z-index: 100" ng-if="param.displayShopBox" ng-click="dis()"></div>-->
+        <!--点击切换店铺显示的店铺列表-->
+
+
+    </ion-content>
+   <!-- <div class=" " ng-if="param.displayShopBox" style="position: absolute;top:0;width:100%;z-index: 101">
+        <p class="item" ng-click="choseShop(item.id)"ng-repeat="item in shopList">{{item.sysShopName}}</p>
+    </div>-->
+    <div class="tabs colfff bgff66 center h45" ng-click="save()">
+        保存
+    </div>
+</ion-view>

@@ -1,0 +1,30 @@
+<ion-view>
+    <ion-content class="partialFiles">
+        <div ng-repeat="item in libraryTubeSetting">
+            <div class="h45 sb bgfff bbl" ng-click="kuTube(item.id)">
+                 <p class="fs16 col333 ">
+                     <span style="background: #FF6666;width:3px;height:18px;display: inline-block;margin-top:2px;" class="ml10"></span>
+                      {{item.name}}
+                 </p>
+               <i class="ion-chevron-up mr10 col999" ng-show="item.id == param.id"></i>
+               <i class="ion-chevron-down mr10 col999" ng-show="item.id != param.id"></i>
+            </div>
+            <ul class="bgfff" ng-show="item.id == param.id" ui-sref="kuTube({id:param.id,storeManagerId:peopleKuTube.storeManagerId})">
+                <li class="h50  ml20 bbl sb"  >
+                  <p class="fs16">
+                      <span class="col888">库管</span>
+                      <span class="colff66">*</span>
+                  </p>
+                  <p>
+                      <span class="fs14 col333" ng-if="show">{{peopleKuTube.storeManagerName}}</span>
+                      <span class="fs14 col333" ng-if="!show">{{storeManagerName}}</span>
+                     <img src="images/more.png" class="more mr10">
+                  </p>
+                </li>
+            </ul>
+        </div>
+    </ion-content>
+    <div class="h45 center fs16 colfff bgff66 tabs" ng-if="!show" ng-click="save()" >
+        保存
+    </div>
+</ion-view>

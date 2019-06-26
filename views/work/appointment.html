@@ -1,0 +1,27 @@
+<ion-view class="bg">
+    <ion-content >
+        <div >
+            <!--日期部分-->
+            <div class="bgRgb" >
+                <ionic-datepicker input-obj="datepickerObjectEnd">
+                    <img src="images/work/date.png" class="dateImg" >
+                    <span class="date">{{param.date}}</span>
+                    <img src="images/work/drop-down.png" class="dropImg">
+                </ionic-datepicker>
+            </div >
+            <ion-item  class=" bgfff row " ng-repeat="item in appointment"
+                       ng-click="healthClubGo(item.bossRelationDTO.id,item.bossRelationDTO.sysShopName)" ng-show="!param.picFlag">
+                <div class="col col-80" >
+                    <p  class="fs15 col33">{{item.bossRelationDTO.sysShopName}}</p >
+                    <p  class="fs12 col88">
+                        <img src="images/work/minute.png" style="display: inline-block;width: 15px;height: 15px;margin-left: 5px"><span style="margin-left: 17px">{{item.appointmentNum}}个预约</span>
+                    </p >
+                </div>
+
+            </ion-item>
+            <void-pic></void-pic>
+        </div>
+
+
+    </ion-content>
+</ion-view>

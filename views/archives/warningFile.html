@@ -1,0 +1,51 @@
+<ion-view>
+    <ion-content class="warningFile partialFiles">
+        <div class="tabs-striped tabs-top tabs-background-light tabs-color-assertive">
+            <div class="tabs" style="top:0"  >
+                <a ng-class="{true: 'tab-item active', false: 'tab-item'}[queryType=='one']"
+                   ng-click="chooseTab('one')">
+                    <span class="fs15 "> 一个月未到店</span>
+                </a>
+                <a ng-class="{true: 'tab-item active', false: 'tab-item'}[queryType=='three']"
+                   ng-click="chooseTab('three')">
+                    <span class="fs15 "> 三个月未到店</span>
+                </a>
+                <a ng-class="{true: 'tab-item active', false: 'tab-item'}[queryType=='six']"
+                   ng-click="chooseTab('six')">
+                    <span class="fs15 "> 六个月未到店</span>
+                </a>
+            </div>
+        </div>
+        <div ng-show="!param.picFlag">
+            <p style="background: #FBCAC7;font-size: 14px;color: #FF6666;height:30px;line-height:30px;position: relative;width:100%;top: 48px;" class="center">
+                共{{warningFile.count}}份档案
+            </p>
+            <div  ng-repeat = 'item in warningFile.info'>
+                <ion-list ng-repeat="(key,val) in item">
+                    <ion-item   class="h30 bge6 ">
+                        <span class="ml10">{{key}}</span>
+                    </ion-item>
+                    <ion-item  class="h60 bgfff row" ng-repeat="items in val" ng-click="archivesGo(items.id)">
+                        <div class="col col-20" style="line-height: 49px;">
+                            <div style="height:42px;width:42px;" >
+                                <img ng-src="{{items.imageUrl}}" style="height:42px;width:42px;border-radius: 50%;margin-top:-5px;" class="ml10">
+
+                            </div>
+                        </div>
+
+                        <div class="col col-80 " style="margin-left:-10px;">
+                            <p class="fs16">{{items.sysUserName}}</p>
+                            <p class="fs12 col666"> <img src="images/time.png" class="timePic mr5">上次到店时间：{{items.lastToShopTime|date : 'yyyy-MM-dd hh:mm:ss'}}</p>
+                        </div>
+                        <!--<p class="col col-25" style="line-height: 49px;">
+                         &lt;!&ndash;   <img src="images/associated.png" class="associated ml20 ">
+                            <span class="fs11 colff66">{{items.sysClerkName}}</span>&ndash;&gt;
+                        </p>-->
+                    </ion-item>
+
+                </ion-list>
+            </div>
+        </div>
+        <void-pic></void-pic>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,30 @@
+<ion-view class="skin bgfff" >
+    <ion-content>
+            <div style="position: relative">
+                <p style="color: #ffc871;font-size: 23px;margin-left: 15px;font-weight: bold;margin-top: 20px">选择皮肤类型</p>
+                <p style="color: #d1d1d1;font-size: 15px;margin-top: 7px;margin-left: 15px">(最多选两种)</p>
+                <img src="images/emptyHome.png" style="position: absolute;top: 38px;right: 10px;width: 107px;height: 30px" ng-click="empty()">
+            </div>
+            <div class="list" style="margin-top: 20px">
+                <div class="row row-wrap" style="width: 96%;margin: 0 auto">
+                    <div class="col col-50" ng-repeat="item in arr" style="position: relative;text-align: center">
+                        <!--置灰时显示的-->
+                        <div ng-if="item.changeBg">
+                            <div style="width: 170px;height: 183px;position: absolute;top: 0;left: 0; right:0;bottom:0;background: #d1d1d1;opacity: 0.8;margin: auto"></div>
+                            <img ng-src="{{item.imageUrl}}" class="noChange">
+                        </div>
+                        <!--不置灰可点击-->
+                        <div ng-if="!item.changeBg" ng-click="checkSkin($index,item.id)">
+                            <img src="images/checkSkin.png" style="width: 20px;height: 20px;position: absolute;right: 30px;top: 18px;z-index: 1003" ng-if="item.checklist">
+                            <img ng-src="{{item.imageUrl}}" class="noChange">
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <!--下一步按钮-->
+      <!--  <div class="nextStep" ng-click="nextPage()" >
+            下一步
+        </div>-->
+        <br><br><br><br><br><br>
+    </ion-content>
+</ion-view>

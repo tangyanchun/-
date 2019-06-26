@@ -1,0 +1,23 @@
+<ion-view>
+    <ion-content class="partialFiles bgf6">
+        <div>
+            <div style="border-bottom: solid 1px gainsboro;padding:10px 0  " class="bgfff ">
+                <div >
+                    <span style="padding:0px 7px;display: inline-block;border-radius: 4px;" class="mt5 mr10 ml10 activeCharacter fs14" ng-repeat="item in (param.productFunc.split(';'))" ng-hide="param.productFunc==''" ng-click="selFunc(item)">{{item}}</span>
+
+                    <input type="text" placeholder="输入标签" style="padding-left:10px;width:80px;display: inline-block;" ng-model="param.func">
+                </div>
+            </div>
+            <div style="padding-left:10px;" class="">
+                <p style="padding-top:5px;" class="fs12 col333">
+                    所有标签
+                </p>
+                <div class="fs14">
+                    <!--activeCharacter-->
+                    <span style="padding:0px 10px;display: inline-block;border-radius: 6px;" class="mt5 mr10 Character  fs11 col888" ng-repeat="item in param.funcList" ng-click="selFunc(item)" ng-init = "" ng-class="{'activeCharacter':(param.productFunc.indexOf(item)) !=(-1)}" >{{item}}</span>
+                </div>
+                <p style="width:165px;height:44px;margin:auto;background: #FF6666;box-shadow: 0 4px 4px 0 rgba(255,102,102,0.24);border-radius: 100px;line-height: 44px;margin-top:100px;" class="center colfff " ng-click="save()">完成</p>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,20 @@
+<ion-view class="bg col33">
+    <ion-content>
+        <div>
+            <img ng-src="{{shopInfo.shopImageUrl}}" style="width:100%;height: 188px;">
+        </div>
+         <div class="list">
+             <li class="item fs14">门店简介</li>
+             <div class="fs13 bgfff p10">
+                 <p>{{shopInfo.detail}}</p>
+                 <!--<p><img src="images/mine/machine.png" style="width: 12px;;height: 13px;display: inline-block"><span class="ml5">座机—— {{shopInfo.phone}}</span></p>-->
+             </div>
+         </div>
+        <div class="list fs14">
+            <p class="item"><img src="images/mine/shopTell.png" style="width: 16px;;height: 16px;display: inline-block"><span class="ml5">门店电话&nbsp;&nbsp;{{shopInfo.phone}} </span></p>
+            <p class="item"><img src="images/mine/shopTime.png" style="width: 16px;;height: 16px;display: inline-block"><span class="ml5">营业时间 {{shopInfo.openDoorDate}} - {{shopInfo.closeDoorDate}} </span></p>
+            <p class="item"><span  style="width:30px;;height: 15px;display: inline-block;font-size: 8px!important;color: #FF6666;border-radius: 5px;border: 1px solid #FF6666;text-align: center;line-height: 15px">地址</span><span class="ml5">{{shopInfo.province+shopInfo.city+shopInfo.address}}</span></p>
+        </div>
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,48 @@
+<ion-view>
+    <ion-content class="partialFiles bgf6 mb45">
+        <div>
+            <ion-list>
+                <ion-item class="item-input" style="background: border-box;height: 40px; ">
+                <span class="item-input-wrapper" style="margin-right:10px;height:30px;margin-left:10px;" >
+                        <i class="icon ion-ios-search placeholder-icon" ></i>
+                        <input id="search" type="search" placeholder="根据手机号查询" ng-model="param.searchFile" ng-change="search()">
+                        <i class="icon ion-close-circled placeholder-icon" style="vertical-align: middle;"
+                           on-tap="clearSearch()" ng-if="param.searchFile.length" ng-click="clearSearch()"></i>
+                 </span>
+                </ion-item>
+                <div>
+                    <ul class="bgfff">
+                        <li class="h50  ml20 bbl" style="display: flex" ng-repeat="item in param.addFamily" ng-click="selFilamy(item.id,item.name)">
+                            <p>
+                                <i class="ion-ios-circle-outline colff66 mr10" ng-if="param.ids.indexOf(item.id)==-1"></i>
+                                <i class="ion-ios-checkmark-outline colff66 mr10" ng-if="param.ids.indexOf(item.id)!=-1"></i>
+                            </p>
+                            <p style="height:40px;line-height: 40px;width:40px;background: gainsboro;border-radius: 50%; "class="mt5" >
+                                <img ng-src="{{item.photo}}" style="height:40px;line-height: 40px;width:40px;border-radius: 50%; ">
+                            </p>
+                            <span class="fs15 col333 ml10">{{item.name}}</span>
+                            <p style="height:20px;line-height: 20px;border: solid 1px #FF6666;margin-top:17px;border-radius: 3px;" class="ml10 fs15 colff66" ng-align="right">
+                                <span class="mr5 ml10 ">{{item.role}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </ion-list>
+            <div style="position: absolute;height:100%;background:rgba(0,0,0,0.2);top:40px;width:100%;z-index: 1000" ng-show="param.flag" ng-click="all()">
+                <div class="list bgfff">
+                    <p class="h50 item " ng-repeat="item in shopList" ng-click="selShopTrue(item.sysShopId)">
+                        <span class="ml10">{{item.sysShopName}}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <div class="h50  row sb" style="position: absolute;bottom: 0;width:100%;">
+       <p class=" colff66">
+           已选：{{param.names.join(' ')}}
+       </p>
+       <p class=" bgff66 colfff center" style="width:50px;" ng-click="save()">
+           确认
+       </p>
+    </div>
+</ion-view>

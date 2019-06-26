@@ -1,0 +1,25 @@
+<ion-view class="skin bgfff" >
+    <ion-content>
+        <!---->
+        <div>
+            <p style="color: #ffb31e;font-size: 23px;margin-left: 15px;font-weight: bold;margin-top: 20px">选择您的需求</p>
+            <p style="color: #d1d1d1;font-size: 15px;margin-top: 7px;margin-left: 15px">(最多选两种)</p>
+        </div>
+        <div class="list" >
+            <div class="item" ng-repeat="item in arr">
+                <div ng-if="item.changeBg" class="demand">
+                 {{item.name}}
+                </div>
+                <div ng-if="!item.changeBg" class="noDemand" ng-click="checkSkin($index,item.id)" >
+                    <img src="images/gou.png" style="width: 20px;height: 20px;position: absolute;right: 20px;top: 13px;z-index: 1003" ng-if="item.checklist">
+                    {{item.name}}
+                </div>
+            </div>
+        </div>
+        <!--下一步按钮-->
+        <div class="nextStep" ng-click="nextPage()" style="margin-top: 95px">
+            下一步
+        </div>
+        <br><br><br><br><br><br>
+    </ion-content>
+</ion-view>

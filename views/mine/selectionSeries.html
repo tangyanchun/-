@@ -1,0 +1,12 @@
+<ion-view class="bg">
+    <ion-content>
+       <div class="list" ng-if="selectionSeries.length>=1">
+           <p class="item" ng-repeat="item in selectionSeries"   ng-click="series(item.productTypeName,item.id)" >
+               {{item.productTypeName}}
+           </p>
+       </div>
+        <div style="width:100%;height:100%;" ng-if="selectionSeries.length<=0">
+            <void-picother></void-picother>
+        </div>
+    </ion-content>
+</ion-view>

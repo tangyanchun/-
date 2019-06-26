@@ -1,0 +1,66 @@
+<ion-view >
+    <ion-content class="archives partialFiles">
+        <div style="height:80px;width:100%;" class="bge6" >
+
+        </div>
+        <div style="border: 1px solid #EEEEEE;border-radius: 2px;width:95%;margin:0 auto;margin-top:-55px;" class="bgfff">
+            <div style=";margin-left:10px;margin-top:8px">
+                <p style="width:40px;height:40px;border-radius: 5px;position: absolute">
+                    <img ng-src="{{archives.imageUrl}}" style="width:40px;height:40px;border-radius: 5px; " ng-click="newUserGo()">
+                </p>
+                <span  style="font-size: 16px;display: inline-block;margin-top:10px;margin-left:50px;">
+                    {{archives.sysUserName}}
+                </span>
+                <!--<img src="images/pho.png" class=" mr10" style="float: right;margin-top:10px;height:24px;width:15px;">-->
+            </div>
+            <div class="row">
+                <div class="col col-50">
+                    <p class="col666 fs12">
+                        <img src="images/pnoGray.png" class=" mr10" style="width:10px;height:16px;">
+                        {{archives.phone}}
+                    </p>
+                    <p class="col666 fs12 mt5">
+                        <img src="images/shopgray.png" class=" mr10" style="width:14px;height:12px;">
+                        {{archives.sysShopName}}
+                    </p>
+                </div>
+            </div>
+
+            <div style="border: 1px solid #EEEEEE;border-radius: 2px;height:62px;font-size: 14px;color: #FF6666;line-height: 62px;text-align: center" ng-click="refillCardGo(archives.sysShopId,archives.sysUserId)" >
+                <p>总余额:<span>{{archives.totalBalance}}</span></p>
+            </div>
+        </div>
+        <div style="margin-top:10px;">
+            <ion-list >
+                <ion-item   class="h54 bgfff sb" style="padding-left:10px;" ng-click="treatmentCardGo(archives.sysUserId)">
+                    <i>
+                        <img src="images/TreatmentCard.png" class="TreatmentCard">
+                        疗程卡
+                    </i>
+                    <img src="images/more.png" class="more mr10 mt20">
+                </ion-item>
+                <ion-item   class="h54 bgfff sb" style="padding-left:10px;" ng-click="collectionCardGo(archives.sysUserId)">
+                    <i>
+                        <img src="images/set.png" class="set">
+                        套卡
+                    </i>
+                    <img src="images/more.png" class="more mr10 mt20">
+                </ion-item>
+                <ion-item   class="h54 bgfff sb" style="padding-left:10px;" ng-click="goProduct(archives.sysShopId,archives.sysUserId)">
+                    <i>
+                        <img src="images/product.png" class="product ">
+                        产品
+                    </i>
+                    <img src="images/more.png" class="more mr10 mt20">
+                </ion-item>
+                <ion-item  class="h54 bgfff sb" style="padding-left:10px;" ng-click="accountRecordsGo(archives.sysUserId)">
+                    <i>
+                        <img src="images/accontNum.png" class="accontNum ">
+                        账户记录
+                    </i>
+                    <img src="images/more.png" class="more mr10 mt20">
+                </ion-item>
+            </ion-list>
+        </div>
+    </ion-content>
+</ion-view>

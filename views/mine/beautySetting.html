@@ -1,0 +1,82 @@
+<ion-view class="bg">
+    <ion-content>
+       <div class="list">
+           <li class="item"><span class="fs16">名称<span class="colff66">*</span></span><input class="fr fs15" ng-model="beautySetting.name" style="text-align: right;width:80%;"></li>
+           <li class="item" style="position: relative">
+               <span class="fs16">图片</span>
+               <input type="file" style="opacity: 0;position: absolute;top: 15px;right: 15px;width: 126px;height: 79px;"  onchange="angular.element(this).scope().img_upload(this.files,'shopImageUrl')">
+               <p style="width: 126px;height: 79px;float: right;background: url('{{beautySetting.shopImageUrl}}');background-size: contain;background-repeat: no-repeat;background-position: right"></p>
+           </li>
+       </div>
+        <div class="list">
+            <li class="item"><span class="fs16">客服电话<span class="colff66">*</span></span>
+                <input  class="fr fs15" ng-model="beautySetting.phone"  style="text-align: right" ></li>
+            <li class="item"><span class="fs16">省市区<span class="colff66">*</span></span>
+                <input  class="fr" ng-model="beautySetting.city" style="width:50px;">
+                <input  class="fr" ng-model="beautySetting.province" style="width:50px;">
+
+
+            <li class="item row" style="position: relative"><span class="fs16 col col20">总部地址<span class="colff66">*</span></span><span></span>
+            <p class="col col-80">
+               <img  src="images/mine/postionb.png" style="width: 13px;height: 18px;" class="fr mt10 mr10" ng-show="true">
+                <input type="text" placeholder="请输入你的地址"  class="fr col66 tr mr20" ng-model="beautySetting.address" style="width:70%;">
+            </p>
+            </li>
+        </div>
+        <div class="list">
+           <li class="item bbl">
+
+               <p ng-click="showPic()" class=" ">
+                   <i class="ion-arrow-right-b" style="width: 6px;height: 10px;display: inline-block" ng-if="param.flag == false"></i>
+                   <i class="ion-arrow-down-b" style="width: 6px;height: 10px;display: inline-block"  ng-if="param.flag == true"></i>
+                   <span class="fs14 ml10">证件信息</span>
+               </p>
+               <div class="list" ng-show="param.flag">
+                    <p class="h50 bbl"><span class="col33 fs14">上传营业执照复印件</span><span style="color: #3F3F3F">（1张）</span></p>
+                    <p class=" mt20" style="position: relative">
+                        <input type="file" style="opacity: 0;position: absolute;top: 0px;left: 0px;width: 105px;height: 105px;" onchange="angular.element(this).scope().img_upload(this.files,'businessLicenseUrl')">
+                        <img ng-src="{{beautySetting.businessLicenseUrl}}" style="width: 105px;height: 105px;">
+                    </p>
+                    <p class="h50 bbl btl mt20"><span class="col33 fs14">上传身份证正，反面照片</span><span style="color: #3F3F3F">（2张）</span></p>
+                    <div class="mb20 mt20" style="display: flex">
+                        <div style="position: relative;">
+                            <input type="file" style="opacity: 0;position: absolute;top: 0px;left: 0px;width: 105px;height: 105px;"  onchange="angular.element(this).scope().img_upload(this.files,'idCardFrontUrl')">
+                            <img ng-src="{{beautySetting.idCardFrontUrl}}" style="width: 105px;height: 105px;">
+                        </div>
+                        <div style="position: relative;margin-left: 20px">
+                            <input type="file" style="opacity: 0;position: absolute;top: 0px;left: 0px;width: 105px;height: 105px;" onchange="angular.element(this).scope().img_upload(this.files,'idCardBackUrl')">
+                            <img ng-src="{{beautySetting.idCardBackUrl}}" style="width: 105px;height: 105px;">
+                        </div>
+                    </div>
+                    <p class="h50 bbl btl"><span class="col33 fs14">开户许可证</span><span style="color: #3F3F3F">（1张）</span></p>
+                    <p class="mb20 mt20" style="position: relative">
+                        <input type="file" style="opacity: 0;position: absolute;top: 0px;left: 0px;width: 105px;height: 105px;"  onchange="angular.element(this).scope().img_upload(this.files,'openAccountLicenseUrl')">
+                        <img ng-src="{{beautySetting.openAccountLicenseUrl}}" style="width: 105px;height: 105px;">
+                    </p>
+                </div>
+           </li>
+        <li class="item item-toggle"  ng-show="false">
+            上门服务
+            <label class="toggle toggle-assertive">
+                <input type="checkbox">
+                <div class="track">
+                    <div class="handle"></div>
+                </div>
+            </label>
+        </li>
+        <li class="row bgfff ">
+            <div class=" col col-20 fs15 col33 mt20">
+                简介
+            </div>
+            <div class="col col-80">
+                   <textarea style="height:76px;width:250px;font-size: 0.3rem;color: #333333;padding: 20px;border: 1px solid #CACACA;
+border-radius: 4px;" ng-model="beautySetting.detail"></textarea>
+            </div>
+        </li>
+        </div>
+        <div class="tc" ng-click="save()">
+            <button style="width:165px;height:44px;border-radius:0.46rem;color: #FFFFFF;background: #ff6666;font-size: 0.34rem"
+                    class="button " >保存</button>
+        </div>
+    </ion-content>
+</ion-view>

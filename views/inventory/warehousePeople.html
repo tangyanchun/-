@@ -1,0 +1,23 @@
+<ion-view>
+    <ion-content class="partialFiles">
+        <ion-list>
+            <ion-item class="item-input" style="background: border-box;height: 40px; ">
+                <span class="item-input-wrapper" style="margin-right:10px;height:30px;margin-left:10px;" >
+                        <i class="icon ion-ios-search placeholder-icon" ng-click="search()"></i>
+                        <input id="search" type="search" placeholder="找人" ng-model="searchCont.key" >
+                        <i class="icon ion-close-circled placeholder-icon" style="vertical-align: middle;"
+                           on-tap="clearSearch()" ng-if="searchCont.key.length"></i>
+                 </span>
+            </ion-item>
+            <div>
+                <p class="h45 sb bgfff bbl" ng-repeat="item in [0,1,2]" ng-click="addFamilyGo()">
+                        <span class="fs15 colff66">
+                         <img src="images/inventory/fenShop.png" class="ml10 fenShopPic">
+                         美容院分店
+                     </span>
+                    <img src="images/more.png" class="more mr10" style="margin-top: 20px;" ng-click="selShop()">
+                </p>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

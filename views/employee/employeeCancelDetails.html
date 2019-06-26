@@ -1,0 +1,40 @@
+<ion-view class="bg">
+    <ion-content>
+        <ion-item  class="bgfff row">
+            <div class="col col-20" style="line-height: 49px;">
+                <p style="height:42px;width:42px;background: gainsboro;border-radius: 50%;"></p >
+            </div>
+            <div class="col col-80 ml-20" style="position: relative">
+                <p class="fs15"><span></span><span style="width: 40px;height: 20px;display: inline-block;background: #ff6666;color: #ffffff;line-height: 20px;margin-left: 10px;text-align: center;border-radius: 5px;" ng-show="false">A类</span></p >
+                <p  class="fs12 col88">
+                    <img src="images/work/minute.png" style="display: inline-block;width: 15px;height: 15px;margin-left: 5px"><span style="margin-left: 17px"></span><span class="ml10">分钟</span>
+                <p>状态：<span >未开始</span>
+                    <span >"已确认</span>
+                    <span>服务中</span>
+                    <span >已完成</span>
+                    <span >取消预约</span>
+                    <span >进行中</span>
+                    <span>已结束</span></p>
+                </p >
+            </div>
+            <!--点击拨打美容师的电话-->
+            <img src="images/work/cancel.png" style="width: 40px;height: 40px;position: absolute;top: 10px;right: 40px;">
+            <a  ng-click="pho(cancelDetails.sysUserPhone)">
+                <img src="images/work/phone.png" style="width: 14px;height: 23px;position: absolute;right: 10px;top: 15px">
+            </a>
+
+            </div>
+        </ion-item>
+        <div class="list mt10">
+            <p class="item p10 fs15"><span>取消时间</span><span  class=" fr" >{{cancelDetails.appointmentCancleDate}}</span></p>
+            <p class="item p10 fs15"><span>操作人</span><span  class="fs14 col66 fr">{{cancelDetails.sysUserName}}</span></p>
+        </div>
+        <!--项目-->
+        <p class="ml10 fs15 col66 mt-20" style="height:35px;line-height: 35px;width: 100%">项目</p>
+        <div class="list">
+            <p class="item p10" ng-repeat="item in cancelDetails.shopProjectName"><span>{{item}}</span><span class=" fr"><img src="images/work/minute.png" style="width: 15px;height: 15px;display: inline-block;"><span class="ml10 fs14 col66">{{cancelDetails.appointPeriodDetail[$index]}}分钟</span></span></p>
+
+            <p class="item p10"><span>美容师</span><span class="fs14 col66 fr">{{cancelDetails.sysClerkName}}</span></p>
+        </div>
+    </ion-content>
+</ion-view>

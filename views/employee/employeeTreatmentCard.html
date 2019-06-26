@@ -1,0 +1,68 @@
+
+<ion-view>
+    <ion-content class="partialFiles">
+        <div>
+            <p class="h45 bgfff fs16 colff66">
+                <span ng-click="sel()"><img src="images/screening.png" class="screeningPic ml10 mr10">筛选</span>
+            </p>
+            <ion-list>
+                <ion-item style="height:100px;width:90%;background: url('images/treatmentCardRed.png');background-size: 100% 100%;margin:10px auto;border-radius: 4px;" ng-click="goTreatmentCard(item.sysUserId)" ng-repeat="item in treatmentCard" ng-if="item.overdue=='0'">
+                    <p class="fs15 colff ml10" style="margin-top:7px;" >
+                        {{item.sysShopProjectName}}
+                    </p>
+                    <p class="fs13 colff ml10" style="margin-top:7px;">
+                        <span style="display: inline-block;width:130px;">金额：{{item.sysShopProjectPurchasePrice}}元</span>
+                        <span>剩余：{{item.sysShopProjectInitTimes}}/{{item.sysShopProjectSurplusTimes}}</span>
+                    </p>
+                    <p class="fs12 colff ml10" style="margin-top:15px;">
+                        <label>备注</label>
+                        <input type="text">
+                    </p>
+                </ion-item>
+                <ion-item style="height:100px;width:90%;background: url('images/bgrey.png');background-size: 100% 100%;margin:10px auto;border-radius: 4px;position: relative" ng-click="goTreatmentCard(item.sysUserId)" ng-repeat="item in treatmentCard" ng-if="item.overdue=='1'">
+                    <p class="fs15 colff ml10" style="margin-top:7px;" >
+                        {{item.sysShopProjectName}}
+                    </p>
+                    <p class="fs13 colff ml10" style="margin-top:7px;">
+                        <span style="display: inline-block;width:130px;">金额：{{item.sysShopProjectPurchasePrice}}元</span>
+                        <span>剩余：{{item.sysShopProjectInitTimes}}/{{item.sysShopProjectSurplusTimes}}</span>
+                    </p>
+                    <p class="fs12 colff ml10" style="margin-top:15px;">
+                        <label>备注</label>
+                        <input type="text">
+                    </p>
+                    <img src="images/outPhoto.png" style="position: absolute;top: 10px;right: 20px;width: 50px;height: 50px">
+                </ion-item>
+            </ion-list>
+        </div>
+        <!--筛选-->
+        <div style="position: absolute;height:100%;background: #000;opacity: 0.2;top:0;width:100%;z-index: 100;" ng-show="param.flag" ng-click="disNone()"></div>
+        <div style="position: absolute;right:0;top:0;z-index: 101;width:80%;height:100%" class="bgf6" ng-show="param.flag">
+            <p class=" bgfff">
+                <img src="images/close.png"class="closePic ml10 mt20 " ng-click="disNone()">
+            </p>
+            <div>
+                <p class="fs15 col666 bgfff bbl pb5 h40"><span class="ml10 ">状态</span></p>
+                <div class="row row-wrap bgfff">
+                    <p class="col col-33 " >
+                        <a class="commonType center " style="height:26px;width:80px;line-height: 26px;" ng-click="selType('6')" ng-class="{'activeType':param.overdue=='6'}">全部</a>
+                    </p>
+                    <p class="col col-33 ">
+                        <a class="commonType center " style="height:26px;width:80px;line-height: 26px;" ng-click="selType('0')" ng-class="{'activeType':param.overdue=='0'}">正常</a>
+                    </p>
+                    <p class="col col-33 ">
+                        <a class="commonType center " style="height:26px;width:80px;line-height: 26px;" ng-click="selType('1')" ng-class="{'activeType':param.overdue=='1'}">已过期</a>
+                    </p>
+                </div>
+            </div>
+            <div class="tabs bgfff">
+                <a class="tab-item True" ng-click="reset()">
+                    重置
+                </a>
+                <a class="tab-item True activeTrue" ng-click="selTrue()">
+                    确认
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

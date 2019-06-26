@@ -1,0 +1,264 @@
+
+<ion-view>
+    <ion-content class="partialFiles bgf6 col333">
+        <div>
+            <div>
+                <p class="h30 ml10">
+                    基础信息
+                </p>
+                <ion-list>
+                    <ion-item  class="h50 bgfff" style="display: flex;justify-content: space-between">
+                        <p class="ml10">时间</p>
+                        <p class="mr10 col888">
+                            {{details.createDate|date : 'yyyy-MM-dd hh:mm:ss'}}
+                        </p>
+                    </ion-item>
+                    <ion-item  class="h50 bgfff" style="display: flex;justify-content: space-between">
+                        <p class="ml10">顾客</p>
+                        <p class="mr10 col888">
+                            {{details.sysUserName}}
+                        </p>
+                    </ion-item>
+
+                    <ion-item  class="h50 bgfff" style="display: flex;justify-content: space-between">
+                        <p class="ml10">操作门店</p>
+                        <p class="mr10 col888">
+                            {{details.sysShopName}}
+                        </p>
+                    </ion-item>
+                    <ion-item  class="h50 bgfff" style="display: flex;justify-content: space-between">
+                        <p class="ml10">前台</p>
+                        <p class="mr10 col888">
+                            {{details.createBy}}
+                        </p>
+                    </ion-item>
+                    <ion-item  class="h50 bgfff" style="display: flex;justify-content: space-between">
+                        <p class="ml10">类型</p>
+                        <p class="mr10 col888">
+                            <span style="float: right"class="fs14 col66" ng-if="details.type == 0">充值 </span>
+                            <span style="float: right"class="fs14 col66" ng-if="details.type == 1">消费  </span>
+                            <!--<span style="float: right"class="fs14 col66" ng-if="details.type == 2">还欠款 </span>-->
+                            <span style="float: right"class="fs14 col66" ng-if="details.type == 5">
+                                <span ng-if="details.goodsType==1">划疗程卡</span>
+                                <span ng-if="details.goodsType==3">划套卡</span>
+                            </span>
+                            <span style="float: right"class="fs14 col66" ng-if="details.type == 4">产品领取 </span>
+                        </p>
+                    </ion-item>
+                </ion-list>
+            </div>
+            <div ng-repeat = 'item in details.userConsumeRecordResponseList'>
+                <div  ng-if="item.goodsType  == 2">
+                    <p style="width: 100%;height: 35px;" class="col33 fs15 p5  " ng-if="item.goodsType == 0">单次</p>
+                    <p style="width: 100%;height: 35px;" class="col33 fs15 p5" ng-if="item.goodsType == 1">疗程卡</p>
+                    <p style="width: 100%;height: 35px;" class="col33 fs15 p5" ng-if="item.goodsType == 2">充值卡</p>
+                    <p style="width: 100%;height: 35px;" class="col33 fs15 p5" ng-if="item.goodsType == 3">套卡</p>
+                    <p style="width: 100%;height: 35px;" class="col33 fs15 p5" ng-if="item.goodsType == 4">产品</p>
+                    <ion-list>
+                        <ion-item  class="h50 bgfff" style="display: flex;justify-content: space-between">
+                            <p class="ml10 fs16 col333">卡名称</p>
+                            <p class="mr10 fs15 col888">
+                                {{item.flowName}}
+                            </p>
+                        </ion-item>
+                        <ion-item  class="h50 bgfff sb" >
+                            <p class="ml10 fs16 col333">充值金额 </p>
+                            <p class="mr10 fs15 col888">
+                                ¥{{item.price}}
+                            </p>
+                        </ion-item>
+
+                        <ion-item  class=" bgfff h50 sb" >
+                            <p class="ml10 fs16 col333 h50">折扣</p>
+                            <p class="mr10 fs15 col888">
+
+                            </p>
+
+                        </ion-item>
+                        <ion-item  class=" bgfff h50" >
+                            <p class="sb">
+                                <span class="ml20 fs15 col666">单次</span>
+                                <span class="mr10">{{(item.timeDiscount==null)||(item.timeDiscount==1)?'无折':item.timeDiscount*10+'折'}}</span>
+                            </p>
+                        </ion-item>
+                        <ion-item  class=" bgfff h50" >
+                            <p class="sb">
+                                <span class="ml20 fs15 col666">疗程卡</span>
+                                <span class="mr10">{{(item.periodDiscount==null)||(item.periodDiscount==1)?'无折':item.periodDiscount*10+'折'}}</span>
+                            </p>
+                        </ion-item>
+                        <ion-item  class=" bgfff h50" >
+                            <p class="sb">
+                                <span class="ml20 fs15 col666">产品</span>
+                                <span class="mr10">{{(item.productDiscount==null)||(item.productDiscount==1)?'无折':item.productDiscount*10+'折'}}</span>
+                            </p>
+                        </ion-item>
+
+                        <!-- <ion-item  class=" bgfff" >
+                             <div style="display: flex;justify-content: space-between">
+                                 <p class="ml20 fs16 col333 mt5">员工业绩</p>
+                                 <p class="mr10 col888"> </p>
+                             </div>
+                             <div style="display: flex;justify-content: space-between" class="mt10 mb10">
+                                 <p class="ml50 " >张张</p>
+                                 <div class="mr10 col888">
+                                     <p class="fs15 col888">分业绩（100%）  200.00</p>
+                                     <p class="fs15 col888">分卡耗（0%）  0.00</p>
+                                 </div>
+                             </div>
+
+                         </ion-item>-->
+
+
+                    </ion-list>
+                </div>
+
+                <div ng-if="item.goodsType != 2">
+                    <div ng-if="(details.goodsType!=1||details.goodsType!=3)&&details.type != '5'">
+                        <p style="width: 100%;height: 35px;" class="col33 fs15 p5  " ng-if="item.goodsType == 0">单次</p>
+                        <p style="width: 100%;height: 35px;" class="col33 fs15 p5" ng-if="item.goodsType == 1">疗程卡</p>
+                        <p style="width: 100%;height: 35px;" class="col33 fs15 p5" ng-if="item.goodsType == 2">充值卡</p>
+                        <p style="width: 100%;height: 35px;" class="col33 fs15 p5" ng-if="item.goodsType == 3">套卡</p>
+                        <p style="width: 100%;height: 35px;" class="col33 fs15 p5" ng-if="item.goodsType == 4">产品</p>
+                        <div class="list" >
+                            <ion-item  class="h50 bgfff" style="display: flex;justify-content: space-between">
+                                <p class="ml10 fs16 col333">{{item.flowName}}</p>
+                            </ion-item>
+                            <ion-item  class=" bgfff h50" ng-if="item.goodsType!=4&&item.goodsType != 0" >
+                                <p class="sb">
+                                    <span class="ml20 fs15 col666">包含次数</span>
+                                    <span class="mr10">{{item.includeTimes}}次</span>
+                                </p>
+                            </ion-item>
+                            <ion-item  class=" bgfff h50" >
+                                <p class="sb">
+                                    <span class="ml20 fs15 col666">价格</span>
+                                    <span class="mr10">￥{{item.price}}</span>
+                                </p>
+                            </ion-item>
+                            <ion-item  class=" bgfff h50" >
+                                <p class="sb">
+                                    <span class="ml20 fs15 col666">折扣</span>
+                                    <span class="mr10">{{(item.discount==null)||(item.discount==1)?'无折':item.discount*10+'折'}}</span>
+                                </p>
+                            </ion-item>
+                            <ion-item  class=" bgfff h50" >
+                                <p class="sb">
+                                    <span class="ml20 fs15 col666">数量</span>
+                                    <span class="mr10">{{item.consumeNumber}}</span>
+                                </p>
+                            </ion-item>
+
+                            <ion-item  class=" bgfff h50" >
+                                <p class="sb">
+                                    <span class="ml20 fs15 col666">金额</span>
+                                    <span class="mr10">￥{{item.price*item.consumeNumber}}</span>
+                                </p>
+                            </ion-item>
+                            <ion-item  class=" bgfff" ng-if="item.goodsType== 3">
+                                <div >
+                                    <p class="h40 ml20 bbl">包含项目</p>
+                                    <div class="sb ml10 " ng-repeat="items in item.shopProjectInfoDTOList">
+                                        <p class="W33 ml20 fs13 col88">{{items.projectName}}</p>
+                                        <p class="W33 ml20 center fs13 col88">X{{items.serviceTimes}}</p>
+                                        <p class="W33 ml20 mr10 fs13 col88" style="text-align: right">￥{{items.marketPrice}}</p>
+                                    </div>
+                                </div>
+                            </ion-item>
+
+                        </div>
+                    </div>
+                    <div ng-if="(details.goodsType==1||details.goodsType==3)&&details.type == '5'">
+                        <p class="h50 ml10">划卡信息</p>
+                        <ion-list>
+                            <ion-item  class=" bgfff" style="display: flex;justify-content: space-between;height:70px;">
+                                <div>
+                                    <p class="ml10 fs16 col333 mt10">{{details.flowName}}</p>
+                                    <p class="ml10 fs15 col888">员工：{{details.sysClerkName}}</p>
+                                </div>
+                                <p class="mr10" style="line-height:70px;">
+                                    划卡次数：{{details.consumeNumber}}
+                                </p>
+                            </ion-item>
+                        </ion-list>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- <div>
+                 <p class="h50 ml10">赠送</p>
+                 <div>
+                     <opn-list >
+                         <ion-item  class="h50 bgfff" style="display: flex;justify-content: space-between">
+                             <p class="ml10 fs15 col333"> 闺蜜众筹卡*8</p>
+                             <p class="mr10 col888">
+                                 ￥4888.00
+                             </p>
+                         </ion-item>
+                     </opn-list>
+                 </div>
+             </div>-->
+            <div class="mt10" ng-if="details.type!=5" >
+                <opn-list >
+                    <ion-item  class="h50 bgfff" style="display: flex;justify-content: space-between">
+                        <p class="ml10 fs15 col333"> 总金额</p>
+                        <p class="mr10 col888">
+                            ￥{{details.sumAmount}}
+                        </p>
+                    </ion-item>
+                </opn-list>
+            </div>
+            <div ng-if="details.type!=5" >
+                <p class="h50 ml10">支付明细</p>
+                <div>
+                    <opn-list >
+                        <ion-item  class="h50 bgfff" ng-if="details.payMap.payType!=null&&details.payMap.payType!=''">
+                            <p class="ml10"  ng-if="details.payMap.payType=='0'" style="display: flex;justify-content: space-between">
+                                <span>微信</span>
+                                <span class="mr10"> ￥{{details.payMap.payTypeAmount}}</span>
+                            </p>
+                            <p class="ml10"  ng-if="details.payMap.payType=='1'" style="display: flex;justify-content: space-between">
+                                <span>支付宝</span>
+                                <span class="mr10"> ￥{{details.payMap.payTypeAmount}}</span>
+                            </p>
+                            <p class="ml10"  ng-if="details.payMap.payType=='2'" style="display: flex;justify-content: space-between">
+                                <span>银行卡</span>
+                                <span class="mr10"> ￥{{details.payMap.payTypeAmount}}</span>
+                            </p>
+
+                        </ion-item>
+                        <ion-item  class="h50 bgfff" style="display: flex;justify-content: space-between" ng-if="details.payMap.balanceAmount != null&&details.payMap.balanceAmount != 0">
+                            <p class="ml10"> 余额</p>
+                            <p class="mr10 col888">
+                                ￥{{details.payMap.balanceAmount}}
+                            </p>
+                        </ion-item>
+                        <ion-item  class="h50 bgfff" style="display: flex;justify-content: space-between" ng-if="details.payMap.cashAmount != null&&details.payMap.cashAmount != 0">
+                            <p class="ml10"> 现金支付</p>
+                            <p class="mr10 col888">
+                                ￥{{details.payMap.cashAmount}}
+                            </p>
+                        </ion-item>
+                        <ion-item  class="h50 bgfff" style="display: flex;justify-content: space-between" ng-if="details.payMap.rechargeCardAmount != null&&details.payMap.rechargeCardAmount != 0">
+                            <p class="ml10"> 充值卡支付</p>
+                            <p class="mr10 col888">
+                                ￥{{details.payMap.rechargeCardAmount}}
+                            </p>
+                        </ion-item>
+                    </opn-list>
+                </div>
+            </div>
+
+            <p class="h50 ml10">顾客签字</p>
+            <div style="height:156px;" class="bgfff">
+                <img ng-src="{{details.signUrl}}" style="height:156px;">
+            </div>
+            <p class="h50 ml10 fs14">备注</p>
+            <textarea style="height:80px;width:100%;margin-bottom: 50px;" class="bgfff" >     {{details.detail}}
+            </textarea>
+        </div>
+
+    </ion-content>
+</ion-view>

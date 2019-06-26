@@ -1,0 +1,222 @@
+
+.col333{color: #333333}
+.item .col333{color: #333333}
+.col666{color:#666666;}
+.item .col666{color:#666666;}
+.colff66{color: #ff6666}
+.item .colff66{color: #ff6666}
+.col888{color: #888888; }
+.item .col888{color: #888888;}
+.col999{color: #999;}
+.item .col999{color: #999;}
+.col4BC647{color: #4BC647;}
+.item .col4BC647{color: #4BC647;}
+.colfff{color: #ffffff;}
+.item .colfff{color: #ffffff;}
+.partialFiles  .fs11{font-size: 11px;}
+.partialFiles  .fs12{font-size:12px;}
+.partialFiles  .fs13{font-size:13px;}
+.partialFiles  .fs15{font-size:15px;}
+.partialFiles  .fs14{font-size:14px;}
+.partialFiles  .fs16{font-size:16px;}
+.partialFiles  .fs17{font-size:17px;}
+.partialFiles  .fs18{font-size:18px;}
+.partialFiles .item .fs11{font-size: 11px;}
+.partialFiles .item .fs12{font-size:12px;}
+.partialFiles .item .fs13{font-size:13px;}
+.partialFiles .item .fs15{font-size:15px;}
+.partialFiles .item .fs14{font-size:14px;}
+.partialFiles .item .fs16{font-size:16px;}
+.partialFiles .item .fs17{font-size:17px;}
+.partialFiles .item .fs18{font-size:18px;}
+.img{width:19px;height:19px;}
+.W33{width: 33.3%;}
+
+.bgfff{background: #ffffff}
+.bge6{background:#e6e6e6; }
+.bgf6{background:#f6f6f6; }
+.bgff66{background:#FF6666; }
+.mr10{margin-right:10px;}
+.mr15{margin-right: 15px;}
+.mr5{margin-right: 5px;}
+.mr20{margin-right: 20px;}
+.mr30{margin-right: 30px;}
+.ml10{margin-left:10px;}
+.ml15{margin-left:15px;}
+.ml20{margin-left:20px;}
+.ml30{margin-left:30px;}
+.ml50{margin-left:50px;}
+.mt5{margin-top:5px;}
+.mt10{margin-top:10px;}
+.mt20{margin-top:20px;}
+.pb5{padding-bottom:5px;}
+.mb5{margin-bottom:5px;}
+.mb10{margin-bottom:10px;}
+.mb10{margin-bottom:10px;}
+.mb20{margin-bottom:20px;}
+.mb45{margin-bottom:45px;}
+.mb50{margin-bottom:50px;}
+.h30{height:30px;line-height: 30px;}
+.h40{height:40px;line-height: 40px;}
+.h45{height:45px;line-height: 45px;}
+.h54{height:54px;line-height: 54px;}
+.h50{height:50px;line-height: 50px;}
+.h60{height:60px;}
+.LH60{line-height: 60px;}
+ion-tabs.tabs-color-active-positive .tab-item.tab-item-active {
+color: #FF6666}
+
+.center{text-align: center}
+body{background: #f6f6f6; color: #333333;font-size: 16px;}
+img {display: inline-block}
+.pane{background: content-box;!important;}
+.partialFiles .item{padding:0;}
+/*.partialFiles .item p {color:#333;font-size: 16px;}*/
+.partialFiles .item-input-wrapper{background: #ffffff}
+.partialFiles .changeArchivesBtn{margin-right: 0.5rem;}
+
+.archivesPic{width:20px;height:20px;}
+.workPic{width:20px;height:20px;}
+.minePic{width:20px;height:20px;}
+.scroll{height:100%;}
+.floatR{float:right;}
+.pd15{padding:0 15px;}
+.partialFiles .pd15{padding:0 25px 0 15px;}
+.warningFile .list{top:48px;}
+.item p{font-size: 15px;}
+.item{border-color: #f6f6f6;}
+
+
+ /*.popup-container .popup{ background: #FFFFFF; border-radius: 8px;height:120px;width:280px;
+}*/
+/* .popup-head{display: none;}
+ .button.button-positive{background: #ffffff;color:#4A90E2;font-size: 17px;height:30px;border-top: solid 1px #e5e5e5}
+.popup-buttons{margin-top:23px;}*/
+
+.activeBtn{background: #FF6666;color:#fff}
+.associated{width:13px;height:13px;}
+.TreatmentCard{width:28px;height:18px;}
+.set{width:26px;height:17px;}
+.product{width:22px;height:22px;}
+.accontNum{width:20px;height:23px;}
+.more{width:8px;height:14px}
+.timePic{width:14px;height:14px;}
+.peiPic{width:21px;height:21px;}
+.warningPic{width:34px;height:34px;}
+.delPic{width:17px;height:17px;}
+.helpPic{width:19px;height:19px;}
+.banbleCardPic{width:88px;height:50px;}
+.closePic{width:20px;height:20px;}
+.overPic{width:47px;height:46px;}
+.refundPic{width:47px;height:47px;}
+.screeningPic{width:17px;height:19px;}
+.selGray{width:17px;height:17px;}
+.successfulInventoryPic{width:87px;height:87px;}
+.trianglePic{width:10px;height:8px;}
+.settingPic{width:62px;height:62px;}
+.shouPic{width:11px;height:6px;}
+.fenShopPic{width:15px;height:12px;}
+.timeSquarePic{width:16px;height:12px;}
+.delTongPic{width:24px;height:24px;}
+.modifyPic{width:47px;height:47px;}
+.uploadPic{width:105px;height:105px;}
+.settingKuPic{width:25px;height:25px;}
+.sb{display: flex;justify-content: space-between}
+.bbl{border-bottom: #E6E6E6 solid 1px}
+.btl{border-top: #E6E6E6 solid 1px}
+
+
+.b{font-weight: 900;}
+.activeCharacter{border:solid #FF6666 1px!important;color: #ff6666!important;}
+.True{background:#fff;color: #333;}
+.activeTrue{background:#ff6666;color: #fff;}
+.Character{border:solid 1px gainsboro;color:#666666;}
+.commonType{border: 1px solid #DDDDDD;border-radius: 4px;font-size: 13px;color: #888888;}
+.activeType{border: 1px solid #FF6666;border-radius: 4px;font-size: 13px;color: #333;}
+.textL{text-align: right}
+
+.Htab-head{list-style-type: none;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:nowrap;-ms-flex-wrap:nowrap;flex-wrap:nowrap;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;;padding:0;overflow:auto;text-align: center}
+.Htab-head-item{-webkit-box-flex:1;-webkit-flex:1 0 auto;-ms-flex:1 0 auto;flex:1 0 auto;color:#333333;font-size: 0.3rem;}
+
+.active{border:none;background: none; }
+
+ .hidden{  overflow-y: hidden;height:100% }
+ .visible{
+  background: rgba(0,0,0,0.2)!important;
+}
+ .popup-showing{
+ background: rgba(0,0,0,0.2)!important;
+}
+ .popup-head{
+ display: none;
+}
+ .table tr:nth-child(even){
+  background: #fbfeff;
+ }
+ .scheduling  #ofix1_tb_left tbody td:nth-child(1) div{
+  width:75px;
+ }
+.scheduling  #tbTest1 tbody td:nth-child(1) div{
+ width:75px;
+}
+
+.scheduling #ofix1_tb_top_left tbody tr:nth-child(1) td div{
+ width:75px;
+}
+.employeeAnalysis #tbTest1  tbody  td div{
+
+}
+.scheduling .employeeAnalysis #ofix1_tb_top_left tbody tr:nth-child(1) td div{
+ width: 100px;
+}
+.scheduling .employeeAnalysis table tr td div{
+ width: 100px;
+ line-height: 50px;
+ height: 50px;
+}
+.scheduling .employeeAnalysis #ofix1_tb_left tbody td:nth-child(1) div{
+ width: 100px;
+}
+.scheduling .employeeAnalysis #ofix1_tb_header thead td:nth-child(1){
+   padding-left: 100px;
+}
+.scheduling .employeeAnalysis #ofix1_tb_top_left tbody tr:nth-child(1) td div{
+ width: 100px;
+}
+.scheduling .employeeAnalysis #tbTest1 tbody td:nth-child(1) div{
+ width: 100px;
+}
+
+.scheduling  .employeeAnalysis .shadow_box{    width: 99px;
+ height: 50px;
+ background-color: #ffffff;
+ position: absolute;
+ top: 40px;
+ left: 0px;
+ z-index: 99900;
+ border-bottom: 1px solid #e5e5e5;}
+/*.popup-container{
+ background: rgba(0,0,0,0)!important;
+}
+.popup-container .popup{
+ height: 45px;
+ width: 155px;
+ background: rgba(0,0,0,0.5);
+ position: absolute;
+ top: 20px;
+ border-radius: 5px;
+ text-align: center;
+}
+.popup-body span{
+ color: #fff!important;
+ margin:0!important;
+}
+.popup-buttons{
+ display: none;
+}*/
+.boss .item{padding:16px 25px 16px 16px;}
+.h span{display: inline-block;height:34px;line-height: 34px;}
+
+
+
+

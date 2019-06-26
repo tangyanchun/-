@@ -1,0 +1,58 @@
+<ion-view class="bg">
+    <ion-content>
+        <div class="list col33">
+            <li class="item sb"><span class="fs16">名称<span class="colff66">*</span></span><input ng-model="amendStore.name" class="textL fs15 col99" style="width:80%"></li>
+            <li class="item"><span class="fs16">电话<span class="colff66">*</span></span><input class="fr col99 textL" ng-model="amendStore.phone"></li>
+            <li class="item"><span class="fs16">图片</span><span style="color: #3F3F3F;font-size: 16px;margin-left: 10px">(最多可上传6张)</span></li>
+
+            <li class="item" >
+                <ul style="" class="Htab-head">
+                    <li class="Htab-head-item " style="width:130px;height:120px;" ng-repeat="item in amendStore.imageList track by $index">
+                        <div style="width: 105px;height: 105px;position: relative;">
+                             <span  style="position: absolute;top: 0px;right: -15px;"  ng-click="delPic($index)">
+                                 <i class="ion-android-remove-circle colff66" ></i>
+                             </span>
+                            <input type="file" style="opacity: 0;position: absolute;top: 10px;left: 10px;width: 105px;height: 105px;" id="" disabled="disabled">
+                            <img ng-src="{{item}}" style="width: 105px;height: 105px;" class="ml10 mt10">
+                        </div>
+
+
+                    </li>
+                    <li class="Htab-head-item ml10 bgfff" style="width:130px;position: relative;height:120px;display: inline-block;text-align: left" >
+                        <div style="width:130px;position: relative;height:120px;display: inline-block">
+
+                            <input type="file" style="opacity: 0;position: absolute;top: 0px;left: 0px;width: 105px;height: 105px;" class="mt10" onchange="angular.element(this).scope().img_upload(this.files)">
+                            <img src="images/mine/addPhoto.png" style="width: 105px;height: 105px;" class="mt10">
+                        </div>
+
+                    </li>
+                </ul>
+
+            </li>
+
+
+            <li class="item"><span class="fs16">省市区<span class="colff66">*</span></span>
+                <p class="fr mr10 col99 fs14"><input ng-model="amendStore.province" style="width:50Px;"  class="textL"><input ng-model="amendStore.city" style="width:70px;" class="textL"> </p></li>
+            <li class="item"><span class="fs16">详细地址<span class="colff66">*</span></span><input type="text" placeholder="北京市" class=" fr" ng-model="amendStore.address" style="width: 79%;text-align: right;"></li>
+            <li class="item" ng-show="false"><span class="fs16" >床位数<span class="colff66">*</span></span><span class="fr">11</span></li>
+            <li class="item"><span class="fs16">面积(m )</span><span class="colff66">*</span>
+                <input class="fr textL" ng-model="amendStore.area">
+            <li class="item"><span class="fs16">开始营业</span><input class="fr textL" ng-model="amendStore.openDoorDate"></li>
+            <li class="item"><span class="fs16">结束营业</span><input class="fr textL" ng-model="amendStore.closeDoorDate"></li>
+            <li class="row bgfff">
+                <div class=" col col-20 fs15 col33 mt20">
+                    介绍
+                </div>
+                <div class="col col-80">
+                   <textarea style="height:76px;width:250px;font-size: 0.3rem;color: #333333;padding: 20px;border: 1px solid #CACACA;
+
+border-radius: 4px;" ng-model="amendStore.detail"></textarea>
+                </div>
+            </li>
+        </div>
+        <div class="tc" ng-click="save()">
+            <button style="width:165px;height:44px;border-radius:0.46rem;color: #FFFFFF;background: #FF6666;font-size: 17px;margin-top: 32px"
+                    class="button " >提交</button>
+        </div>
+    </ion-content>
+</ion-view>

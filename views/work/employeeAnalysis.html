@@ -1,0 +1,124 @@
+<ion-view class="bg scheduling">
+        <!--日期部分-->
+        <div class="bgRgb">
+            <ionic-datepicker input-obj="datepickerObjectEnd">
+                <img src="images/work/date.png" class="dateImg" >
+                <span class="date">{{param.date}}</span>
+                <img src="images/work/drop-down.png" class="dropImg">
+            </ionic-datepicker>
+          <!--  <span  class="fs15 fr mr10 colfff" ng-click="tabShop()">切换店铺</span>-->
+        </div>
+        <div class="bgfff  employeeAnalysis" style=" overflow: auto;height: 100%;width: 100%;float: left;" ng-if="!param.picFlag" >
+            <table id="tbTest1" class="tb_test" cellpadding="0" cellspacing="0" style="text-align:center;width:100%;">
+                <thead>
+               <!-- <tr class="listHead">
+
+                    <td ng-repeat="item1 in [0,1,2,3,4,5]">
+                        &lt;!&ndash; <div  >
+                             {{item1[0]}} {{$index}}
+                             </br>{{item1[1]}}
+
+                         </div>&ndash;&gt;
+                    </td>
+                </tr>-->
+                </thead>
+                <tbody >
+                <tr class="list">
+                    <td class=" " >
+                        <div style="display: flex;justify-content: space-around" >
+                           姓名
+                        </div>
+                    </td>
+                    <td class=" " >
+                        <div style="display: flex;justify-content: space-around" >
+                            <p style="">业绩</p>
+                            <p style="margin-top:-5px;">
+                                <i class="ion-arrow-up-b col999" style='display: block;height: 10px;' ng-click=" sorting('income','asc')" ng-class="{'colff66':param.sortBy == 'income'&&param.sortRule=='asc'}" ></i>
+                                <i class="ion-arrow-down-b col999" style='display: block;height: 10px;' ng-click=" sorting('income','desc')" ng-class="{'colff66':param.sortBy == 'income'&&param.sortRule=='desc'}"></i>
+                            </p>
+                        </div>
+                    </td>
+                   <!-- <td class="" >
+                        <div style="display: flex;justify-content: space-around">
+                            <p>卡耗</p>
+                            <p>
+                                <i class="ion-arrow-up-b col999" style='display: block;height: 10px;' ng-click=" sorting('kahao','asc')" ng-class="{'colff66':param.sortBy == 'kahao'&&param.sortRule=='asc'}" ></i>
+                                <i class="ion-arrow-down-b col999" style='display: block;height: 10px;' ng-click=" sorting('kahao','desc')" ng-class="{'colff66':param.sortBy == 'kahao'&&param.sortRule=='desc'}"></i>
+
+                            </p>
+                        </div>
+                    </td>-->
+                    <td class="">
+                        <div style="display: flex;justify-content: space-around">
+                            <p>耗卡</p>
+                            <p style="margin-top:-5px;">
+                                <i class="ion-arrow-up-b col999" style='display: block;height: 10px;' ng-click=" sorting('expenditure','asc')" ng-class="{'colff66':param.sortBy == 'expenditure'&&param.sortRule=='asc'}" ></i>
+                                <i class="ion-arrow-down-b col999" style='display: block;height: 10px;' ng-click=" sorting('expenditure','desc')" ng-class="{'colff66':param.sortBy == 'expenditure'&&param.sortRule=='desc'}"></i>
+                            </p>
+                        </div>
+
+                    </td>
+                    <td class="" >
+                        <div style="display: flex;justify-content: space-around">
+                            <p>人次数</p>
+                            <p style="margin-top:-5px;">
+                                <i class="ion-arrow-up-b col999" style='display: block;height: 10px;' ng-click=" sorting('consumeTime','asc')" ng-class="{'colff66':param.sortBy == 'consumeTime'&&param.sortRule=='asc'}" ></i>
+                                <i class="ion-arrow-down-b col999" style='display: block;height: 10px;' ng-click=" sorting('consumeTime','desc')" ng-class="{'colff66':param.sortBy == 'consumeTime'&&param.sortRule=='desc'}"></i>
+                            </p>
+                        </div>
+                    </td>
+                    <td class="" >
+                        <div style="display: flex;justify-content: space-around">
+                            <p>服务次数</p>
+                            <p style="margin-top:-5px;">
+                                <i class="ion-arrow-up-b col999" style='display: block;height: 10px;' ng-click=" sorting('serviceNumber','asc')" ng-class="{'colff66':param.sortBy == 'serviceNumber'&&param.sortRule=='asc'}" ></i>
+                                <i class="ion-arrow-down-b col999" style='display: block;height: 10px;' ng-click=" sorting('serviceNumber','desc')" ng-class="{'colff66':param.sortBy == 'serviceNumber'&&param.sortRule=='desc'}"></i>
+                            </p>
+                        </div>
+                    </td>
+                    </td>
+                </tr>
+                <tr  class="list" ng-repeat="item in employeeAnalysis">
+                    <td  >
+                        <div>
+                            {{item.sysShopClerkName}}
+                        </div>
+                    </td>
+                    <td class="" >
+                        <div>
+                            {{item.income==null?0:item.income}}
+                        </div>
+                    </td>
+                    <!--<td class="">
+                        <div>
+                            {{item.kahao}}
+                        </div>
+                    </td>-->
+                    <td class="">
+                        <div>
+                            {{item.expenditure==null?0:item.expenditure}}
+                        </div>
+                    </td>
+                    <td class="">
+                        <div>
+                            {{item.consumeTime==null?0:item.consumeTime}}
+                        </div>
+                    </td>
+                    <td class="">
+                        <div>
+                            {{item.serviceNumber==null?0:item.serviceNumber}}
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    <!--点击切换店铺显示的店铺列表-->
+   <!-- <div style="width:100%;height:100%;background:rgba(0,0,0,0.2);position: absolute;top:0;z-index:100" ng-if="param.displayShopBox" ng-click="noneAll()"></div>
+    <div class="list " ng-if="param.displayShopBox" style="position: absolute;bottom:0;width:100%;z-index:101;margin:0">
+        <p class="item" ng-click="choseShop(item.id)"ng-repeat="item in shopList">{{item.sysShopName}}</p>
+    </div>-->
+        <void-pic></void-pic>
+
+</ion-view>

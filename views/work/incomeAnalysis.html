@@ -1,0 +1,111 @@
+<ion-view class="bg">
+    <ion-content >
+        <!--日期部分-->
+        <div class="bgRgb">
+            <ionic-datepicker input-obj="datepickerObjectEnd">
+                <img src="images/work/date.png" class="dateImg" >
+                <span class="date">{{param.date}}</span>
+                <img src="images/work/drop-down.png" class="dropImg">
+            </ionic-datepicker>
+            <span  class="fs15 fr mr10 colfff" ui-sref="storeExpenditure({date:param.date})">全部分店</span>
+        </div>
+        <!--业绩耗卡-->
+        <div class="list" >
+            <div class="item p10" style="padding-bottom: 0px;">
+                <div class="list incomeAnalysisBox" style="position: relative;border-radius: 10px;margin-bottom: 0">
+                    <div style="text-align: center;margin: auto;margin-top: 5%">
+                        <p  class="colff">现金收益</p>
+                        <p  class="colff">{{incomeAnalysis[3] ==undefined||incomeAnalysis[3]==null?0:incomeAnalysis[3]}}</p>
+                    </div>
+                    <p  style="position: absolute;bottom: 8px;left: 36%;background: rgb(255,211,211);border-radius: 10px;width: 100px;height: 17px;font-size: 11px;text-align: center;color: #ff6666" ui-sref="trendChart({id:'a'})"><img src="images/work/map.png" style="width: 12px;height: 10px;display: inline-block;" >近7日趋势图</p>
+                </div>
+              <div class="row col33 p0" >
+                  <div class="col col-50 tc fs13" >
+                       总收入
+                      <p  class="colff66">+{{incomeAnalysis[4] ==undefined||incomeAnalysis[4] ==null?0:incomeAnalysis[4]}}</p>
+                  </div>
+                  <div class="col col-50 tc fs13" >
+                      总支出
+                      <p class="colff66">****</p>
+                  </div>
+              </div>
+            </div>
+        </div>
+        <!--总收入-->
+        <div class="list" >
+            <p class="item p8"><span>总收入</span><span  class="fr fs15 colff66">+{{incomeAnalysis[4] ==undefined||incomeAnalysis[4] ==null?0:incomeAnalysis[4]}}</span>
+            </p>
+            <div class="row row-wrap bgfff col33 tc p0">
+                <div class="col col-50" style="border-right: 1px solid #e5e5e5;padding-top: 10px;border-bottom: 1px solid #e5e5e5;position: relative">
+                    <div class="row">
+                        <p class="col col-20">
+                            <img src="images/work/recharge.png" alt="" style="width: 17px;height: 18px;margin-top:7px;" >
+                        </p>
+                        <div class="col col-80" style="text-align: left">
+                            <p>现金</p>
+                            <p  class="mt5">{{incomeAnalysis[3] ==undefined||incomeAnalysis[3]==null?0:incomeAnalysis[3]}}</p>                        </div>
+                     </div>
+
+                </div>
+                <div class="col col-50"  style="padding-top: 10px;border-bottom: 1px solid #e5e5e5;position: relative">
+                    <div class="row">
+                        <p class="col col-20">
+                            <img src="images/work/Arrears.png" alt="" style="width: 17px;height: 18px;margin-top:7px;">
+                        </p>
+                        <div class="col col-80" style="text-align: left">
+                            <p>银行卡</p>
+                            <p  class="mt5">{{incomeAnalysis[2] ==undefined||incomeAnalysis[2]==null?0:incomeAnalysis[2]}}</p>                        </div>
+                    </div>
+                </div>
+                <div class="col col-50" style="border-right: 1px solid #e5e5e5;padding-top: 10px;position: relative">
+                    <div class="row">
+                        <p class="col col-20">
+                            <img src="images/work/WeChat.png" alt="" style="width: 17px;height: 18px;margin-top:7px;">
+                        </p>
+                        <div class="col col-80" style="text-align: left">
+                            <p>微信</p>
+                            <p  class="mt5">{{incomeAnalysis[0] ==undefined?0:incomeAnalysis[0]}}</p>                        </div>
+                    </div>
+                </div>
+                <div class="col col-50"  style="padding-top: 10px;position: relative">
+                    <div class="row">
+                        <p class="col col-20">
+                            <img src="images/work/Alipay.png" alt="" style="width: 17px;height: 18px;margin-top:7px;">
+                        </p>
+                        <div class="col col-80" style="text-align: left">
+                            <p>支付宝</p>
+                            <p  class="mt5">{{incomeAnalysis[1] ==undefined||incomeAnalysis[1] ==null?0:incomeAnalysis[1]}}</p>                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--总支出-->
+        <div class="list" ng-show="false">
+            <p class="item p8" ><span>总支出</span><span class="fr fs15 colff66">****<i  class="ml10 col99" class="ion ion-ios-arrow-right"></i></span></p>
+            <div class="row row-wrap bgfff col33 tc p0" >
+                <div class="col col-50" style="border-right: 1px solid #e5e5e5;padding-top: 10px;border-bottom: 1px solid #e5e5e5;position: relative">
+                    <div class="row">
+                        <p class="col col-20">
+                            <img src="images/work/refund.png" alt="" style="width: 17px;height: 18px;margin-top:7px;">
+                        </p>
+                        <div class="col col-80" style="text-align: left">
+                            <p>退款</p>
+                            <p  class="mt5">*****</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-50"  style="padding-top: 10px;border-bottom: 1px solid #e5e5e5;position: relative">
+                    <div class="row">
+                        <p class="col col-20">
+                            <img src="images/work/payCard.png" alt="" style="width: 17px;height: 18px;margin-top:7px;">
+                        </p>
+                        <div class="col col-80" style="text-align: left">
+                            <p>刷卡手续费</p>
+                            <p  class="mt5">*****</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

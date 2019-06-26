@@ -1,0 +1,188 @@
+<style>
+    input[checked="checked"]{
+        background: #FF6666;
+    }
+</style>
+<ion-view>
+    <ion-content class="partialFiles">
+        <div>
+            <ion-list class="fs15">
+                <ion-item  class=" h30 bge6">
+                    <span class="ml10">个人信息</span>
+                </ion-item>
+                <ion-item  class="h54 bgfff" style="display: flex;justify-content: space-between">
+                    <p class="ml10">头像</p>
+                    <p class="mr10">
+                        <input type="file" style="width:40px;height:40px;position: absolute;top:10px;opacity: 0" onchange="angular.element(this).scope().img_upload(this.files)">
+                        <img ng-src="{{newUser.imageUrl}}" style="width:40px;height:40px;border-radius: 5px;">
+                    </p>
+                </ion-item>
+                <ion-item  class="h54 bgfff" style="display: flex;justify-content: space-between">
+                    <p class="ml10 ">姓名<span class="colff66 fs15">*</span></p>
+                    <p class="mr10">
+                        <input class="tr fs14" placeholder="请输入顾客的名字" ng-model="newUser.sysUserName" class="mr10"/>
+                    </p>
+                </ion-item>
+                <ion-item  class="h54 bgfff" style="display: flex;justify-content: space-between">
+                    <p class="ml10 " >手机<span class="colff66 fs15">*</span></p>
+                    <p class="mr10" style="width:50%;">
+                        <input type="tel" min="1" inputmode="numeric" pattern="[0-9]*" title="Non-negative integral number"   class="tr fs14" placeholder="请输入顾客的手机号" ng-model="newUser.phone" ng-blur="pho()" style="width:100%;height:100%" id="pho" />
+                    </p>
+                </ion-item>
+                <ion-item class="h54 sb" ng-click="shop(); $event.stopPropagation()">
+                    <p>
+                        <span class="fs15 col333 ml10">选择门店</span><span class="fs15 colff66">*</span>
+                    </p>
+                    <p >
+                        <span class="fa15 col333">{{newUser.sysShopName}}</span>
+                        <img src="images/more.png" class="more mr10">
+                    </p>
+                </ion-item>
+                <ion-item  class="h54 bgfff" style="display: flex;justify-content: space-between">
+                    <p class="ml10">性别</p>
+                    <span class="fr mr10">
+                    <input type="radio"   ng-checked="newUser.sex == '女'"   name="names" ng-click="female()"  style="width: 15px;height: 15px;border: 1px solid #FF6666;border-radius: 50%"><span style="margin-left: 0.2rem;font-size: 0.3rem;color: #333333">女</span>
+              <input type="radio" name="names" ng-click="male()"  style="width: 15px;height: 15px;border: 1px solid #FF6666; border-radius: 50%;margin-left: 0.1rem"  ng-checked="newUser.sex == '男'"><span style="margin-left: 0.2rem;font-size: 0.3rem;color: #333333">男</span>
+              </span>
+                   <!-- <div class="mr10" style="display: flex;justify-content: space-between">
+                        <label class="item item-radio" style="border:none;padding:0;">
+                            <input type="radio" name="group" value="go" checked="checked">
+                            <div class="radio-content">
+                                <div class="item-content "  style="padding:0;line-height: 54px;background: none;padding-right:40px;">
+                                    女
+                                </div>
+                                <i class="radio-icon ion-checkmark " ></i>
+
+                            </div>
+                        </label>
+
+                        <label class="item item-radio" style="border:none;">
+                            <input type="radio" name="group" value="python">
+                            <div class="radio-content">
+                                <div class="item-content "  style="padding:0;line-height: 54px;background: none;padding-right:40px;">
+                                    男
+                                </div>
+                                <i class="radio-icon ion-checkmark" style="margin-top:-5px;"></i>
+
+                            </div>
+                        </label>
+
+                    </div>-->
+                </ion-item>
+                <ion-item  class="h54 bgfff" style="display: flex;justify-content: space-between">
+                    <p class="ml10">生日</p>
+                    <p class="mr10">
+                        <input type="text" placeholder="请输入您的生日" style="text-align: right" ng-model="newUser.birthday" class="mt5">
+                    </p>
+                </ion-item>
+                <ion-item  class="h54 bgfff" style="display: flex;justify-content: space-between">
+                    <p class="ml10">星座</p>
+                    <p class="mr10">
+                        <input type="text" placeholder="请输入星座" style="text-align: right" ng-model="newUser.constellation" class="mt5" >
+                    </p>
+                </ion-item>
+                <!--<ion-item  class="h54 bgfff" style="display: flex;justify-content: space-between">
+                    <p class="ml10">类型</p>
+                    <p class="mr10">
+                        <img src="images/more.png" style="width:8px;height:14.1px;">
+                    </p>
+                </ion-item>-->
+               <!-- <ion-item  class=" bgfff" style="display: flex;justify-content: space-between;min-height: 54px;">
+                    <p class="ml10 mt10">标签</p>
+                    <p class="mr10 mt10">
+                        <img src="images/more.png" style="width:8px;height:14.1px;">
+                    </p>
+                </ion-item>-->
+
+            </ion-list>
+           <!-- <div style="margin-top:10px;">
+                <ion-list>
+                    <ion-item  class="h54 bgfff" style="display: flex;justify-content: space-between">
+                        <p class="ml10">基本信息</p>
+                        <p class="mr10" style="font-size: 15px;color: #4A90E2;">
+                            未设置
+                            <img src="images/more.png" style="width:8px;height:14.1px;">
+                        </p>
+                    </ion-item>
+
+                </ion-list>
+            </div>-->
+            <!--会员信息-->
+           <!-- <div style="margin-top:10px;">
+                <ion-list>
+                    <ion-item  class="h54 bgfff" style="display: flex;justify-content: space-between">
+                        <p class="ml10">会员信息</p>
+                        <p class="mr10">
+                            详情
+                            <img src="images/more.png" style="width:8px;height:14.1px;">
+                        </p>
+                    </ion-item>
+                    <ion-item  class="h54 bgfff" style="display: flex;justify-content: space-between">
+                        <p class="ml10" style="color: #888888;">来源渠道：未知</p>
+                        <p class="mr10">
+
+                        </p>
+                    </ion-item>
+                </ion-list>
+            </div>-->
+
+           <!-- <div style="margin-top:10px;height:50px;line-height: 50px;font-size: 16px;color: #59D84C;text-align: center" class="bgfff ">
+                <img src="images/greenJia.png" style="width:16px;height:16px;">
+                <span ng-click="addMessage()">添加更多信息</span>
+            </div>-->
+            <div style="margin-top:10px;display: flex;justify-content: space-between" class="bgfff">
+                <label class="ml10 mt10">备注：</label>
+                <textarea style="width:85%;height:100px" ng-model="newUser.detail">
+            </textarea>
+            </div>
+            <div style="height:100px;display: flex;justify-content: space-around;padding-top:30px;" >
+
+                <p style="border: 1px solid #FF6666;border-radius: 46px;width:150px;height:40px;line-height: 40px" class="center colff66 bgfff activeBtn" ng-click="preservation()">
+                    保存
+                </p>
+            </div>
+<!--
+            <div style="position: absolute;height:173%;background: #000;opacity: 0.2;top:0;width:100%;z-index: 100;display: none"></div>
+            <div style="position: absolute;top:40px;left:50%;margin-left:-40%;background: #FFFFFF;border-radius: 8px;width:80%;z-index: 101 ;display: none">
+                <div style="height:40px;line-height: 40px;border-top-left-radius: 8px;border-top-right-radius: 8px;" class="sb bgfff">
+                    <p style="width:20%;"></p>
+                    <p style="width:60%;" class="center fs17 b">添加更多信息</p>
+                    <p style="width:20%;text-align: right;" class="mr10 colff66 b fs17" ng-click="close">确定</p>
+                </div>
+                <div style="height:480px;overflow: scroll;border-bottom-left-radius: 8px;border-bottom-right-radius: 8px;" scroll="true"style="">
+                    <div>
+                        <ion-list>
+                            <ion-item  class="h45 bge6">
+                                <i class="ml10">已添加信息（新建/编辑档案中显示）</i>
+                            </ion-item>
+                            <ion-item  class="h45 bgfff">
+                                <img src="images/del.png" class="delPic ml10 mr10"> 四肢
+                            </ion-item>
+                            <ion-item  class="h45 bgfff" >
+                                <img src="images/del.png" class="delPic ml10 mr10"> 头部
+                            </ion-item>
+                        </ion-list>
+                    </div>
+                    <div>
+                        <ion-list >
+                            <ion-item  class="h45 bge6">
+                                <i class="ml10">未添加信息</i>
+                            </ion-item>
+                            <ion-item  class="h45 bgfff" ng-repeat="item in [0,1,2,3,4,5,6,7,8,9]">
+                                <img src="images/greenJia.png" class="delPic ml10 mr10"> 痘痘肌
+                            </ion-item>
+
+                        </ion-list>
+                    </div>
+                </div>
+
+            </div>-->
+        </div>
+        <div style="position: absolute;height:100%;background: #000;opacity: 0.2;top:0;width:100%;z-index: 100" ng-show="param.flag" ng-click="disNone()"></div>
+        <div style="position: absolute;top: 0;z-index: 101;width:100%;" ng-show="param.flag">
+            <p class="h50 col333 bbl  bgfff" ng-repeat="item in fenShop" ng-click="selShop(item.sysShopId,item.sysShopName); $event.stopPropagation()">
+                <span class="ml10">{{item.sysShopName}}</span>
+            </p>
+        </div>
+    </ion-content>
+</ion-view>

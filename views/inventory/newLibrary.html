@@ -1,0 +1,73 @@
+<ion-view>
+    <ion-content class="partialFiles mb45 bgf6" scroll="true">
+        <div>
+            <div>
+                <div class=""  >
+                    <ion-item class=" h50 sb">
+                        <p class="fs16 col333 ml15 ">入库产品<span class="colff66"></span></p>
+                        <p class="fs14 col999">
+                            <span> </span>
+                        </p>
+                    </ion-item>
+                </div>
+                <div>
+                    <div style="border:solid 1px #e6e6e6;border-radius: 6px;width:95%;margin: 10px auto 0;box-shadow: 0 2px 4px 0 rgba(153,153,153,0.20)" class="" ng-repeat="item in param.shopStock">
+                        <div class="sb bgfff" style="height:65px;">
+                            <label class=" fs16 col333 ml15 mt10">备注</label>
+                            <textarea  maxlength="50"  class="  fs14 col999 mt10 mr15 pd10" style="border: 1px solid #CCCCCC;border-radius: 4px;height:50px;width:80%"
+                                      placeholder="请输入产品的备注信息，最长不超过50个字"
+                                      ng-model="item.detail">
+                            </textarea>
+                        </div>
+                        <ion-list>
+                            <ion-item style="height:90px;border-radius:6px 6px 0 0;position: relative" class="row">
+                                <div class="col col-90">
+                                    <div class="row">
+                                        <p style="height:60px;border:solid 1px #f6f6f6;background: url('{{item.productUrl}}');background-position: center center;background-size: contain;background-repeat: no-repeat;" class="mt5 ml10 col col-20" >
+
+                                        </p>
+                                        <div class="ml10  col col-80">
+                                            <P class="fs14 col333 ">{{item.productName}}</P>
+                                            <div class="fs12 col888 mt10">编号：{{item.productCode}}</div>
+                                            <P class="fs12 col888">
+                                                <span>单位：{{item.productUnit}}</span>
+                                                <span class="ml50">规格：{{item.productSpec}}</span>
+                                            </P>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <p class="col col-10">
+                                    <img src="images/inventory/delTong.png"  class="  "  style="width:25px;height:25px;position: absolute;right:0px;top:10px;" ng-click="deleteEntryProduct(item.shopProcId)">
+                                </p>
+                            </ion-item>
+                        </ion-list>
+                        <p class="h40 sb bbl fs14 col333" style="background: #F6F6F6;">
+                            <span class="ml20 ">入库数量</span>
+                            <input type="number" placeholder="请填写数量" style="text-align: right" class="mr10" ng-model="item.stockNumber">
+                        </p>
+                        <div class="h40 sb bbl" style="background: #F6F6F6;">
+                            <p class="ml20 fs14 col333">有效期至</p>
+                            <p class="mr10 fs14 col333" ng-click="selDate(item.productDate,item.shopProcId)">
+                                <ionic-datepicker input-obj="datepickerObjectEnd" >
+                                    {{item.invalidDate}}
+                                    <img src="images/more.png" class="more">
+                                </ionic-datepicker>
+                            </p>
+                        </div>
+                        <p class="h40 sb bbl" style="background: #F6F6F6;border-radius: 0 0 6px 6px;">
+                            <span class="ml20 fs14 col333">进货单价</span>
+                            <input type="text" placeholder="请输入进货单价" style="text-align: right" class="mr10" ng-model="item.stockPrice">
+                        </p>
+                    </div>
+                </div>
+           </div>
+            <p class="h45 bgfff fs14 center colff66" style="width:95%;margin:20px auto 0 ;" ng-show="false">
+                <span ng-click="productPutInStorageMoreGo('0')">选择更多产品入库</span><span class="col333">或者</span><span ng-click="productPutInStorageMoreGo('1')">扫码入库</span>
+            </p>
+        </div>
+    </ion-content>
+    <div class="h45 bgff66 colfff fs15 tabs" ng-click="successfulInventoryGo()">
+        确认入库({{sum}}/30)
+    </div>
+</ion-view>

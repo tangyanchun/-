@@ -1,0 +1,46 @@
+<ion-view>
+    <ion-content class="partialFiles bgfff">
+     <div>
+         <p style="" class="h40 center">
+             总余额: {{refillCard.totalBalance}}
+         </p>
+         <ion-list>
+             <div class="" style="position:absolute; right:20px;z-index: 1000">
+                 <img src="images/help.png" class="helpPic ml10" ng-click="help()">
+             </div>
+             <ion-item  class=" bgfff row" style="" ng-repeat="item in refillCard.userRechargeCardList"ng-click="prepaidPhoneRecordsGo(item.id,item.rechargeCardType)">
+                 <div class="col col-25 center" style="line-height: 82px;">
+                     <div style="border: solid 1px #e6e6e6;margin-top: 10px; height: 60px;">
+                         <p style="width:100%;height:50px;background: url('{{item.imageUrl}}');background-position: center center;background-repeat: no-repeat;background-size: contain;  margin-top: 5px; "></p>
+                     </div>
+
+                 </div>
+                 <div class="col col-67" >
+                     <p>{{item.shopRechargeCardName}}</p>
+                     <p class="col666 fs12" ng-if="item.rechargeCardType!=0">充值金额：¥{{item.initAmount==null?0:item.initAmount}}</p>
+                     <p class="fs12 colff66">剩余金额：¥{{item.surplusAmount}}</p>
+                     <p class="fs12">折扣：单次:{{(item.timeDiscount==null)||(item.timeDiscount==1)?'无折':item.timeDiscount*10+'折'}} |
+                         疗程卡:{{(item.periodDiscount==null)||(item.periodDiscount==1)?'无折':item.periodDiscount*10+'折'}} |
+                         产品:{{(item.productDiscount==null)||(item.productDiscount==1)?'无折':item.productDiscount*10+'折'}}
+                     </p>
+                     <p class="fs12 col888" ng-if="item.rechargeCardType!='0'">购买时间：{{item.createDate|date:'yyyy-MM-dd'}}</p>
+                 </div>
+                 <div class="col col1" >
+                 </div>
+             </ion-item>
+
+
+         </ion-list>
+     </div>
+        <div style="position: absolute;height:100%;background: #000;opacity: 0.2;top:0;width:100%;z-index: 100" ng-show="param.flag"  ng-click="disNone()"></div>
+        <div class="bgfff" style="width:94%;height:220px;position: absolute;z-index: 101;top:50%;left:50%;margin-top: -100px;margin-left:-47%;padding: 20px 20px 0 20px;" ng-show="param.flag">
+           <h4>余额充值： </h4>
+            <div style="font-size: 14px;color: #2A2A2A;margin-top:10px;">
+                是指该档案用余额充值的方式惊醒的自定义总充值金额，此为特殊账户（支持续充值）。
+            </div>
+            <div style="font-size: 14px;color: #2A2A2A;margin-top:20px;">
+                在消费时，将会按照先充值先使用的规则陆续扣减该账户的金额。划扣的金额系统会计算卡耗业绩，您也可以在订单详情中进行每个员工的卡耗业绩分润。
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

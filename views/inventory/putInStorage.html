@@ -1,0 +1,115 @@
+<ion-view>
+    <ion-content class="partialFiles bgf6"  style="margin-bottom: 45px;" >
+        <!--<ion-content class="partialFiles bgf6"  style="margin-bottom: 45px;" ng-click="all()">-->
+        <div style="position: relative">
+            <div >
+                <div class="h45 bgfff bbl">
+                    <label class="fs16 col333 ml10">入库方式：</label>
+                    <span class="fs14 col666 mr10" ng-click="selType('0');$event.stopPropagation()">
+                         <i class="icon ion-ios-checkmark-outline" style="color:#FF6666;font-size:20px;" ng-if="param.selType!='0'"></i>
+                         <i class="icon icon ion-ios-checkmark" style="color:#FF6666;font-size:20px;" ng-if="param.selType=='0'"></i>
+                        手动入库</span>
+                    <span class="fs14 col666" ng-click="selType('1');$event.stopPropagation()">
+                        <i class="icon ion-ios-checkmark-outline" style="color:#FF6666;font-size:20px;" ng-if="param.selType!='1'"></i>
+                        <i class="icon icon ion-ios-checkmark" style="color:#FF6666;font-size:20px;" ng-if="param.selType=='1'"></i>
+                        扫码入库</span>
+                    <p class="fs13 colff66 mr10 mt5 floatR mt10" style="border: 1px solid #FF6666;border-radius: 2px;padding:1px 10px;height:20px;line-height: 20px" ng-show="param.flag" ng-click="inventoryRecordsPicsGo()">入库记录</p>
+                    </p>
+                </div>
+                <div class="h45 bgfff row fs14 bbl">
+                    <div class="col col-33 center" style="border-right: solid 1px #f6f6f6">
+                        <p style="margin-top:-10px" ng-class="{'colff66':param.type == 0}" ng-click="changeBtn(0);$event.stopPropagation()">
+                            客装产品
+                            <i class="icon ion-arrow-down-b" ng-show="!param.multiSelectFlag"></i>
+                            <i class="icon ion-arrow-up-b" ng-show="param.multiSelectFlag"></i>
+                        </p>
+                    </div>
+                    <div class="col col-33 center" style="border-right: solid 1px #f6f6f6">
+                        <p style="margin-top:-10px" ng-click="changeBtn(1);$event.stopPropagation()" ng-class="{'colff66':param.type == 1}">
+                            院装产品
+                            <i class="icon ion-arrow-down-b" ng-show="!param.multiSelectFlag"></i>
+                            <i class="icon ion-arrow-up-b" ng-show="param.multiSelectFlag"></i>
+                        </p>
+                    </div>
+                    <div class="col col-33 center">
+                        <p style="margin-top:-10px" ng-click="changeBtn(2);$event.stopPropagation()" ng-class="{'colff66':param.type == 2}">
+                            易耗品
+                            <i class="icon ion-arrow-down-b" ng-show="!param.multiSelectFlag"></i>
+                            <i class="icon ion-arrow-up-b" ng-show="param.multiSelectFlag"></i>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div style="width:100%;height:100%;position: absolute;background:rgba(0,0,0,0.2);z-index: 100" ng-show="!param.multiSelectFlag"  ng-click="dis()"></div>
+            <div style="position:absolute;z-index: 999;width:100%;" ng-show="!param.multiSelectFlag" class="sb">
+                <div style="width: 50%" >
+                    <ion-list>
+                        <ion-item style="width:100%;text-align:center;padding: 10px 20px"
+                                  ng-click="chooseTwoLevelList(item.productTypeOneId)"
+                                  ng-repeat="item in param.oneLevelList" ng-class="{'bgf6':param.selectProductTypeOneId==item.productTypeOneId}">
+                            {{item.productTypeOneName}}
+                        </ion-item>
+                    </ion-list>
+                </div>
+                <div style="width: 50%" >
+                    <ion-list>
+                        <ion-item style="width:100%;text-align:center;padding: 10px 20px;"
+                                  ng-repeat="item in param.twoLevelList"
+                                  ng-if="item.productTypeOneId==param.selectProductTypeOneId"
+                                  ng-click="chooseProductList(item.productTypeTwoId)">
+                            {{item.productTypeTwoName}} ({{item.number}})
+                        </ion-item>
+                    </ion-list>
+                </div>
+            </div>
+
+            <div style="position:relative ">
+                <div>
+                    <ion-list>
+                        <ion-item class="item-input" style="background: border-box;height: 40px; ">
+                        <span class="item-input-wrapper" style="margin-right:10px;height:30px;margin-left:10px;" >
+                                <i class="icon ion-ios-search placeholder-icon" ng-click="search()"></i>
+                                <input id="search" type="search" ng-change="search()" placeholder="搜索产品名称/产品编号" ng-model="param.searchContent" >
+                                <i class="icon ion-close-circled placeholder-icon" style="vertical-align: middle;"
+                                   on-tap="clearSearch()" ng-if="param.searchContent.length"></i>
+                        </span>
+                        </ion-item>
+                    </ion-list>
+                </div>
+                <div class="sb h30">
+                    <p class="fs12 col888 ml10" style="width: 200px">{{param.selectProductList}}</p>
+                    <p class="fs13 colff66 mr10 mt5" style="border: 1px solid #FF6666;border-radius: 2px;padding:1px 10px;height:20px;line-height: 20px" ng-click="inventoryRecordsPicsGo()">入库记录</p>
+                </div>
+                <div>
+                    <ion-list>
+                        <ion-item style="height:90px;width:95%;margin: 0px auto 10px; border-radius: 6px; box-shadow: 0 2px 4px 0 rgba(153,153,153,0.20)" class="row" ng-repeat="item in param.detailProductList"
+                                  ng-click="selProduct($index,item.id)">
+
+                            <p style="height:70px;border:solid 1px #f6f6f6;width:75px;background: url('{{item.productUrl}}');background-repeat: no-repeat;background-size: contain;background-position: center center"  class="mt10 ml10 col col-20" >
+
+                            </p>
+                            <div class="ml10 mt10 col col-60">
+                                <P class="fs14 col333 ">{{item.productName}}</P>
+                                <P class="fs12 col888 mt10">编号：{{item.productCode}}</P>
+                                <P class="fs12 col888">
+                                    <span>单位：{{item.productUnit}}</span>
+                                    <span class="ml50">规格：{{item.productSpec}}</span>
+                                </P>
+                            </div>
+
+                            <p class="mr10 mt10 col col-20">
+                                <i class="icon ion-ios-checkmark-outline" style="color:#FF6666;font-size:20px;" ng-if="param.ids.indexOf(item.id)==-1"></i>
+                                <i class="icon icon ion-ios-checkmark" style="color:#FF6666;font-size:20px;" ng-if="param.ids.indexOf(item.id)!=-1"></i>
+                            </p>
+                        </ion-item>
+                    </ion-list>
+                </div>
+            </div>
+        </div>
+
+    </ion-content>
+    <div class="h45 center fs16 colfff bgff66 tabs" >
+        <p ng-click="newLibraryGo()">下一步({{sum}}/30)</p>
+        <div style="position: absolute;height:100%;background: #000;opacity: 0.2;top:0;width:100%;z-index: 100" ng-show="param.flag"></div>
+    </div>
+</ion-view>

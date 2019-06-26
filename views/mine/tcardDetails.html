@@ -1,0 +1,49 @@
+<ion-view class="bg">
+    <ion-content>
+        <div>
+            <img ng-src="{{cardInfo.projectGroupUrl}}" style="width:100%;height: 375px;">
+        </div>
+        <div class="list">
+            <ion-item  class=" bgfff row">
+                <div class="col col-80" >
+                    <p ><span class="fs16">{{cardInfo.projectGroupName}}</span></p >
+                    <p class="fs11">
+                        <span class="fs11 colff disp tc" ng-class="cardInfo.status=='0'?'Label4':'Label3'">启用</span>
+                        <span class="fs11 colff disp tc ml5">不启用</span>
+                    </p >
+                </div>
+            </ion-item>
+            <li class="item p10 fs14">
+                <p class="col33">市场价格：¥{{cardInfo.initialPrice}}</p>
+                <p style="color: #FF6666!important;">优惠价格：¥{{cardInfo.marketPrice}}</p>
+                <p class="col99 fs12" ng-if="cardInfo.expirationDate == '0'" >有效期：长期有效</p>
+                <p class="col99 fs12" >有效期：{{cardInfo.effectiveDate}} - {{cardInfo.expirationDate}}</p>
+
+            </li>
+        </div>
+        <div class="list">
+            <p class="item p10">包含项目</p>
+            <ion-item  class="row" ng-repeat="item in cardInfo.shopProjectInfoDTOS">
+                <div class="col col-20 mr10" style="line-height: 49px;">
+                    <img style="height:50px;width:75px;" ng-src="item.projectUrl
+"/>
+                </div>
+                <div class="col col-30 ml10" >
+                    <p class="fs15" style="color: #333333!important;">{{item.projectName}}</p >
+                    <p class="col88 fs13">价格：¥{{item.oncePrice*item.serviceTimes}}</p >
+                </div>
+
+                <div class="col col-50">
+                    <p class="fr">
+                        <span class="fs13  mt30" style="text-align: right">{{item.serviceTimes}}次</span>
+                        <i class=" ion ion-ios-arrow-right  mt10"></i>
+                    </p>
+
+                </div>
+            </ion-item>
+        </div>
+        <!--套卡说明-->
+            <p class="item fs14 col88 p10">套卡说明</p>
+            <textarea style="height:2rem;width:100%;font-size: 0.3rem;color: #333333;padding: 20px;" ng-model="cardInfo.detail"></textarea>
+    </ion-content>
+</ion-view>

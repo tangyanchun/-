@@ -1,0 +1,51 @@
+<ion-view class="bg">
+    <ion-content>
+        <!--日期部分-->
+        <div class="bgRgb">
+            <ionic-datepicker input-obj="datepickerObjectEnd">
+                <img src="images/work/date.png" class="dateImg" >
+                <span class="date">{{param.date}}</span>
+                <img src="images/work/drop-down.png" class="dropImg">
+            </ionic-datepicker>
+        </div>
+        <!--业绩耗卡-->
+        <div class="list">
+            <a class="item">
+                <div class="list colfff" style="background:url('images/work/analysis.png');background-size:100% 100%;border-radius: 10px">
+                    <div class="row">
+                        <div class=" col col-33 tc">
+                            人头数
+                            <p class="colff">{{customerStore.totalConsumeNumber==null?0:customerStore.totalConsumeNumber}}</p>
+                        </div>
+                        <div class=" col col-33 tc " >
+                            新客
+                            <p class="colff">{{customerStore.totalShopNewUserNumber==null?0:customerStore.totalShopNewUserNumber}}</p>
+                        </div>
+                        <div class=" col col-33 tc" >
+                            人次数
+                            <p class="colff">{{customerStore.totalConsumeTime==null?0:customerStore.totalConsumeTime}}</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!--唯美度美容养生会所-->
+        <div class="list" ng-repeat="item in customerStore.responseDTOList" ui-sref="beautyBranch({sysShopId:item.sysShopId,date:param.date})" ng-show="customerStore.responseDTOList.length>0">
+            <p class="item"><span>{{item.sysShopName}}</span><i style="float:right;font-size: 0.3rem" class="ion ion-ios-arrow-right"></i></p>
+            <div class="row bgfff col33 tc p0" >
+                <div class="col col-33 bre5e5" >
+                    人头数
+                    <p style="margin-top: 10px">{{item.consumeNumber==null?0:item.consumeNumber}}</p>
+                </div>
+                <div class="col col-33 bre5e5">
+                    新客
+                    <p  class="mt10">{{item.shopNewUserNumber==null?0:item.shopNewUserNumber}}</p>
+                </div>
+                <div class="col col-33" >
+                    人次数
+                    <p  class="mt10">{{item.consumeTime==null?0:item.consumeTime}}</p>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

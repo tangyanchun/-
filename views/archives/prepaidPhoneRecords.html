@@ -1,0 +1,24 @@
+<ion-view>
+    <ion-content class="partialFiles">
+        <div >
+            <P class="h50 bgfff">
+               <span class="ml20">账户余额 1980.00</span>
+            </P>
+            <div style="margin-top:10px;" >
+                <ion-list >
+                    <ion-item  class="h60 bgfff" style="display: flex;" ng-repeat="item in prepaidPhoneRecords" ng-click="accountDetailsGo()">
+                       <div class="W33 ml20">
+                           <p class="mt5 fs16">疗程卡退款</p>
+                           <p class="col888 fs15 ">2018-01-24</p>
+                       </div>
+                        <p class="W33 ml20 LH60 fs15"><span class="colff66">0.00</span>/1280.00</p>
+                        <p class="W33 ml20 fs15">  <img src="images/more.png" style="width:8px;height:14.1px;float: right;margin-right: 20px; margin-top:20px;"></p>
+                    </ion-item>
+
+                </ion-list>
+            </div>
+
+
+        </div>
+    </ion-content>
+</ion-view>

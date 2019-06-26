@@ -1,0 +1,25 @@
+<ion-view>
+    <ion-content class="partialFiles bgf6">
+        <div>
+            <ion-list>
+                <ion-item class="h45 sb" ng-repeat="item in requestList" ng-if="item.status == '0'">
+                    <p class="col333 fs16">
+                        <img src="images/del.png" class="delPic ml10 " ng-click="selBtnShow($index)">
+                        <input type="text" placeholder="添加系列名称" class="fs16 cl888 mt5 ml10" style="width:200px;display: inline-block;" ng-model="item.projectTypeName">
+
+                    </p>
+                    <p class="colfff center " style="background: #F93F2B;width:74px;color:#fff" ng-show="param.selTrue[$index]" ng-click="sel($index)">删除</p>
+                </ion-item>
+                <ion-item class="h45 sb" ng-click="addSeriesLis()">
+                    <p class="col333 fs16" style="width:80%;display: flex">
+                        <img src="images/inventory/addGreen.png" class="delPic ml10  " style="margin-top:15px;">
+
+                        <span  class="fs16 cl888 mt5 ml10 col333" >点击可添加系列名称</span>
+                    </p>
+                </ion-item>
+            </ion-list>
+
+            <p style="width:165px;height:44px;margin:auto;background: #FF6666;box-shadow: 0 4px 4px 0 rgba(255,102,102,0.24);border-radius: 100px;line-height: 44px;margin-top:100px;" class="center colfff " ng-click="projectBrandGo()">保存</p>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,91 @@
+<ion-view class="bg">
+    <ion-content>
+        <ion-list>
+            <!--业绩耗卡-->
+            <div class="list businessBox">
+                <div class="row businessBox1" ui-sref="comprehensive">
+                    <div class=" businessBox2 col col-50 ">
+                        <!--业绩-->{{language.beautyAchievement}}
+                        <p>{{workHome.income}}</p>
+                    </div>
+                    <div class=" businessBox2 col col-50" >
+                        耗卡
+                        <p>{{workHome.expenditure}}</p>
+                    </div>
+                </div>
+                <div  class="list head">
+                    <div class="row">
+                        <div class="col col-25 fs13 tc">
+                            <p class="col33">人头数</p>
+                            <p class="colfc">{{workHome.consumeNumber}}</p>
+                        </div>
+                        <div class="col col-25 fs13 tc" >
+                            <p  class="col33">人次数</p>
+                            <p class="colfc">{{workHome.consumeTime}}</p>
+                        </div>
+                        <div class="col col-25 fs13 tc" >
+                            <p  class="col33">新客</p>
+                            <p class="colfc">{{workHome.shopNewUserNumber}}</p>
+                        </div>
+                        <div class="col col-25 fs13 tc">
+                            <p  class="col33">服务次数</p>
+                            <p class="colfc">{{workHome.serviceNumber}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--今日工作-->
+            <div class="list mt55">
+                <p class="todayJob">今日工作</p>
+                <div class="row bgfff fs13 col33">
+                    <div class="col col-25 tc" ng-show="false"><!--ui-sref="attendanceToday"-->
+                        <img src="images/work/attendance.png" class="imageContent">
+                        <p style="margin-top: 12px">考勤</p>
+                    </div>
+                    <div class="col col-25" style="text-align: center" ui-sref="appointment">
+                        <img src="images/work/appointment.png"  class="imageContent">
+                        <p class="mt12">预约</p>
+                    </div>
+                </div>
+            </div>
+            <!--行政管理-->
+            <div class="list mt-9">
+                <p class="todayJob">行政管理</p>
+                <div class="row bgfff fs13 col33">
+                    <div class="col col-25 tc" ui-sref="scheduling">
+                        <img src="images/work/scheduling.png"class="imageContent">
+                        <p style="margin-top: 12px">排班</p>
+                    </div>
+                    <div class="col col-25 tc" ui-sref="chooseWarehouse">
+                        <img src="images/work/stock.png"class="imageContent">
+                        <p class="mt12">库存</p>
+                    </div>
+                </div>
+            </div>
+            <!--店务分析-->
+            <div class="list mt-9">
+                <p class="todayJob">店务分析</p>
+                <div class="row bgfff fs13 col33">
+                    <div class="col col-25 tc" ui-sref="comprehensive">
+                        <img src="images/work/comprehensive.png" class="imageContent">
+                        <p class="mt12">综合分析</p>
+                    </div>
+                    <div class="col col-25 tc" ui-sref="incomeAnalysis">
+                        <img src="images/work/Income.png" class="imageContent">
+                        <p class="mt12">收支分析</p>
+                    </div>
+                    <div class="col col-25 tc" ui-sref="employeeAnalysis">
+                        <img src="images/work/employee .png" class="imageContent">
+                        <p class="mt12">员工分析</p>
+                    </div>
+                    <div class="col col-25 tc" ui-sref="customerStore">
+                        <img src="images/work/customer .png" class="imageContent">
+                        <p class="mt12">顾客到店</p>
+                    </div>
+                </div>
+            </div>
+        </ion-list>
+        <br><br>
+    </ion-content>
+    <boss-footer></boss-footer>
+</ion-view>

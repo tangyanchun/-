@@ -1,0 +1,33 @@
+<ion-view class="bg">
+    <ion-content>
+        <div>
+            <img ng-src="{{productInfo.productUrl}}" style="width:100%;height: 375px;">
+        </div>
+        <div class="list">
+            <ion-item  class=" bgfff row">
+                <div class="col col-73" >
+                    <p ><span class="fs16">{{productInfo.productName}}</span></p >
+                    <p class="fs11">
+                        <span class=" fs11 colff disp tc" ng-class="productInfo.status=='启用'?'Label2':'Label1'">{{productInfo.status}}</span>
+                    </p >
+                </div>
+                <div class="col col-27" >
+                    <span class="col99 fs13">品牌:{{productInfo.productTypeOneName}}</span>
+                </div>
+            </ion-item>
+            <li class="item p10 fs14">
+                <p class="col33">市场价格：¥{{productInfo.initialPrice}}</p>
+                <p style="color: #FF6666!important;">优惠价格：¥{{productInfo.marketPrice}}次</p>
+            </li>
+        </div>
+        <div class="list fs14">
+            <p class="item p10">系列：{{productInfo.productTypeTwoName}}</p>
+            <p class="item p10"><span>编号：{{productInfo.productCode}}</span><span class="fr">适用部位：{{productInfo.productPosition}}</span></p>
+            <p class="item p10">功效：{{productInfo.productFunction}}</p>
+        </div>
+        <div class="list fs14 ">
+            <p class="item p10">功能介绍</p>
+            <textarea style="height:1rem;width:100%;font-size: 0.3rem;color: #333333;padding: 20px;" ng-model="productInfo.introduce	"></textarea>
+        </div>
+    </ion-content>
+</ion-view>

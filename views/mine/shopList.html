@@ -1,0 +1,18 @@
+<ion-view class="bg">
+    <ion-content>
+        <ion-item  class=" bgfff row" ng-repeat="item in shopList">
+            <div class="col col-90" ui-sref="amendStore({sysShopId:item.id})" >
+                <p class="fs14 col33">{{item.name}}</p >
+                <p>
+                    <img src="images/mine/position.png" style="display: inline-block;width: 9px;height: 12px;"><span style="margin-left: 6px" class="col99 fs11">{{item.province}}{{item.city}}{{item.address}}</span>
+                </p >
+            </div>
+            <p class="col col-10">
+                <img src="images/more.png" class="more  fr mt20">
+            </p>
+        </ion-item>
+        <div ng-if="shopList.length<=0" class="bgfff" style="height:100%;width:100%">
+            <void-picother></void-picother>
+        </div>
+    </ion-content>
+</ion-view>

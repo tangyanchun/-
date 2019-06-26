@@ -1,0 +1,34 @@
+<ion-view class="bg">
+    <ion-content>
+        <div>
+            <img ng-src="{{projectInfo.projectUrl}}" style="width:100%;height: 375px;">
+        </div>
+        <div class="list">
+            <ion-item  class=" bgfff row">
+                <div class="col col-80" >
+                    <p>
+                        <span class="fs16">{{projectInfo.projectName}}</span>
+                        <span class="fs12 disp yearCard bgf66 colff tc ml5">{{projectInfo.cardType}}</span>
+                    </p>
+                    <p class="fs11">
+                        <span class=" fs11 colff disp tc" ng-class="projectInfo.status=='启用'?'Label1':'Label2'">{{projectInfo.status}}</span>
+                    </p >
+                </div>
+                <div class="col col-20" >
+                  <span class="col99 fs13">类型:{{projectInfo.projectTypeOneName}}</span>
+                </div>
+            </ion-item>
+            <li class="item p10 fs14">
+                <p class="col33">市场价格：¥{{projectInfo.initialPrice}}</p>
+                <p style="color: #FF6666!important;">优惠价格：¥{{projectInfo.marketPrice}}/{{projectInfo.serviceTimes}}次</p>
+            </li>
+        </div>
+        <div class="list fs14">
+            <p class="item p10">系列：{{projectInfo.projectTypeTwoName}}</p>
+        </div>
+        <div class="list fs14 ">
+            <p class="item p10">功能介绍</p>
+            <textarea style="height:1rem;width:100%;font-size: 0.3rem;color: #333333;padding: 20px;" ng-model="projectInfo.functionIntr"></textarea>
+        </div>
+    </ion-content>
+</ion-view>

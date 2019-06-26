@@ -1,0 +1,72 @@
+<ion-view>
+    <ion-content class="partialFiles bgf6" ng-click="all()">
+        <div>
+
+            <ion-list>
+                <ion-item class="h45 sb">
+                    <p>
+                        <span class="fs15 col333 ml10">姓名</span><span class="fs15 colff66">*</span>
+                    </p>
+                    <p>
+                        <input type="text" placeholder="请输入姓名" class="fs14  mr10" style="text-align: right" ng-model="mployeesDtails.name">
+                    </p>
+
+                </ion-item>
+                <ion-item class="h45 sb">
+                    <p>
+                        <span class="fs15 col333 ml10">手机号</span><span class="fs15 colff66">*</span>
+                    </p>
+                    <p>
+                        <input type="number" min="1" inputmode="numeric" pattern="[0-9]*" title="Non-negative integral number"  placeholder="请输入手机号" class="fs14  mr10" style="text-align: right" ng-model="mployeesDtails.mobile">
+                    </p>
+
+                </ion-item>
+                <ion-item class="h45 sb" ng-click="shop()">
+                    <p>
+                        <span class="fs15 col333 ml10">所在店名</span><span class="fs15 colff66">*</span>
+                    </p>
+                    <p>
+                        <span class="fa15 col333 mr10">{{mployeesDtails.sysShopName}}</span>
+                        <img src="images/more.png" class="more mr10">
+                    </p>
+                </ion-item>
+            </ion-list>
+            <ul class="list">
+                <li class="item item-toggle h45">
+                    <span class="fa15 col333 ml10">店长</span>
+                    <label class="toggle toggle-assertive">
+                        <input type="checkbox" ng-model="param.managerStatus">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </li>
+                <li class="item item-toggle h45">
+                    <span class="fa15 col333 ml10">前台</span>
+                    <label class="toggle toggle-assertive">
+                        <input type="checkbox" ng-model="param.fontDeskStatus">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </li>
+                <li class="item item-toggle h45">
+                    <span class="fa15 col333 ml10">美容师</span>
+                    <label class="toggle toggle-assertive">
+                        <input type="checkbox" checked="checked" ng-model="param.beauticianStatus"  >
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </li>
+            </ul>
+            <p style="width:165px;height:44px;margin:auto;background: #FF6666;box-shadow: 0 4px 4px 0 rgba(255,102,102,0.24);border-radius: 100px;line-height: 44px;margin-top:100px;" class="center colfff " ng-click="save()">保存</p>
+        </div>
+        <div style="position: absolute;height:100%;background: #000;opacity: 0.2;top:0;width:100%;z-index: 100" ng-show="param.flag" ng-click="all()"></div>
+        <div style="position: absolute;top: 0;z-index: 101;width:100%;" ng-show="param.flag">
+            <p class="h50 col333 bbl  bgfff" ng-repeat="item in fenShop" ng-click="selShop(item.sysShopId,item.sysShopName)">
+                <span class="ml10">{{item.sysShopName}}</span>
+            </p>
+        </div>
+    </ion-content>
+</ion-view>

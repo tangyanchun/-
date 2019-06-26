@@ -1,0 +1,45 @@
+<ion-view>
+    <ion-content class="partialFiles bgf6">
+        <div>
+            <p class="h30 bgfff" style="display: flex;justify-content: space-around">
+                <span style="font-size:18px;font-weight: 700">{{param.name}}</span>
+            </p>
+            <p class="h30 bgfff" style="display: flex;justify-content: space-around">
+                <ionic-datepicker input-obj="datepickerObjectStart">
+                    <span class=" fs13 colff66 ">{{param.startTime}}</span>
+                </ionic-datepicker>
+                <span class="fs13 col333">至</span>
+                <ionic-datepicker input-obj="datepickerObjectEnd">
+                    <span class="fs13 colff66 ">{{param.endTime}}</span>
+                </ionic-datepicker>
+
+            </p>
+            <div style="border:solid 1px #e6e6e6;border-radius: 6px;width:90%;margin:10px auto;box-shadow: 0 2px 4px 0 rgba(153,153,153,0.20)"  ng-repeat="item in param.inventoryRecordsPics">
+                <ion-list>
+                    <ion-item style="height:90px;border-radius:6px " class="sb" ng-click="entryDetailsGo(item.id)">
+                        <div >
+                            <div class="ml10 mt10">
+                                <P class="fs14 col333 ">{{item.name}}</P>
+                                <P class="fs12 col888 ">时间：{{item.createDate|date:'yyyy-MM-dd hh:mm:ss'}}</P>
+                                <P class="fs12 col888">
+                                    <span>入库类型：</span>
+                                    <span class="ml10 colff66" ng-if="item.stockType==0"> 采购入库</span>
+                                    <span class="ml10 colff66" ng-if="item.stockType==1"> 内部员工入库</span>
+                                    <span class="ml10 colff66" ng-if="item.stockType==2"> 顾客入库</span>
+                                    <span class="ml10 colff66" ng-if="item.stockType==3"> 赠送</span>
+                                    <span class="ml10 colff66" ng-if="item.stockType==4"> 报废</span>
+                                    <span class="ml10 colff66" ng-if="item.stockType==5"> 院用</span>
+                                    <span class="ml10 colff66" ng-if="item.stockType==6"> 退回供货商</span>
+                                    <span class="ml10 colff66" ng-if="item.stockType==7"> 下发到店</span>
+                                </P>
+                            </div>
+                        </div>
+                        <p style="line-height: 90px;">
+                            <img src="images/inventory/storage.png" class="overPic mr10">
+                        </p>
+                    </ion-item>
+                </ion-list>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

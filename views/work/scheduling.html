@@ -1,0 +1,71 @@
+
+<ion-view class="scheduling bgf66">
+    <!--头部切换时间 切换店铺-->
+    <div style="width: 100%;height: 40px;line-height: 40px;position: relative">
+        <div  class="ma fs15 tc colf9">
+            <img src="images/work/leftSlip.png" style="width: 14px;height:14px;display: inline-block" ng-click="subMonth()">
+            <span class="ml10 mr10">{{param.nowdate}}</span>
+            <img  src="images/work/rightSlip.png" style="width: 14px;height: 14px;display: inline-block"  ng-click="addMonth()"></div>
+    </div>
+   <!-- <span style="position: absolute;right: 20px;top: 10px;color: #ffffff" ng-click="tabShop()">切换店铺</span>-->
+    <!--排班的具体内容-->
+    <div class="bgfff" style=" overflow: auto;height: 100%;width: 100%;float: left;">
+        <table id="tbTest1" class="tb_test" cellpadding="0" cellspacing="0" style="text-align:center;width:100%;">
+            <thead>
+            <tr class="listHead">
+
+                <td ng-repeat="item1 in tempWeek">
+                   <!-- <div >
+                        {{item1[0]}}
+                        </br>{{item1[1]}}
+
+                    </div>-->
+                </td>
+            </tr>
+            </thead>
+            <tbody >
+            <tr ng-repeat="item4 in tempUser" class="list ">
+                <td class="clerkName" >
+                    <div class=" center" style="line-height: 60px;">
+                        <p >
+                            <span class='' >{{item4.clerkInfo.name.substring(0,3)}}</span>
+                            <span ng-if="item4.clerkInfo.name.length>3">...</span>
+                        </p>
+                    </div>
+
+                </td>
+                <td ng-repeat="infoItem in item4.clerkSchInfo"style="vertical-align: middle" >
+                    <div style="position: relative;">
+                        {{tempWeek[$index][0]}}
+                        <br>
+                        {{tempWeek[$index][1]}}
+                        <p style="position: absolute;right:0;top:0">
+                            <img ng-if="infoItem.scheduleType == 0" src="images/work/morning.png">
+                            <img ng-if="infoItem.scheduleType == 1" src="images/work/middle.png">
+                            <img ng-if="infoItem.scheduleType == 2" src="images/work/night.png">
+                            <img ng-if="infoItem.scheduleType == 3" src="images/work/all.png">
+                            <img ng-if="infoItem.scheduleType == 4" src="images/work/Rest.png">
+                        </p>
+
+
+                    </div>
+                </td>
+            </tr>
+            <tr >
+                <td>
+                    <div style="height:55px;border:none"></div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <!--<div class="shadow_box"></div>-->
+        <!--点击切换店铺显示的店铺列表-->
+        <!-- <div class="displayShopBox"   ng-if="param.displayShopBox" ng-click="closeBox()">
+            <div class="displayShop" ng-if="param.displayShop">
+                <p style="height: 60px;text-align: center;line-height: 60px" ng-click="choseShop
+(item.id)"ng-repeat="item in shopList">{{item.sysShopName}}</p>
+            </div>
+        </div>-->
+
+    </div>
+</ion-view>

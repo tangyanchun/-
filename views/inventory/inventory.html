@@ -1,0 +1,78 @@
+<ion-view>
+    <ion-content class="partialFiles" style="margin-bottom: 50px;">
+        <div>
+
+            <div class="h45 bgfff row fs14">
+                <div class="col col-33 center" style="border-right: solid 1px #f6f6f6">
+                    <p style="margin-top:-10px">客装产品 <img src="images/inventory/triangleRed.png" class="trianglePic ml20"></p>
+                </div>
+                <div class="col col-33 center" style="border-right: solid 1px #f6f6f6">
+                    <p style="margin-top:-10px">院装产品<img src="images/inventory/triangleGray.png" class="trianglePic ml20"></p>
+                </div>
+                <div class="col col-33 center">
+                    <p style="margin-top:-10px">易耗品<img src="images/inventory/triangleGray.png" class="trianglePic ml20"></p>
+                </div>
+            </div>
+            <div>
+                <ion-list>
+                    <ion-item class="item-input" style="background: border-box;height: 40px; ">
+                        <span class="item-input-wrapper" style="margin-right:10px;height:30px;margin-left:10px;" >
+                                <i class="icon ion-ios-search placeholder-icon" ng-click="search()"></i>
+                                <input id="search" type="search" placeholder="搜索产品名称/产品编号" ng-model="searchCont.key" >
+                                <i class="icon ion-close-circled placeholder-icon" style="vertical-align: middle;"
+                                   on-tap="clearSearch()" ng-if="searchCont.key.length"></i>
+                        </span>
+                    </ion-item>
+                </ion-list>
+            </div>
+            <div class="sb h30">
+                <p class="fs12 col888 ml10">客装产品.可丽金.全部</p>
+                <p class="fs13 colff66 mr10 mt5" style="border: 1px solid #FF6666;border-radius: 2px;padding:1px 10px;height:20px;line-height: 20px" ng-click="inventoryRecordsGo()">盘点记录</p>
+            </div>
+            <div>
+                <ion-list>
+                    <ion-item style="height:90px;width:95%;margin: 10px auto 0; border-radius: 6px; box-shadow: 0 2px 4px 0 rgba(153,153,153,0.20)" class="sb ">
+                        <div style="display: flex">
+                            <p style="height:70px;border:solid 1px #f6f6f6;width:75px;" class="mt10 ml10">
+                                <img src="">
+                            </p>
+                            <div class="ml10 mt10">
+                                <P class="fs14 col333 ">健肤小喷</P>
+                                <P class="fs12 col888 mt10">编号：</P>
+                                <P class="fs12 col888">
+                                    <span>单位：件</span>
+                                    <span class="ml50">规格：1000g</span>
+                                </P>
+                            </div>
+                        </div>
+                        <p>
+                            <img src="images/selTrue.png" class="selGray mr10 mt10">
+                        </p>
+                    </ion-item>
+                    <ion-item style="height:90px;width:95%;margin: 10px auto 0; border-radius: 6px; box-shadow: 0 2px 4px 0 rgba(153,153,153,0.20)" class="sb mt10" ng-repeat="item in [0,1,2,3,4]" ng-click="inventoryOverGo()">
+                        <div style="display: flex">
+                            <p style="height:70px;border:solid 1px #f6f6f6;width:75px;" class="mt10 ml10">
+                                <img src="">
+                            </p>
+                            <div class="ml10 mt10">
+                                <P class="fs14 col333 ">健肤小喷</P>
+                                <P class="fs12 col888 mt10">编号：</P>
+                                <P class="fs12 col888">
+                                    <span>单位：件</span>
+                                    <span class="ml50">规格：1000g</span>
+                                </P>
+                            </div>
+                        </div>
+                        <p>
+                            <img src="images/selRed.png" class="selGray mr10 mt10">
+                        </p>
+                    </ion-item>
+                </ion-list>
+            </div>
+
+        </div>
+    </ion-content>
+    <div class="h50  bgff66" style="position: absolute;bottom: 0;width:100%;" ng-click="AddOutboundGo()">
+        <p class="fs16 colfff ml10 center">下一步(0/30)</p>
+    </div>
+</ion-view>

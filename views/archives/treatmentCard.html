@@ -1,0 +1,94 @@
+<ion-view>
+    <p class="h45 bgfff fs16 colff66">
+        <span ng-click="sel()"><img src="images/screening.png" class="screeningPic ml10 mr10">筛选</span>
+    </p>
+    <ion-content class="partialFiles bgf6"  style="margin-top:45px;" delegate-handle="dashboard" >
+        <div class="colfff" ng-show="!param.picFlag" ng-class="{'hidden':param.flag==true}">
+            <ion-list class="colfff" >
+                <ion-item style="height:100px;width:90%;background: url('images/treatmentCardRed.png');background-size: 100% 100%;margin:10px auto;border-radius: 4px;"  ng-click="goTreatmentCard(item.id)" ng-repeat="item in treatmentCard" ng-if="item.overdue=='0'&&(item.sysShopProjectSurplusTimes/1 !=0)">
+                    <div class="fs15 colfff ml10 row" style="margin-top:7px;padding:0" >
+
+                        <p style="padding:0;margin:0" class="col col-40 colfff"> {{item.sysShopProjectName}}</p>
+                        <p class="fs13 col col-40 colfff" ng-if="item.effectiveDays!='100000'" style="padding:0;margin:1px" >失效期：{{item.invalidDays|date:'yyyy-MM-dd'}}</p>
+                        <!--<p class="fs13 col col-40 colfff" ng-if="item.effectiveDays=='100000'" style="padding:0;margin:1px" >失效期：永久有效</p>-->
+                    </div>
+                    <div class="fs13 colfff ml10 row" style="margin-top:7px;padding:0">
+                        <p class=' col col-40 colfff' style="padding:0;margin:0;">金额：{{item.sysShopProjectPurchasePrice}}元</p>
+                        <p class="col col-40 colfff " style="padding:0;margin:0;">剩余：{{item.sysShopProjectSurplusTimes}}/{{item.sysShopProjectInitTimes}}</p>
+                    </div>
+                    <p class="fs12 colfff ml10" style="margin-top:11px;overflow: hidden">
+                        <label>备注</label>
+                        {{item.detail}}
+                    </p>
+                </ion-item>
+                <ion-item style="height:112px;width:90%;background: url('images/treatmentCardGray.png');background-size: 100% 100%;margin:10px auto;border-radius: 4px;position: relative;" ng-repeat="item in treatmentCard" ng-click="goTreatmentCard(item.id)" ng-if="(item.sysShopProjectSurplusTimes/1 ==0)&&item.overdue=='0'">
+                    <div class="fs15 colfff ml10 row" style="margin-top:7px;padding:0" >
+                        <p style="padding:0;margin:0" class="col col-40 colfff"> {{item.sysShopProjectName}}</p>
+                        <p class="fs13 col col-40 colfff" ng-if="item.effectiveDays!='100000'" style="padding:0;margin:1px" >失效期：{{item.invalidDays|date:'yyyy-MM-dd'}}</p>
+                        <!--<p class="fs13 col col-40 colfff" ng-if="item.effectiveDays=='100000'" style="padding:0;margin:1px" >失效期：永久有效</p>-->
+                    </div>
+                    <div class="fs13 colfff ml10 row" style="margin-top:7px;padding:0">
+                        <p class=' col col-40 colfff' style="padding:0;margin:0;">金额：{{item.sysShopProjectPurchasePrice}}元</p>
+                        <p class="col col-40 colfff " style="padding:0;margin:0;">剩余：{{item.sysShopProjectSurplusTimes}}/{{item.sysShopProjectInitTimes}}</p>
+                    </div>
+                    <p class="fs12 colfff ml10" style="margin-top:11px;overflow: hidden;">
+                        <label>备注</label>
+                        {{item.detail}}
+                    </p>
+                    <img src="images/over.png" class="overPic" style="position: absolute;top:10px;right:10px;">
+                </ion-item>
+                <ion-item style="height:112px;width:90%;background: url('images/treatmentCardGray.png');background-size: 100% 100%;margin:10px auto;border-radius: 4px;position: relative;" ng-repeat="item in treatmentCard" ng-click="goTreatmentCard(item.id)" ng-if="item.overdue=='1'">
+                    <p class="fs15 colfff ml10" style="margin-top:7px;" >
+                        <span style="display: inline-block;width:130px;"> {{item.sysShopProjectName}}</span>
+                        <span class="fs13" ng-if="item.effectiveDays!='100000'">失效期：{{item.invalidDays|date:'yyyy-MM-dd'}}</span>
+                        <!--<span class="fs13" ng-if="item.effectiveDays=='100000'">失效期：永久有效</span>-->
+                    </p>
+                    <p class="fs13 colfff ml10" style="">
+                        <span style="display: inline-block;width:130px;">金额：{{item.sysShopProjectPurchasePrice}}元</span>
+                        <span>剩余：{{item.sysShopProjectSurplusTimes}}/{{item.sysShopProjectInitTimes}}</span>
+                    </p>
+                     <p class="fs11 colfff ml10" >
+                         <span style="display: inline-block;width:130px;">生效期：{{item.effectiveDate|date:'yyyy-MM-dd'}}</span>
+                         <span>生效时长：{{item.effectiveDays}}月</span>
+                     </p>
+                    <p class="fs12 colfff ml10" style="overflow: hidden">
+                        <label>备注</label>
+                        {{item.detail}}
+                    </p>
+                    <img src="images/dateOver.png" class="overPic" style="position: absolute;top:10px;right:10px;">
+                </ion-item>
+            </ion-list>
+        </div>
+        <!--空 图片-->
+        <void-pic></void-pic>
+        <!--筛选-->
+        <div style="position: absolute;height:100%;background: #000;opacity: 0.2;top:0;width:100%;z-index: 100;" ng-show="param.flag" ng-click="disNone()"></div>
+        <div style="position: absolute;right:0;top:0;z-index: 101;width:80%;height:100%" class="bgf6" ng-show="param.flag">
+            <p class=" bgfff">
+                <img src="images/close.png"class="closePic ml10 mt20 " ng-click="disNone()">
+            </p>
+            <div>
+                <p class="fs15 col666 bgfff bbl pb5 h40"><span class="ml10 ">状态</span></p>
+                <div class="row row-wrap bgfff">
+                    <p class="col col-33 " >
+                        <a class="commonType center " style="height:26px;width:80px;line-height: 26px;" ng-click="selType('6')" ng-class="{'activeType':param.overdue=='6'}">全部</a>
+                    </p>
+                    <p class="col col-33 ">
+                        <a class="commonType center " style="height:26px;width:80px;line-height: 26px;" ng-click="selType('0')" ng-class="{'activeType':param.overdue=='0'}">正常</a>
+                    </p>
+                    <p class="col col-33 ">
+                        <a class="commonType center " style="height:26px;width:80px;line-height: 26px;" ng-click="selType('1')" ng-class="{'activeType':param.overdue=='1'}">已过期</a>
+                    </p>
+                </div>
+            </div>
+            <div class="tabs bgfff">
+                <a class="tab-item True" ng-click="reset()">
+                    重置
+                </a>
+                <a class="tab-item True activeTrue" ng-click="selTrue()">
+                    确认
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

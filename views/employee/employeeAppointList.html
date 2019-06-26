@@ -1,0 +1,63 @@
+<style>
+    .eal-s1
+    {
+        width: 65px;
+        height: 20px;
+        display: inline-block;
+        background: #ff6666;
+        color: #ffffff;
+        line-height: 20px;
+        margin-left: 10px;
+        text-align: center;
+        border-radius: 5px;
+    }
+</style>
+<ion-view class="bg">
+    <ion-content>
+        <!--日期部分-->
+        <div class="bgRgb">
+            <ionic-datepicker input-obj="datepickerObjectEnd">
+                <img src="images/work/date.png" class="dateImg" >
+                <span class="date">{{param.date}}</span>
+                <img src="images/work/drop-down.png" class="dropImg">
+            </ionic-datepicker>
+            <span style="margin-left:20px;color:white">{{param.week}}&nbsp;&nbsp;{{param.scheduleDate}}</span>
+        </div>
+        <div ng-show="!param.picFlag">
+        <ion-item  class="bgfff row mb10"   ng-click="confirmedGo(item.appointmentInfo.id)" ng-repeat="item in param.appointList">
+            <div class="col col-20" style="line-height: 49px;">
+                <img ng-src="{{item.sysClerkInfo.photo}}" style="height:50px;width:50px;border-radius:2em;background:lightgrey">
+            </div>
+            <div class="col col-80 ml-20" style="margin-left:-10px">
+                <p class="fs15">
+                    <span>客户姓名：{{item.appointmentInfo.sysUserName}}</span>
+                    <span style="float: right">
+                      <a  ng-click="pho(item.appointmentInfo.sysUserPhone)"><img src="images/work/phone.png" style="width: 14px;height: 23px;"></a>
+                    </span>
+                </p >
+                <p class="fs15">预约项目数：{{item.appointmentNumber}}项</span></p>
+                <p class="fs15" style="white-space:pre-wrap">项目名称：{{item.appointmentInfo.shopProjectName}}</p>
+                <p class="fs15">
+                    <img src="images/work/minute.png" style="display: inline-block;width: 15px;height: 15px;margin-left: 5px"><span style="margin-left: 17px">{{item.appointmentInfo.appointStartTime|date:'HH:mm'}}~{{item.appointmentInfo.appointEndTime|date:'HH:mm'}}</span><span class="ml10">{{item.appointmentInfo.appointPeriod}}分钟</span>
+                <p>状态：
+                    <span class="eal-s1" ng-if="item.appointmentInfo.status=='0'">未开始</span>
+                    <span class="eal-s1" ng-if="item.appointmentInfo.status=='1'">已确认</span>
+                    <span class="eal-s1" ng-if="item.appointmentInfo.status=='2'">服务中</span>
+                    <span class="eal-s1" ng-if="item.appointmentInfo.status=='3'">已完成</span>
+                    <span class="eal-s1" ng-if="item.appointmentInfo.status=='4'">取消预约</span>
+                    <span class="eal-s1" ng-if="item.appointmentInfo.status=='5'">进行中</span>
+                    <span class="eal-s1" ng-if="item.appointmentInfo.status=='6'">已结束</span>
+                </p>
+                </p >
+            </div>
+        </ion-item>
+        </div>
+         <!--页面没有数据显示空页面-->
+        <void-pic></void-pic>
+    </ion-content>
+   <!-- <div class="tabs " style="padding-top: 0px;background: #eeeeee" ng-click="employeeReservation()">
+        <a class="tab-item colff66 fs16">
+            已取消的预约
+        </a>
+    </div>-->
+</ion-view>

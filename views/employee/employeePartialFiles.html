@@ -1,0 +1,55 @@
+<ion-view >
+    <ion-content class="partialFiles bgf6">
+        <ion-list>
+            <ion-list>
+                <ion-item class="item-input" style="background: border-box;height: 40px; ">
+               <span class="item-input-wrapper" style="margin-right:16px;height:30px;margin-left:10px;" >
+                        <i class="icon ion-ios-search placeholder-icon" ></i>
+                        <input id="search" type="search" placeholder="请输入顾客姓名或者手机号码" ng-model="param.queryField" ng-change="search()">
+                        <i class="icon ion-close-circled placeholder-icon" style="vertical-align: middle;"
+                           on-tap="clearSearch()"></i>
+                 </span>
+                </ion-item>
+            </ion-list>
+            <div style="position: relative;height:100%;">
+                <div class="h54 bgfff mt5 fs16" ng-click="switching()">
+                    <img src="images/warning.png" class="warningPic ml10 mr10">
+                    预警档案
+                    <i class="ion ion-ios-arrow-right" style="float: right;margin-right: 20px;margin-top: 17px;font-size: 20px"></i>
+                </div>
+                <ion-list>
+                    <div ng-repeat="bigItem in info">
+                        <div ng-repeat="(key,value) in bigItem">
+                            <ion-item class="h30 bge6">
+                                <span class="ml10">{{key}}</span>
+                            </ion-item>
+                            <ion-item  class="h60 bgfff row" ng-repeat="item in value" ng-click="goActives(item.id)">
+                                <div class="col col-70" style="display: flex">
+                                    <div class="sb" style="line-height: 49px;">
+                                        <img ng-src="{{item.imageUrl}}" style="height:42px;width:42px;border-radius: 50%;" class="ml10">
+                                    </div>
+                                    <div class="ml10">
+                                        <p class="fs16">{{item.sysUserName}}</p>
+                                        <p class="fs12 col666"> <img src="images/time.png" class="timePic mr5">上次到店时间：{{item.lastToShopTime|date:'yyyy-MM-dd'}}</p>
+                                    </div>
+                                </div>
+                                <!--<div class="col col-25" style="line-height: 49px;">-->
+                                    <!--<img src="images/associated.png" class="associated ml20 ">-->
+                                    <!--<span class="fs11 colff66">{{item.sysClerkName}}</span>-->
+                                <!--</div>-->
+                            </ion-item>
+                        </div>
+                    </div>
+                </ion-list>
+                    <ion-list>
+                        <ion-item  class="  h50 bgfff center"  ng-click="checkFileBox(item.id);$event.stopPropagation()" ng-repeat="item in switchingList">
+                            {{item.sysShopName}}
+                        </ion-item>
+                    </ion-list>
+                </div>
+            </div>
+        </ion-list>
+        <br><br>
+    </ion-content>
+    <clerk-footer></clerk-footer>
+</ion-view>

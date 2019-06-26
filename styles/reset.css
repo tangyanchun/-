@@ -1,0 +1,37 @@
+@charset "utf-8";
+html { font-family:"微软雅黑" }
+body { margin: 0; font-size:0.28rem; color: #fff; height: 100%; overflow-x: hidden;background:#2b2b2b;}
+body,html{height:100%;}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary { display: block; }
+a { background: transparent; text-decoration: none; color: #fff; display: block;}
+aactive { outline: 0; }
+b, strong { font-weight: normal; }
+i { font-style:normal; }
+em{font-style: normal;}
+dfn { font-style:normal;}
+img { border: 0; vertical-align: middle; display: block;}
+* {
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        -webkit-tap-highlight-color: transparent; /* For some Androids */
+        outline: none;
+}
+input,textarea,button,select { border: 0; margin: 0; padding: 0; font-size:0.28rem; font-family:"黑体", "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif;}
+button{background: transparent;}
+textarea { resize: none;}
+table { border-collapse: collapse; border-spacing: 0; }
+td, th { padding: 0; }
+h1, h2, h3, h4, h5, h6, p, figure, form, blockquote { margin: 0; }
+ul, ol, li, dl, dd ,dt ,input ,textarea ,select ,div ,body { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+input::-moz-placeholder, textarea::-moz-placeholder { color: #c0c0c0; }
+input:-ms-input-placeholder, textarea:-ms-input-placeholder { color: #c0c0c0; }
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { color: #c0c0c0; }
+
+.clearfix:after { content:"."; display:block; height:0; clear:both; visibility:hidden;}
+.clearfix { display:inline-block;}
+/* Hides from IE-mac \*/
+* html .clearfix { height:1%;}
+.clearfix { display:block; clear: both;}
+/* End hide from IE-mac */
+/*Reset End*/
+

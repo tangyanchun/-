@@ -1,0 +1,53 @@
+<ion-view>
+    <ion-content>
+        <div>
+            <div>
+                <p class="h30 ml10">
+                    基础信息
+                </p>
+                <div class="list">
+                    <p class="item sb p10"><span>时间</span><span> {{details.createDate|date : 'yyyy-MM-dd hh:mm:ss'}}</span></p>
+                    <p class="item sb p10"><span>顾客</span><span>{{details.sysUserName}}</span></p>
+                    <p class="item sb p10"><span>操作门店</span><span>{{details.sysShopName}}</span></p>
+                    <p class="item sb p10"><span>前台</span><span>{{details.createBy}}</span></p>
+                    <div class="list">
+                        <p class="item sb p10"><span>类型</span>
+                            <span class="fs14 col66" >寄存领取 </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div >
+                <p class="h30 ml10 bbl">商品信息</p>
+                <div class="bgfff">
+                    <p class=" ml10 fs13  bgfff h40 bbl">{{details.flowName}}</p>
+                    <div class=" ml10 " >
+                        <p class=" ml20 fs13 col88 sb h40 bbl mr10">
+                            <span>购买数量</span>
+                            <span>{{details.initTimes==null?0:details.initTimes}}</span>
+                        </p>
+                        <p class=" ml20 fs13 col88 sb h40 bbl mr10">
+                            <span>未领取数量</span>
+                            <span>{{details.waitReceiveNumber==null?0:details.waitReceiveNumber}}</span>
+                        </p>
+                        <p class=" ml20 fs13 col88 sb h40 bbl mr10">
+                            <span>领取数量</span>
+                            <span>{{details.consumeNumber==null?0:details.consumeNumber}}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+
+            <p class="h50 ml10">顾客签字</p>
+            <div style="height:156px;" class="bgfff">
+                <img ng-src="{{details.signUrl}}" style="width:100%;">
+            </div>
+            <p class="h50 ml10 fs14">备注</p>
+            <textarea style="height:80px;width:100%;margin-bottom: 50px;" class="bgfff" >
+                    {{details.detail}}
+            </textarea>
+        </div>
+    </ion-content>
+</ion-view>

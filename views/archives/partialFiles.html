@@ -1,0 +1,80 @@
+<ion-view >
+    <ion-list>
+        <ion-item class="item-input" style="background: border-box;height: 40px; ">
+                <span class="item-input-wrapper" style="margin-right:12px;height:30px;" >
+                        <i class="icon ion-ios-search placeholder-icon" ></i>
+                        <input id="search" type="search" placeholder="请输入顾客姓名或者手机号码" ng-model="param.queryField" ng-change="getInfo()">
+                        <i class="icon ion-close-circled placeholder-icon" style="vertical-align: middle;" ng-if="param.queryField!=''"
+                           ng-click="clearSearch()"></i>
+                 </span>
+            <!--<i  class="changeArchivesBtn fs15 col333 mr10" ng-click="tabSwitching()">切换档案</i>-->
+        </ion-item>
+    </ion-list>
+    <ion-content class="partialFiles bgf6" style="margin-top:40px;" delegate-handle="dashboard">
+        <ion-list>
+            <div style="position: relative;height:100%;">
+                <ion-list>
+                    <ion-item  style="background: #ffffff;" class="h45" ng-click="newUser()">
+                        <img src="images/jia.png" class="img ml10 mr10" >
+                        新建
+                    </ion-item>
+                </ion-list>
+                <div class="h54 bgfff mt5 fs16" ng-click="switching()">
+                    <img src="images/warning.png" class="warningPic ml10 mr10">
+                    预警档案
+                    <i class="ion ion-ios-arrow-right" style="float: right;margin-right: 20px;margin-top: 17px;font-size: 20px"></i>
+                </div>
+                <div class="h54 bgfff mt5 fs16" ui-sref="sendContent">
+                    <img src="images/tongzhi.png" class="warningPic ml10 mr10">
+                    通知顾客
+                    <i class="ion ion-ios-arrow-right" style="float: right;margin-right: 20px;margin-top: 17px;font-size: 20px"></i>
+                </div>
+                <div class="h54 bgfff mt5 fs18" ui-sref="archivesSorting">
+                    <i class="icon ion-android-funnel  ml10 mr10" style="font-size:36px;color: #ff6666;vertical-align: middle;"></i>
+                    排序
+                    <i class="ion ion-ios-arrow-right" style="float: right;margin-right: 20px;margin-top: 17px;font-size: 20px"></i>
+                </div>
+                <ion-list style="height:100%;">
+                    <div ng-repeat="bigItem in info">
+                        <div ng-repeat="(key,value) in bigItem">
+                            <ion-item   class="h30 bge6 "  >
+                                <span class="ml10">{{key}}</span>
+                            </ion-item>
+                            <ion-item  class="h60 bgfff row" ng-repeat="item in value" >
+                                <div class="col col-70" style="display: flex" ng-click="goActives(item.id)">
+                                    <div class="sb" style="line-height: 49px;">
+                                        <img ng-src="{{item.imageUrl}}" style="height:42px;width:42px;border-radius: 50%;" class="ml10" >
+                                    </div>
+                                    <div class="ml10">
+                                        <p class="fs16">{{item.sysUserName}}</p>
+                                        <p class="fs12 col666"> <img src="images/time.png" class="timePic mr5">上次到店时间：{{item.lastToShopTime|date:'yyyy-MM-dd'}}</p>
+                                    </div>
+                                </div>
+                                <div class="col col-10" style="line-height: 49px;float:right;" >
+                                    <i class="icon ion-trash-a" style="float: right;color:#ff6666;font-size:25px;" ng-click="del1(item.id,item.sysUserId)"></i>
+                                </div>
+                            </ion-item>
+                        </div>
+                    </div>
+                </ion-list>
+           </div>
+       </ion-list>
+
+       <br><br>
+   </ion-content>
+    <div style="position: absolute;width:80%;height:150px;left:10%;top:50%;margin-top:-75px;z-index: 1001;background: #fff;border-radius: 10px;" ng-show="param.delFalse">
+        <div style="height:100px;line-height: 100px;margin-left: 30px;">
+            确认删除么
+        </div>
+        <div style="display: flex;justify-content:space-between;height: 50px;line-height: 50px;">
+            <p style="width:50%;text-align: center;background: #eeeeee" ng-click="del(0)">取消</p>
+            <p style="width:50%;text-align: center;background: #ff6666;    border-bottom-right-radius: 10px;"  ng-click="del(1)">确定</p>
+        </div>
+    </div>
+    <div style="background: rgba(0,0,0,0.2);position: absolute;top:0;left:0;width:100%;height:100%;z-index:1000" ng-click="del(0)" ng-show="param.delFalse">
+    </div>
+    <div class="h50  bgff66" style="position: absolute;bottom: 0;width:100%;">
+        <p class="fs16 colfff ml10 center" ng-click="addEmployeesGo()">添加家人</p>
+    </div>
+   <boss-footer ></boss-footer>
+</ion-view>

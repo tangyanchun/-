@@ -1,0 +1,22 @@
+<ion-view>
+    <ion-content>
+        <div  >
+            <ion-list >
+                <ion-item  class="h60 bgfff " style="display: flex;" ng-repeat="item in accountDetails">
+                    <div class="W33 ml20">
+                        <p >{{item.createDate|date:'yyyy-MM-dd'}}</p>
+                    </div>
+                    <p class="W33 ml20 " ng-if="item.consumeType == '1'">店内消费</p>
+                    <p class="W33 ml20 " ng-if="item.consumeType == '0'">店内充值</p>
+                    <div class="W33 ml20 ">
+                        <p class="floatR">
+                            <span class="colff66" ng-if="item.consumeType == '0'">+{{item.price}}</span>
+                            <span class="col4BC647" ng-if="item.consumeType == '1'">-{{item.price}}</span>
+                            <img src="images/more.png"  class="more mr10 ml5">
+                        </p>
+                    </div>
+                </ion-item>
+            </ion-list>
+        </div>
+    </ion-content>
+</ion-view>

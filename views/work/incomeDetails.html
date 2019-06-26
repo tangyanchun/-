@@ -1,0 +1,9 @@
+<ion-view class="bg">
+    <ion-content>
+        <div class="list" ng-show="!param.picFlag">
+            <p class="item p8" ng-repeat="item in incomeDetails" ui-sref="details({flowNo:item.flowNo})"><span class="fl fs14" >总金额</span><span  class="fs15 colff66 fr">{{'+'+item.totalPrice}}</span><br><span class="fs12 col99">{{item.createDate|date:'yyyy-MM-dd HH:mm:ss'}}</span>
+            </p>
+        </div>
+        <void-pic></void-pic>
+    </ion-content>
+</ion-view>

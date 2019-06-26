@@ -1,0 +1,22 @@
+productSetting<ion-view class="bg">
+    <ion-content>
+        <div class="list">
+            <p class="sb h45 bgfff">
+                <label class="fs16 col333 ml10 mt10" style="width:70px;">品牌名称</label> <span class="colff66">*</span>
+                <input type="text" style="width:75%;text-align: right" class="fs14 col999 mt5 mr10" placeholder="请输入品牌名称" ng-model="param.productTypeName">
+            </p>
+            <li class="item item-toggle">
+                启动/禁用
+                <label class="toggle toggle-assertive">
+                    <input type="checkbox" ng-model="param.status">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+        </div>
+        <div class="tc">
+            <button style="width:165px;height: 32px;border-radius:0.46rem;color: #FFFFFF;background: #ff4a59;font-size: 0.34rem;margin-top: 101px" class="button " ng-click="preservation()">保存</button>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,41 @@
+<ion-view>
+    <ion-content>
+        <div class="list">
+            <!--diy logo -->
+            <div style="padding:44px 0 37px 0 ;text-align: center;background: #ffffff;">
+                 <img src="images/diyLogo.png" style="width: 120px;height: 120px;margin: auto;">
+            </div>
+            <label class="item item-input">
+                <input type="number" min="1" inputmode="numeric" pattern="[0-9]*" title="Non-negative integral number"  placeholder="请输入您的手机号" ng-model="param.userPhone">
+            </label>
+            <label class="item item-input" style="font-size: 0.34rem;color: #cccccc">
+                <input type="number" min="1" inputmode="numeric" pattern="[0-9]*" title="Non-negative integral number"  placeholder="请输入验证码" id='validCode' >
+            </label>
+            <button class="button button-small"
+                    ng-if="param.validateCodeButtonStatus"
+                    ng-click="getValidateCode()"
+                    style=" margin-right:0.4rem;border: solid 1px;width: 2.28rem;border-radius: 0.46rem;color: #999999;
+                            background: transparent;float: right;margin-top: -38px;z-index: 2;font-size: 0.32rem">
+                获取验证码
+            </button>
+            <button class="button button-small"
+                    ng-if="!param.validateCodeButtonStatus"
+                    style="margin-right:0.4rem;border: solid 1px;width: 4rem;border-radius: 20px;
+                            background: transparent;float: right;margin-top: -38px;z-index: 2;">
+                请{{param.timeCount}}秒后重新获取验证码
+            </button>
+            <button class="button" ng-if="param.validateCode==''"
+                    ng-click="userLogin()"
+                    style="margin-top:0.8rem;float:right;margin-right:0.5rem;width:2.28rem;height: 0.88rem;
+                            background:#87ad56;color:white;border-radius:0.46rem;font-size: 0.34rem;color: white">
+                登录
+            </button>
+            <button class="button" ng-if="param.validateCode!=''"
+                    ng-click="userLogin()"
+                    style="margin-top:0.8rem;float:right;margin-right:0.5rem;width:2.28rem;height: 0.88rem;
+                            background:#ff4a59;color:white;border-radius:0.46rem;font-size: 0.34rem;color: white">
+                登录
+            </button>
+        </div>
+    </ion-content>
+</ion-view>

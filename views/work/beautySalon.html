@@ -1,0 +1,36 @@
+<ion-view class="bg">
+    <ion-content ng-click="none()">
+        <!--日期部分-->
+        <div class="bgRgb">
+            <ionic-datepicker input-obj="datepickerObjectEnd">
+                <img src="images/work/date.png" class="dateImg" >
+                <span class="date">{{param.date}}</span>
+                <img src="images/work/drop-down.png" class="dropImg">
+            </ionic-datepicker>
+        </div>
+        <ion-item  class=" bgfff row" ng-repeat="(key,val) in beautySalon"  ng-click="canceledGo(val.sysClerkDTO.id)">
+            <div class="col col-15" >
+                <p style="height:42px;width:42px;">
+                    <img ng-src="{{val.sysClerkDTO.photo}}" style="height:42px;width:42px;border-radius: 50%;">
+                </p >
+            </div>
+
+            <div class="col col-60" >
+                <p class="fs15">
+                    <span>{{val.sysClerkDTO.name}}</span>
+                    <span style="margin-left: 20px;padding:0 8px;height: 20px;display: inline-block;
+                    border: 1px solid rgb(255,102,102);border-radius: 8px;text-align: center;line-height: 20px;
+                    color:#ff6666;font-size: 12px">{{val.sysClerkDTO.role}}</span></p >
+                <p class="fs12 col88">
+                    <img src="images/work/minute.png" style="display: inline-block;width: 15px;height: 15px;margin-left: 5px"><span style="margin-left: 17px">{{val.point}}个预约</span>
+                </p >
+            </div>
+            <div class="col col-25">
+
+            </div>
+        </ion-item>
+        <div ng-if="param.beautyNone=='none'" class="bgfff" style="width:100%;height:100%">
+            <void-picother></void-picother>
+        </div>
+    </ion-content>
+</ion-view>

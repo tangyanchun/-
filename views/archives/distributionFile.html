@@ -1,0 +1,67 @@
+<ion-view>
+    <ion-content class="partialFiles">
+        <div>
+            <ion-list>
+                <ion-item class="item-input" style="background: border-box;height: 40px; ">
+                <span class="item-input-wrapper" style="margin-right:10px;height:30px;margin-left:10px;" >
+                        <i class="icon ion-ios-search placeholder-icon" ng-click="search()"></i>
+                        <input id="search" type="search" placeholder="请输入顾客姓名或者手机号码" ng-model="searchCont.key" >
+                        <i class="icon ion-close-circled placeholder-icon" style="vertical-align: middle;"
+                           on-tap="clearSearch()" ng-if="searchCont.key.length"></i>
+                 </span>
+                    <i  class="mr10 fs15 colff66">确定</i>
+                </ion-item>
+            </ion-list>
+            <div style="position: relative;height:100%;">
+                <ion-list>
+                    <ion-item  style="background: #ffffff;" class="h45">
+                        <img src="images/jia.png" class="img ml10 mr10" >
+                        新建
+                    </ion-item>
+                    <ion-item  style="background: #fff;" class="h45">
+                        <img src="images/pei.png" class="peiPic ml10 mr10">
+                        分配
+                    </ion-item>
+                </ion-list>
+                <div class="h54 bgfff mt5 fs16">
+                    <img src="images/warning.png" class="warningPic ml10 mr10">
+                    预警档案
+                </div>
+                <ion-list>
+                    <ion-item   class="h30 bge6 ">
+                        <span class="ml10">A</span>
+                    </ion-item>
+                    <ion-item  class="h60 bgfff "  row ng-repeat='item in [0,1,2]'>
+                        <div class="col col-70" style="display: flex">
+                            <div class="sb" style="line-height: 49px;">
+                                <img src="images/selGray.png" class="ml10 selGray " style="margin-top:14px;">
+                                <p style="height:42px;width:42px;background: gainsboro;border-radius: 50%;" class="ml10"></p>
+                            </div>
+                            <div class="ml10">
+                                <p class="fs16">安琪</p>
+                                <p class="fs12 col666"> <img src="images/time.png" class="timePic mr5">上次到店时间：2018-03-09</p>
+                            </div>
+                        </div>
+                        <p class="col col-25" style="line-height: 49px;">
+                            <img src="images/associated.png" class="associated ml20 ">
+                            <span class="fs11 colff66">夏琳</span>
+                        </p>
+                    </ion-item>
+                </ion-list>
+                <div style="position: absolute;background:#000;opacity: 0.2;width:100%;height:100%;z-index: 100;top:0;display: none">
+                </div>
+                <div style="z-index: 101;position: absolute;width:100%;top:0 ;display: none" >
+                    <ion-list >
+                        <ion-item  class="  h50 bgfff center">
+                            全院档案
+                        </ion-item>
+                        <ion-item  class="  h50 bgfff center">
+                            美容院分院
+                        </ion-item>
+
+                    </ion-list>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

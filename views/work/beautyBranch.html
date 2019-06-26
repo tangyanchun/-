@@ -1,0 +1,97 @@
+<style>
+    table tr:nth-child(even){
+        background: #fbfeff;
+    }
+</style>
+<ion-view class="bg">
+    <ion-content>
+        <!--日期部分-->
+        <div class="bgRgb">
+            <ionic-datepicker input-obj="datepickerObjectEnd">
+                <img src="images/work/date.png" class="dateImg" >
+                <span class="date">{{param.date}}</span>
+                <img src="images/work/drop-down.png" class="dropImg">
+            </ionic-datepicker>
+        </div>
+        <div style="width: 100%;height: 175px" class="bgfff pt10">
+            <!--切换部分-->
+            <div  class="tabBox h">
+                <button ng-class="{ 'activeCardType' : param.current == '1' }" ng-click="setCurrent('1')">人头数</button>
+                <button ng-class="{ 'activeCardType' : param.current == '3' }" ng-click="setCurrent('3')" style="margin-left: -5px;">新客数</button>
+                <button ng-class="{ 'activeCardType' : param.current == '2' }" ng-click="setCurrent('2')" style="margin-left: -4px;">人次数</button>
+            </div>
+            <!--人头数 新客数 人次数展示部分-->
+             <div class="redBox tc colff " style="margin-top: 15px;margin-bottom: 20px" ng-if="param.current == 1">
+                 <p class="fs13">人头数</p>
+                 <p class="fs14">{{beautyBranch.consumeNumber}}</p>
+             </div>
+            <div class="redBox tc colff " style="margin-top: 15px;margin-bottom: 20px" ng-if="param.current == 3">
+                <p class="fs13">新客数</p>
+                <p class="fs14">{{beautyBranch.shopNewUserNumber}}</p>
+            </div>
+            <div class="redBox tc colff " style="margin-top: 15px;margin-bottom: 20px" ng-if="param.current == 2">
+                <p class="fs13">人次数</p>
+                <p class="fs14">{{beautyBranch.consumeTime}}</p>
+            </div>
+        </div>
+        <!--切换的内容部分-->
+        <div  style="width: 100%;height: 300px;" class="mt10 col33">
+            <div ng-if="param.current == 1">
+                <ion-item  class=" bgfff row" ng-repeat="item in beautyBranch.responseDTOList">
+                    <div class="col col-20" style="">
+                        <p style="height:42px;width:42px;border-radius: 50%;" class="ml10">
+                            <img ng-src="{{item.photo}}" style="height:42px;width:42px;">
+                        </p >
+                    </div>
+
+                    <div class="col col-80">
+                        <p class="fs15">{{item.nickname}} <img src="images/work/newPerson.png" style="width: 20px;height: 20px;display: inline-block;margin-left: 5px" ng-if="item.newUser==true"></p >
+                        <p class="fs12 col666"><span >最后到店</span><span>{{item.lastArriveTime|date:'yyyy-MM-dd'}}</span></p >
+                    </div>
+                </ion-item>
+            </div>
+
+            <div ng-if="param.current == 3&&beautyBranch.shopNewUserNumber!=0">
+                <div id="container" style="width: 100%; height: 400px; margin: 0 auto"></div>
+                <table class="table  text-center bgfff mt20" style="width:100%;table-layout: fixed;">
+                    <tr>
+                        <th style="border: solid #e6e6ea 1px;" class="h40">渠道</th>
+                        <th style="border: solid #e6e6ea 1px;" class="h40">人数</th>
+                        <th style="border: solid #e6e6ea 1px;" class="h40">渠道占比率</th>
+                    </tr>
+                    <tr ng-repeat="item in beautyBranch.shopChannelResponseList">
+                        <td style="border-right: solid #e6e6ea 1px;border-bottom: solid #e6e6ea 1px;" class="h40">
+                            {{item.channelName}}
+                        </td>
+                        <td style="border-right: solid #e6e6ea 1px;border-bottom: solid #e6e6ea 1px;" class="h40">
+                            {{item.channelPeopleNumber}}
+                        </td>
+                        <td style="border-right: solid #e6e6ea 1px;border-bottom: solid #e6e6ea 1px;" class="h40">
+                            {{item.channelPeopleProportionr}}%
+                        </td>
+                    </tr>
+                </table>
+
+                </ion-item>
+            </div>
+            <div ng-if="param.current == 2">
+                <ion-item  class=" bgfff row" ng-repeat="item in beautyBranch.responseDTOList">
+                    <div class="col col-20" style="">
+                        <p style="height:42px;width:42px;border-radius: 50%;" class="ml10">
+                            <img ng-src="{{item.photo}}" style="height:42px;width:42px;">
+                        </p >
+                    </div>
+
+                    <div class="col col-60">
+                        <p class="fs15">{{item.nickname}} <img src="images/work/newPerson.png" style="width: 20px;height: 20px;display: inline-block;margin-left: 5px" ng-if="item.newUser==true"></p >
+                        <p class="fs12 col666"><span >最后到店</span><span>{{item.lastArriveTime|date:'yyyy-MM-dd'}}</span></p >
+                    </div>
+                    <div class="col col-20">
+                        <p class="fr">到店{{item.useArriveShopTime}}次</p>
+                    </div>
+                </ion-item>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>

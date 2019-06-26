@@ -1,0 +1,100 @@
+
+<ion-view  >
+    <p class="h45 bgfff fs16 colff66">
+        <span ng-click="sel()"><img src="images/screening.png" class="screeningPic ml10 mr10">筛选</span>
+    </p>
+    <ion-content class="partialFiles bgf6" style="margin-top:45px;" delegate-handle="dashboard">
+            <div ng-class="{'hidden':param.flag==true}" >
+                <ion-list ng-show="!param.picFlag"  >
+                    <ion-item  class="h50 bgfff" style="display: flex;" ng-repeat="item in recordCashier" ng-click="detailsOfCashierGo(item.flowNo)">
+                        <div class="W33 ml20">
+                            <p class="mt5 fs16 fs15 col666">{{item.createDate|date:'yyyy-MM-dd'}} </p>
+                        </div>
+                        <p class="W33 ml20  fs15 col888 center" ng-if="item.title == '0'">充值</p>
+                        <p class="W33 ml20  fs15 col888 center" ng-if="item.title == '1'">消费 </p>
+                        <!--<p class="W33 ml20  fs15 col888 center" ng-if="item.consumeType == '2'">还欠款</p>-->
+                        <!--<p class="W33 ml20  fs15 col888 center" ng-if="item.consumeType == '3'">退款</p>-->
+                        <div class="W33 ml20 fs15 col888">
+                            <p class="floatR">
+                                <span class=" ">{{item.sumAmount}}</span>
+                                <img src="images/more.png" class="more mr10">
+                            </p>
+
+                        </div>
+                    </ion-item>
+
+                </ion-list>
+
+            </div>
+            <div style="position: absolute;height:100%;background: #000;opacity: 0.2;top:0;width:100%;z-index: 100;" ng-show="param.flag" ng-click="disNone()"></div>
+            <div style="position: absolute;right:0;top:0;z-index: 101;width:80%;height:100%; "class="bgf6" ng-show="param.flag">
+                <p class=" bgfff">
+                    <img src="images/close.png"class="closePic ml10 mt20 " ng-click="disNone()">
+                </p>
+                <div>
+                    <p class="fs15 col666 bgfff bbl pb5 h40"><span class="ml10 ">状态</span></p>
+                    <div class="row row-wrap bgfff">
+                        <p class="col col-33 " >
+                            <a class="commonType center " style="height:26px;width:80px;line-height: 26px;" ng-click="selType('5')" ng-class="{'activeType':param.searchState=='5'}">全部</a>
+                        </p>
+                        <p class="col col-33 ">
+                            <a class="commonType center " style="height:26px;width:80px;line-height: 26px;" ng-click="selType('0')" ng-class="{'activeType':param.searchState=='0'}">充值</a>
+                        </p>
+                        <p class="col col-33 ">
+                            <a class="commonType center " style="height:26px;width:80px;line-height: 26px;" ng-click="selType('1')" ng-class="{'activeType':param.searchState=='1'}">消费</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="mt10">
+                    <p class="fs15 col666 bgfff bbl pb5 h40"><span class="ml10 ">时间</span></p>
+                    <div class="row row-wrap bgfff">
+                        <p class="col col-33 " >
+                            <a class="commonType center " style="height:26px;width:80px;line-height: 26px;" ng-click="selTime(0)" ng-class="{'activeType':param.timeIndex==0}">不限</a>
+                        </p>
+                        <p class="col col-33 ">
+                            <a class="commonType center " style="height:26px;width:80px;line-height: 26px;" ng-click="selTime(-7)" ng-class="{'activeType':param.timeIndex==-7}">最近一周</a>
+                        </p>
+                        <p class="col col-33 ">
+                            <a class="commonType center " style="height:26px;width:80px;line-height: 26px;" ng-click="selTime(-15)" ng-class="{'activeType':param.timeIndex==-15}">最近十五天</a>
+                        <p class="col col-33 ">
+                            <a class="commonType center " style="height:26px;width:80px;line-height: 26px;" ng-click="selTime(-30)" ng-class="{'activeType':param.timeIndex==-30}">最近一个月</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt10">
+                    <ion-list>
+                        <ion-item  class="h45 bgfff" style="display: flex;justify-content: space-between" ng-click="selStart(0)">
+                            <ionic-datepicker input-obj="datepickerObjectEnd" style="width:100%;" class="sb">
+                                <p class="ml10 fs13 col888">开始时间</p>
+                                <p class="mr10">
+                                    {{param.startDate}}
+                                    <img src="images/more.png" style="width:8px;height:14.1px;">
+                                </p>
+                            </ionic-datepicker>
+                        </ion-item>
+                        <ion-item  class="h45 bgfff" style="display: flex;justify-content: space-between" ng-click="selStart(1)">
+                            <ionic-datepicker input-obj="datepickerObjectEnd" style="width:100%;" class="sb">
+                                <p class="ml10 fs13 col888">结束时间</p>
+                                <p class="mr10">
+                                    {{param.endDate}}
+                                    <img src="images/more.png" style="width:8px;height:14.1px;">
+                                </p>
+                            </ionic-datepicker>
+                        </ion-item>
+                    </ion-list>
+                </div>
+
+                <div class="tabs bgfff">
+                    <a class="tab-item True" ng-click="reset()">
+                        重置
+                    </a>
+                    <a class="tab-item True activeTrue" ng-click="selTrue()">
+                        确认
+                    </a>
+                </div>
+            </div>
+        <!--空 图片-->
+        <void-pic></void-pic>
+    </ion-content>
+</ion-view>

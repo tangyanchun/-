@@ -1,0 +1,47 @@
+<ion-view >
+    <ion-content class="partialFiles">
+        <div>
+            <ion-list>
+                <ion-item class="item-input" style="background: border-box;height: 40px; ">
+                <span class="item-input-wrapper" style="margin-right:10px;height:30px;margin-left:10px;" >
+                        <i class="icon ion-ios-search placeholder-icon" ng-click="search()"></i>
+                        <input id="search" type="search" placeholder="请输出您想查找的姓名" ng-model="searchCont.key" class="fs16">
+                        <i class="icon ion-close-circled placeholder-icon" style="vertical-align: middle;"
+                           on-tap="clearSearch()" ng-if="searchCont.key.length"></i>
+                 </span>
+                    <i  class=" fs15 col333 mr10 colff66" >取消</i>
+                </ion-item>
+            </ion-list>
+            <div style="position: relative;height:100%;">
+                <ion-list>
+                    <ion-item  class="h60 bgfff row" >
+                        <div class="col col-15" style="line-height: 49px;">
+                            <p style="height:42px;width:42px;background: gainsboro;border-radius: 50%;" class="ml10"></p>
+                        </div>
+                        <div class="col col-60">
+                            <p class="fs16">安琪</p>
+                            <p class="fs12 col666"> <img src="images/time.png" class="timePic mr5">上次到店时间：2018-03-09</p>
+                        </div>
+                        <p class="col col-25" style="line-height: 49px;">
+                            <img src="images/associated.png" class="associated ml20 ">
+                            <span class="fs11 colff66">夏琳</span>
+                        </p>
+                    </ion-item>
+                    <ion-item  class="h60 bgfff row" >
+                        <div class="col col-15" style="line-height: 49px;">
+                            <p style="height:42px;width:42px;background: gainsboro;border-radius: 50%;" class="ml10"></p>
+                        </div>
+                        <div class="col col-60">
+                            <p class="fs16">安琪</p>
+                            <p class="fs12 col666"> <img src="images/time.png" class="timePic mr5">上次到店时间：2018-03-09</p>
+                        </div>
+                        <p class="col col-25" style="line-height: 49px;">
+                            <img src="images/associated.png" class="associated ml20 ">
+                            <span class="fs11 colff66">夏琳</span>
+                        </p>
+                    </ion-item>
+                </ion-list>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,27 @@
+<ion-view class="skin bgfff">
+    <ion-content>
+        <div>
+            <p style="color: #f5b333;font-size: 23px;margin-left: 15px;font-weight: bold;margin-top: 20px">请选择您的需求</p>
+            <p style="color: #d1d1d1;font-size: 15px;margin-left: 15px">(只能选一种)</p>
+        </div>
+        <div class="list" style="margin-top: 20px">
+            <div class="row row-wrap">
+                <div class="col col-50" ng-repeat="item in arr" style="position: relative;text-align: center" ng-click="checkDemand($index)">
+                    <div style="width: 160px;height: 163px;position: absolute;top: 0px;left: 0px;bottom:0;right:0;margin:auto;background: #d1d1d1;opacity: 0.8" ng-if="item.checklist"></div>
+                    <img src="images/checkSkin.png" style="width: 20px;height: 20px;position: absolute;left: 20px;top: 20px;z-index: 1003" ng-if="item.checkGoods">
+                    <img ng-src="{{item.imageUrl}}" class="skinImages"  >
+                </div>
+            </div>
+        </div>
+        <div class="list">
+            <div class="row">
+                <div class="col col-40" style="text-align: center;padding: 0px;border-radius: 20px;margin: 18px;background: #87ad56;color: #ffffff;height: 45px;line-height: 45px" ng-click="goPay()">
+                    跳过，直接去结算
+                </div>
+                <div class="col col-40" style="text-align: center;padding: 0px;background: #87ad56;color: #ffffff;margin: 18px;border-radius: 20px;height: 45px;line-height: 45px" ng-click="nextTep()">
+                    下一步
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

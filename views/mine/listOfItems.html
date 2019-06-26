@@ -1,0 +1,34 @@
+<ion-view>
+    <div>
+        <ion-list>
+            <ion-item class="item-input" style="background: border-box;height: 40px; ">
+                <span class="item-input-wrapper" style="margin-right:10px;height:30px;margin-left:10px;border:solid 1px #FF6666" >
+                    <i class="icon ion-ios-search placeholder-icon" ng-click="search()"></i>
+                    <input id="search" type="search" placeholder="可用项目名称搜索" ng-model="param.filterStr" ng-change="searchProject()">
+                    <i class="icon ion-close-circled placeholder-icon" style="vertical-align: middle;"
+                       on-tap="clearSearch()" ng-if="param.filterStr.length"></i>
+                </span>
+                <span class="mr10 colff66"  ng-click="editorCardGo()">
+                     完成
+                 </span>
+            </ion-item>
+        </ion-list>
+    </div>
+    <ion-content class="partialFiles bgf6" style="margin-top:45px">
+        <div ng-repeat="(index,item) in listOfItems">
+            <p class="pd15 bbl fs13 h30">{{item.twoLevel.projectTypeTwoName}}</p>
+            <div class="list">
+                <li class="item pd15 h50 sb" ng-repeat="(indexs,items) in item.threeProjectList" ng-click="addProject(items,index,indexs)">
+                    <p >
+                        <i class="icon ion-android-radio-button-off" class="col888" style="color:#FF6666;font-size:20px;" ng-if="param.ids.indexOf(items.id) == -1" ng-click="expirationDate()"></i>
+                        <i class="icon icon ion-ios-checkmark" style="color:#FF6666;font-size:20px;" ng-if="param.ids.indexOf(items.id) != -1"></i>
+                        {{items.projectName}}
+                    </p>
+                    <p class="W33">
+                        <span class="fr">{{items.marketPrice}}元</span>
+                    </p>
+                </li>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

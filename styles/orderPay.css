@@ -1,0 +1,37 @@
+*{margin: 0;padding: 0}
+html{font-size: 100px}
+body{font-size: 0.14rem!important;font-family: "微软雅黑";background: white!important;color: black!important;}
+.receipt{margin-top:0.1rem;width:100%;border-bottom: dotted lightgray 1px;border-top: dotted lightgray 1px;  }
+.derive_message{display: flex;justify-content: space-around;width:100%;height:0.4rem;line-height: 0.4rem;font-weight:800;}
+.consignee{margin-left:-0.3rem;}
+.tellphone{margin-right:-0.6rem;}
+.position{width:0.2rem;}
+.ding{width:0.2rem;}
+.derive_addredd{line-height: 0.5rem; zoom:1;}
+.derive_addredd:after{content:'';display: block;clear: both;}
+.position{float:left;margin:0 0.1rem 0 0.3rem;}
+.address{float:left;}
+.triangle{float:right;margin-right:0.1rem;}
+.good{margin-top:0.4rem;}
+.good ul li{display: flex;padding:0.1rem 0;border-bottom: dotted lightgray 1px;border-top: dotted lightgray 1px;}
+.good_img_area{width:35%;text-align: center;}
+.good ul li .good_img{width:1rem;}
+.good_message{line-height: 0.3rem;font-size: 0.12rem;}
+.price_num{margin-top:0.3rem;line-height: 0.25rem;}
+.prices{color:red;font-weight: 900;}
+.derive_price{line-height: 0.4rem;color:gray;display: flex;justify-content: space-between;border-bottom: dotted lightgray 1px;}
+.all_price{padding:0.2rem 0 0.1rem 0;line-height: 0.2rem;display: flex;justify-content: space-between;border-bottom: dotted lightgray 1px;}
+.all_num{margin-right:0.1rem;color:red;font-weight: 900}
+.weixin_pay{display: flex;border-bottom: dotted lightgray 1px;padding:0.1rem 0;}
+.weixin_pic_area{width:20%;text-align: center;}
+.weixin_pic{width:60%;margin-left: 0.1rem}
+.weixin{width:70%;}
+.checkout_area{line-height: 0.52rem;}
+.footer{position: fixed;bottom:5px;width:100%;}
+.pay_area{display: flex;justify-content: space-between;}
+.invoice_area{padding:0.1rem 0.1rem;}
+.pay_area{border-bottom: solid black 1px;border-top: solid black 1px;padding:0.05rem 0;line-height: 0.52rem;}
+.true_pay_btn{width:1rem;height:0.3rem;background: pink;border-radius: 0.04rem;border:solid black 1px;font-size: 0.16rem}
+.all_goods{padding-left:0.1rem;line-height: 0.25rem;}
+.true_pay {padding-right: 0.1rem;}
+.totall{color:red;font-size: 0.15rem;}

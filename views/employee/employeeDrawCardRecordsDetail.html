@@ -1,0 +1,66 @@
+
+<ion-view>
+    <ion-content class="partialFiles">
+        <div>
+            <p class="h30 ml10">
+                基础信息
+            </p>
+            <ion-list>
+                <ion-item  class="h50 bgfff" style="display: flex;justify-content: space-between">
+                    <p class="ml10">时间</p>
+                    <p class="mr10 col888">
+                        {{drawCardRecordsDetail.createDate|date:'yyyy-MM-dd'}}
+                    </p>
+                </ion-item>
+                <ion-item  class="h50 bgfff" style="display: flex;justify-content: space-between">
+                    <p class="ml10">顾客</p>
+                    <p class="mr10 col888">
+                        {{drawCardRecordsDetail.shopUserName}}
+                    </p>
+                </ion-item>
+
+                <ion-item  class="h50 bgfff" style="display: flex;justify-content: space-between">
+                    <p class="ml10">操作门店</p>
+                    <p class="mr10 col888">
+                        {{drawCardRecordsDetail.sysShopName}}
+                    </p>
+                </ion-item>
+                <ion-item  class="h50 bgfff" style="display: flex;justify-content: space-between">
+                    <p class="ml10">前台</p>
+                    <p class="mr10 col888">
+                        {{drawCardRecordsDetail.sysShopClerkName}}
+                    </p>
+                </ion-item>
+                <ion-item  class="h50 bgfff" style="display: flex;justify-content: space-between">
+                    <p class="ml10">类型</p>
+                    <p class="mr10 col888">
+                        {{drawCardRecordsDetail.flowName}}
+                    </p>
+                </ion-item>
+            </ion-list>
+            <p class="h50 ml10">划卡信息</p>
+            <ion-list>
+                <ion-item  class=" bgfff" style="display: flex;justify-content: space-between;height:70px;">
+                    <div>
+                        <p class="ml10 fs16 col333 mt10">{{drawCardRecordsDetail.goodsType}}</p>
+                        <p class="ml10 fs15 col888">美容师：{{drawCardRecordsDetail.sysClerkName}}</p>
+                    </div>
+                    <p class="mr10" style="line-height:70px;">
+                        划卡次数：{{drawCardRecordsDetail.consumeNumber}}
+                    </p>
+                </ion-item>
+            </ion-list>
+
+            <p class="h50 ml10 fs15 col888">顾客签字</p>
+            <div style="height:156px;" class="bgfff">
+
+            </div>
+            <p class="h50 ml10 fs15 col888 ">备注</p>
+            <textarea style="height:80px;width:100%;margin-bottom: 50px;" class="bgfff">
+                    {{drawCardRecordsDetail.detail}}
+            </textarea>
+
+
+        </div>
+    </ion-content>
+</ion-view>

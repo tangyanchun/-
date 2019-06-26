@@ -1,0 +1,22 @@
+<ion-view class="print">
+    <ion-content>
+        <div style="margin: 0 auto;text-align: center">
+            <p id="qrCode" style="display: none"> </p>
+            <img ng-src="{{diyOrderDTO.codeUrl}}" alt="" style="margin-top: 140px;width: 57%;">
+            <p style="margin-top: 22px;margin-bottom: 162px">微信扫码付款</p>
+            <p style="width: 297px;height: 45px;line-height:45px;border-radius: 20px;margin: auto;background: #87ad56;color: #ffffff" ng-click="printTicket()">确定支付</p>
+        </div>
+    </ion-content>
+    <!--进首页弹出页面-->
+    <div  ng-if="param.redPackerBox" >
+        <div class="redPacket_box">
+            <div class="redPacket">
+                <p class="userName">请输入会员名</p>
+                <input type="text" class="inputName" ng-model="diyOrderDTO.userName">
+                <p class="userTell">请输入手机号</p>
+                <input type="text" class="inputTell" ng-model="diyOrderDTO.userMobile">
+                <div class="submit" ng-click="submit()"><p>提交</p></div>
+            </div>
+        </div>
+    </div>
+</ion-view>

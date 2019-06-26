@@ -1,0 +1,41 @@
+<ion-view class="bg">
+    <ion-content>
+        <ion-list>
+            <!--业绩耗卡-->
+            <div class="list businessBox" ng-click="employeeComprehensive()">
+                <div class="row businessBox1" >
+                    <div class=" businessBox2 col col-50 ">
+                        业绩
+                        <p>{{workHome.income}}</p>
+                    </div>
+                    <div class=" businessBox2 col col-50" >
+                        耗卡
+                        <p>{{workHome.expenditure}}</p>
+                    </div>
+                </div>
+            </div>
+            <!--今日工作-->
+            <div class="list mt-20">
+                <p class="todayJob">今日工作</p>
+                <div class="row bgfff fs13 col33">
+                    <div class="col col-25" style="text-align: center" ui-sref="employeeAppointList">
+                        <img src="images/work/appointment.png"  class="imageContent">
+                        <p class="mt12">预约</p>
+                    </div>
+                </div>
+            </div>
+            <!--行政管理-->
+            <div class="list mt-9">
+                <p class="todayJob">行政管理</p>
+                <div class="row bgfff fs13 col33">
+                    <div class="col col-25 tc" ui-sref="employeeScheduling">
+                        <img src="images/work/scheduling.png"class="imageContent">
+                        <p style="margin-top: 12px">排班</p>
+                    </div>
+                </div>
+            </div>
+        </ion-list>
+        <br><br>
+    </ion-content>
+    <clerk-footer></clerk-footer>
+</ion-view>

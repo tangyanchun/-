@@ -1,0 +1,175 @@
+<ion-view class="bg">
+    <ion-content class="mb45">
+        <!--日期部分-->
+        <div class="bgRgb sb">
+            <div class="sb">
+                <ionic-datepicker input-obj="datepickerObjectEnd" ng-click="selDate('startDate')">
+                    <img src="images/work/date.png" class="dateImg" >
+                    <span class="date">{{param.startDate}}</span>
+                </ionic-datepicker>
+                <span class="colfff center"  style="width:50px;display: inline-block">至</span>
+                <ionic-datepicker input-obj="datepickerObjectEnd" ng-click="selDate('endDate')">
+                   <!-- <img src="images/work/date.png" class="dateImg" >-->
+                    <span class="date">{{param.endDate}}</span>
+                </ionic-datepicker>
+            </div>
+            <div class="mr10 colfff" >
+                <span ng-click="getInfo()" class="fs14">筛选</span>
+            </div>
+        </div>
+
+        <!--业绩耗卡-->
+        <div class="list">
+            <div class="item">
+                <div class="list comprehensiveBox" style="position: relative;border-radius: 10px;height:92px;">
+                    <div class="row comprehensiveBox1" style="height:92px;">
+                        <div class=" comprehensiveBox2 col col-50">
+                            业绩
+                            <p class="colff">{{beautyAll.income==undefined?0:beautyAll.income}}</p>
+                        </div>
+                        <div class=" comprehensiveBox2 col col-50" >
+                            耗卡
+                            <p class="colff">{{beautyAll.expenditure==undefined?0:beautyAll.expenditure}}</p>
+                        </div>
+                    </div>
+                    <div class="" style="position: absolute;bottom: 7px;left: 36%;background: rgb(255,211,211);border-radius: 10px;width: 100px;height: 17px;font-size: 11px;text-align: center;color: #FF6666" ui-sref="sevenDayCharts({id:param.sysShopId})" ng-if="param.sysShopId!=''"><img src="images/work/map.png" style="width: 12px;height: 10px;display: inline-block;" >近7日趋势图</div>
+                </div>
+            </div>
+        </div>
+        <!--来源分析-->
+        <p style="font-size: 14px;margin-left: 18px;color: #333333;margin-top: -9px;margin-bottom: 5px;">来源分析</p>
+        <!--业绩-->
+        <div class="list" ng-click="detailedPerformanceGo('1')">
+            <p class="item" style="padding: 8px"><span>业绩</span>
+                <span style="float:right;font-size: 0.3rem;color: #ff6666">{{beautyAll.income==undefined?0:beautyAll.income}}<i style="margin-left: 10px;color: #999999" class="ion ion-ios-arrow-right"></i></span></p>
+            <div class="row row-wrap" style="background: #ffffff;color: #333333;text-align: center;padding: 0px">
+                <div class="col col-50" style="border-right: 1px solid #e5e5e5;padding-top: 10px;border-bottom: 1px solid #e5e5e5;position: relative">
+                    <div class="row">
+                        <p class="col col-20">
+                            <img src="images/work/recharge.png" alt="" style="width: 17px;height: 18px;display: inline-block;" class="mt20">
+                        </p>
+                        <div class="col col-80" style="text-align: left">
+                            <p>充值</p>
+                            <p style="margin-top: 5px">{{beautyAll.recharge==undefined?0:beautyAll.recharge}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-50"  style="padding-top: 10px;border-bottom: 1px solid #e5e5e5;position: relative">
+                    <div class="row">
+                        <p class="col col-20">
+                            <img src="images/work/Arrears.png" alt="" style="width: 17px;height: 18px;display: inline-block;" class="mt20">
+                        </p>
+                        <div class="col col-80" style="text-align: left">
+                            <p>消费</p>
+                            <p style="margin-top: 5px">{{beautyAll.consume==undefined?0:beautyAll.consume}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-50" style="border-right: 1px solid #e5e5e5;padding-top: 10px;position: relative" ng-show="false">
+                    <div class="row">
+                        <p class="col col-20">
+                            <img src="images/work/consumption.png" alt="" style="width: 17px;height: 18px;display: inline-block;" class="mt20">
+                        </p>
+                        <div class="col col-80" style="text-align: left" >
+                            <p>还欠款</p>
+                            <p style="margin-top: 5px">******</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-50"  style="padding-top: 10px;position: relative" ng-show="false">
+                    <div class="row">
+                        <p class="col col-20">
+                            <img src="images/work/refund.png" alt="" style="width: 17px;height: 18px;display: inline-block;" class="mt20">
+                        </p>
+                        <div class="col col-80" style="text-align: left">
+                            <p>退款</p>
+                            <p style="margin-top: 5px">******</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--耗卡-->
+        <div class="list" ng-click="detailedPerformanceGo('2')">
+            <p class="item" style="padding: 8px"><span>耗卡</span>
+                <span style="float:right;font-size: 0.3rem;color: #ff6666">{{beautyAll.expenditure==undefined?0:beautyAll.expenditure}}<i style="margin-left: 10px;color: #999999" class="ion ion-ios-arrow-right"></i></span></p>
+            <div class="row row-wrap" style="background: #ffffff;color: #333333;text-align: center;padding: 0px">
+                <div class="col col-50" style="border-right: 1px solid #e5e5e5;padding-top: 10px;border-bottom: 1px solid #e5e5e5;position: relative">
+                    <div class="row">
+                        <p class="col col-20">
+                            <img src="images/work/Delimitcard.png" alt="" style="width: 17px;height: 18px;display: inline-block;" class="mt20">
+                        </p>
+                        <div class="col col-80" style="text-align: left">
+                            <p>划卡</p>
+                            <p style="margin-top: 5px">{{beautyAll.scratchCard==undefined?0:beautyAll.scratchCard}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-50"  style="padding-top: 10px;border-bottom: 1px solid #e5e5e5;position: relative" ng-show="false">
+                    <div class="row">
+                        <p class="col col-20">
+                            <img src="images/work/void.png" alt="" style="width: 17px;height: 18px;display: inline-block;" class="mt20">
+                        </p>
+                        <div class="col col-80" style="text-align: left" >
+                            <p>划卡作废</p>
+                            <p style="margin-top: 5px">******</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-50" style="border-right: 1px solid #e5e5e5;border-bottom: 1px solid #e5e5e5;padding-top: 10px;position: relative">
+                    <div class="row">
+                        <p class="col col-20">
+                            <img src="images/work/singleConsumption.png" alt="" style="width: 17px;height: 18px;display: inline-block;" class="mt20">
+                        </p>
+                        <div class="col col-80" style="text-align: left">
+                            <p>单次消费耗卡</p>
+                            <p style="margin-top: 5px">{{beautyAll.oneConsume==undefined?0:beautyAll.oneConsume}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-50"  style="padding-top: 10px;position: relative" ng-show="false">
+                    <div class="row">
+                        <p class="col col-20">
+                            <img src="images/work/refund.png" alt="" style="width: 17px;height: 18px;display: inline-block;" class="mt20">
+                        </p>
+                        <div class="col col-80" style="text-align: left" >
+                            <p>退单次消费耗卡</p>
+                            <p style="margin-top: 5px">******</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--卡耗-->
+        <div class="list" ng-click="detailedPerformanceGo('3')" ng-if="param.nameType!='allFamily'">
+            <p class="item" style="padding: 8px"><span>卡耗</span><span style="float:right;font-size: 0.3rem;color: #ff6666">{{beautyAll.kahao==undefined?0:beautyAll.kahao}}<i style="margin-left: 10px;color: #999999" class="ion ion-ios-arrow-right"></i></span></p>
+            <div class="row" style="background: #ffffff;color: #333333;text-align: center;padding: 0px">
+                <div class="col col-50" style="border-right: 1px solid #e5e5e5;padding-top: 10px;border-bottom: 1px solid #e5e5e5;position: relative">
+                    <div class="row">
+                        <p class="col col-20">
+                            <img src="images/work/Arrears.png" alt="" style="width: 17px;height: 18px;display: inline-block;" class="mt20">
+                        </p>
+                        <div class="col col-80" style="text-align: left">
+                            <p>消费</p>
+                            <p style="margin-top: 5px">{{beautyAll.cardConsume==undefined?0:beautyAll.cardConsume}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-50"  style="padding-top: 10px;border-bottom: 1px solid #e5e5e5;position: relative" ng-show="false">
+                    <div class="row">
+                        <p class="col col-20">
+                            <img src="images/work/refund.png" alt="" style="width: 17px;height: 18px;display: inline-block;" class="mt20">
+                        </p>
+                        <div class="col col-80" style="text-align: left" >
+                            <p>退款</p>
+                            <p style="margin-top: 5px">****</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <div class="h50  bgff66" style="position: absolute;bottom: 0;width:100%;"  ng-if="param.sysShopId!=''">
+        <p class="fs16 colfff ml10 center" ng-click="allFamilyGo()" >全部家人</p>
+    </div>
+</ion-view>

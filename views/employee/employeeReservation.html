@@ -1,0 +1,35 @@
+<ion-view class="bg">
+    <ion-content ng-click="none()">
+        <!--日期部分-->
+        <div class="bgRgb">
+            <ionic-datepicker >
+                <img src="images/work/date.png" class="dateImg" >
+                <span class="date"></span>
+                <img src="images/work/drop-down.png" class="dropImg">
+            </ionic-datepicker>
+        </div>
+        <ion-item  class="bgfff row mb10"  ng-click="cancelDetailsGo()">
+            <div class="col col-20" style="line-height: 49px;">
+                <p style="height:42px;width:42px;background: gainsboro;border-radius: 50%;">
+                    <img ng-src="">
+                </p >
+            </div>
+            <div class="col col-80 ml-20" style="position: relative" >
+                <p class="fs15"><span></span><span style="width: 40px;height: 20px;display: inline-block;background: #ff6666;color: #ffffff;line-height: 20px;margin-left: 10px;text-align: center;border-radius: 5px;" ng-show="false">A类</span>
+                </p >
+                <img src="images/work/cancel.png" style="width: 50px;height: 50px;position: absolute;top: 10px;right: -10px;">
+                <p style="font-size: 12px;color: #888888">
+                    <img src="images/work/minute.png" style="display: inline-block;width: 15px;height: 15px;margin-left: 5px"><span style="margin-left: 17px"></span>
+                <p>个项目</p>
+                <p>状态：<span>未开始</span>
+                    <span >"已确认</span>
+                    <span >服务中</span>
+                    <span >已完成</span>
+                    <span >取消预约</span>
+                    <span >进行中</span>
+                    <span>已结束</span></p>
+                </p >
+            </div>
+        </ion-item>
+    </ion-content>
+</ion-view>

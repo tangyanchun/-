@@ -1,0 +1,65 @@
+<ion-view>
+    <p class="h45 bgfff fs16 colff66">
+        <span ng-click="sel()"><img src="images/screening.png" class="screeningPic ml10 mr10">筛选</span>
+    </p>
+    <ion-content class="partialFiles bgf6" delegate-handle="dashboard" style="margin-top:45px;">
+        <div ng-class="{'hidden':param.flag==true}">
+            <ion-list ng-repeat="item in collectionCar" ng-show="!param.picFlag">
+                <ion-item style="margin-top: 10px">
+                    <div class="sb mt10"  ng-click="treatmentCardDtailsGo(item.consumeRecordId,$index)">
+                        <p class="fs16 col333 ml10">{{item.projectGroupName}}</p>
+                        <p class="fs15 col666 mr10" style="position: relative">金额：{{item.marketPrice}}元 </p>
+                            <img src="images/out.png" style="width: 50px;height: 50px;position: absolute;top: 10px;right: 10px" ng-if="item.isUseUp=='0'">
+                    </div>
+                    <div class="sb mt10" >
+                        <p class="fs15 col333 ml10">失效期：
+                            <span class="fs15 col666 mr10" ng-if="item.expirationDate!='0'">{{item.expirationDate|date:'yyyy-MM-dd'}}
+                            </span>
+                            <span class="fs15 col666 mr10" ng-if="item.expirationDate=='0'">永久有效</span>
+                        </p>
+
+                    </div>
+                    <p class="fs14 col999 ml10 sb">
+                        <span class="mt5 mb5">备注：</span>
+
+                    </p>
+                </ion-item>
+                <ion-item class="h50 sb" ng-repeat="item1 in item.projectList">
+                    <p class="fs15 ml20 col666">{{item1.shopProjectInfoName}}</p>
+                    <p class="fa15 col888 mr10">{{item1.projectSurplusTimes }}/{{item1.projectInitTimes}}</p>
+                </ion-item>
+            </ion-list>
+        </div>
+        <!--空  图片-->
+        <void-pic></void-pic>
+        <!--筛选-->
+        <div style="position: absolute;height:100%;background: #000;opacity: 0.2;top:0;width:100%;z-index: 100;" ng-show="param.flag" ng-click="disNone()"></div>
+        <div style="position: absolute;right:0;top:0;z-index: 101;width:80%;height:100%; "class="bgf6" ng-show="param.flag">
+            <p class=" bgfff">
+                <img src="images/close.png"class="closePic ml10 mt20 " ng-click="disNone()">
+            </p>
+            <div>
+                <p class="fs15 col666 bgfff bbl pb5 h40"><span class="ml10 ">状态</span></p>
+                <div class="row row-wrap bgfff">
+                    <p class="col col-33 " >
+                        <a class="commonType center " style="height:26px;width:80px;line-height: 26px;" ng-click="selType('6')" ng-class="{'activeType':param.isUseUp=='6'}">全部</a>
+                    </p>
+                    <p class="col col-33 ">
+                        <a class="commonType center " style="height:26px;width:80px;line-height: 26px;" ng-click="selType('1')" ng-class="{'activeType':param.isUseUp=='1'}">使用中</a>
+                    </p>
+                    <p class="col col-33 ">
+                        <a class="commonType center " style="height:26px;width:80px;line-height: 26px;" ng-click="selType('0')" ng-class="{'activeType':param.isUseUp=='0'}">已用完</a>
+                    </p>
+                </div>
+            </div>
+            <div class="tabs bgfff">
+                <a class="tab-item True" ng-click="reset()">
+                   重置
+                </a>
+                <a class="tab-item True activeTrue" ng-click="selTrue()">
+                    确认
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

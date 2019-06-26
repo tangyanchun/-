@@ -1,0 +1,35 @@
+<ion-view class="bg">
+    <ion-content>
+        <div class="list">
+            <li class="item p10">
+                <span STYLE="width: 2px;height: 20px;display: inline-block;background: #FF6666;"></span><span class="fs17 col33 ml10">可丽金品牌</span>
+            </li>
+            <ion-item  class="bgfff row">
+                <div class="col col-20">
+                    <p style="height:70px;width:75px;background: gainsboro;"></p >
+                </div>
+
+                <div class="col col-80 ml10" >
+                    <p class="fs14 col33"><span>洁面乳</span></p >
+                    <p class="fs12 col88">编号：</p >
+                    <p class="fs12 col88"><span>单位：件</span><span class="ml5">规格：1000g</span></p>
+                </div>
+            </ion-item>
+            <li class="item ">
+                  <span class="col33">占用成本：</span><span class=" colff66"> 216.33</span> <span class="fr"><span class="col33">库存数量：</span><span class=" colff66"> 2</span></span>
+            </li>
+        </div>
+        <div class="list">
+            <ion-item  class="row" ng-repeat="item in [1,2]">
+                <div class="col ml10" >
+                    <p class="fs14 col33"><span>汉方美业</span></p >
+                    <p class="fs12 col88"><span class="col33">占用成本：</span><span class=" colff66"> 216.33</span><span style="margin-left: 150px">数量： <span class="colff66">0件</span></span></p >
+                </div>
+            </ion-item>
+        </div>
+        <div class="tc">
+            <button style="width: 349px;height:36px;border-radius:0.46rem;color: #FFFFFF;background: #FFFFFF;font-size: 0.34rem;color: #FF6666;border: 1px solid #FF6666"
+                    class="button " >历史记录</button>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,19 @@
+<ion-view>
+    <ion-content class="partialFiles ngf6 bgf6">
+        <div>
+            <p class="sb h45 bgfff  ">
+                <label class="fs16 col333 ml10 mt10" style="width:70px;">输入规格</label>
+                <input type="text" style="width:75%;text-align: right" class="fs14 col888 mt5 mr10" placeholder="请输入数字" ng-model="param.num" ng-change="numLimit()">
+            </p>
+            <div class=" mt10 bgfff row ">
+                <div class="row" style="width:98%;margin:auto;">
+                    <p class="col col-25 fs12 col333 center" ng-click="selSpec('g')"><img  ng-src="{{param.spec=='g'?'images/selTrue.png':'images/selRed.png'}}"  class="selGray mr5">g(克)</p>
+                    <p class="col col-25 fs12 col333 center" ng-click="selSpec('kg')"><img ng-src="{{param.spec=='kg'?'images/selTrue.png':'images/selRed.png'}}" class="selGray mr5">kg(千克)</p>
+                    <p class="col col-25 fs12 col333 center" ng-click="selSpec('ml')"><img ng-src="{{param.spec=='ml'?'images/selTrue.png':'images/selRed.png'}}" class="selGray mr5">ml(毫升)</p>
+                    <p class="col col-25 fs12 col333 center" ng-click="selSpec('L')"><img ng-src="{{param.spec=='L'?'images/selTrue.png':'images/selRed.png'}}" class="selGray mr5">L(升)</p>
+                </div>
+            </div>
+            <p style="width:165px;height:44px;margin:auto;background: #FF6666;box-shadow: 0 4px 4px 0 rgba(255,102,102,0.24);border-radius: 100px;line-height: 44px;margin-top:100px;" class="center colfff" ng-click="save()">保存</p>
+        </div>
+    </ion-content>
+</ion-view>

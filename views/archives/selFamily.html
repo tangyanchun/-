@@ -1,0 +1,25 @@
+<ion-view>
+    <ion-content class="partialFiles">
+         <div>
+             <ion-list>
+                 <ion-item class="item-input" style="background: border-box;height: 40px; ">
+                <span class="item-input-wrapper" style="margin-right:10px;height:30px;margin-left:10px;" >
+                        <i class="icon ion-ios-search placeholder-icon" ng-click="search()"></i>
+                        <input id="search" type="search" placeholder="请输入顾客姓名或者手机号码" ng-model="searchCont.key" >
+                        <i class="icon ion-close-circled placeholder-icon" style="vertical-align: middle;"
+                           on-tap="clearSearch()" ng-if="searchCont.key.length"></i>
+                 </span>
+                     <i  class="mr10 fs15 colff66">切换分店</i>
+                 </ion-item>
+             </ion-list>
+             <div>
+                 <ion-list >
+                     <ion-item class="h45 sb" ng-repeat="item in [0,1,2]">
+                         <p class="ml10 fs16 col333">阿敏</p>
+                         <p class="mr10 fs15 col888">15801676785</p>
+                     </ion-item>
+                 </ion-list>
+             </div>
+         </div>
+    </ion-content>
+</ion-view>

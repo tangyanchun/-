@@ -1,0 +1,74 @@
+<ion-view class="bg">
+    <ion-content class="h">
+        <div class="list col33">
+            <li class="item"><span class="fs16">充值卡名称<span class="colff66">*</span></span><input type="text" placeholder="请输入充值卡名称" class="fr col99 fs14 tr" ng-model="settingAddsome.editedRecharge.name"></li>
+            <li class="item"><span class="fs16">充值面额（元）<span class="colff66">*</span></span><input type="text" placeholder="请输入充值卡面额" class="fr col99 fs14 tr" ng-model="settingAddsome.editedRecharge.amount" ng-change="numLimit('amount',settingAddsome.editedRecharge.amount)" ></li>
+            <li class="item"><span class="fs16">图片</span><span style="color: #3F3F3F;font-size: 16px;margin-left: 10px">(最多可上传6张)</span></li>
+            <li class="item" >
+                <ul style="" class="Htab-head">
+                    <li class="Htab-head-item " style="width:130px;position: relative;height:120px;" ng-repeat="item in settingAddsome.editedRecharge.imageList track by $index">
+                             <span  style="position: absolute;top: 0px;right: 5px;"  ng-click="delPic($index)">
+                                 <i class="ion-android-remove-circle colff66" style="font-size: 20px;"></i>
+                             </span>
+                        <input type="file" style="opacity: 0;position: absolute;top: 0px;left: 0px;width: 105px;height: 105px;" id="" disabled="disabled">
+                        <img ng-src="{{item}}" style="width: 105px;height: 105px;" class="ml10 mt10">
+                    </li>
+                    <li class="Htab-head-item ml10 bgfff" style="width:130px;position: relative;height:120px;display: inline-block;text-align: left" >
+                        <div style="width:130px;position: relative;height:120px;display: inline-block">
+                            <input type="file" style="opacity: 0;position: absolute;top: 0px;left: 0px;width: 105px;height: 105px;" id="uploadPic" onchange="angular.element(this).scope().img_upload(this.files)">
+                            <img src="images/mine/addPhoto.png" style="width: 105px;height: 105px;" class="mt10">
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="item"><span class="fs16">折扣<span class="colff66">*</span></span></li>
+            <li class="item" style="width:100%;" ng-click="appear(0)">
+                <i class="icon ion-android-radio-button-off colff66 fs16 mr10"   ng-if="param.appearArr[0] != true"></i>
+                <i class="icon icon ion-ios-checkmark colff66 fs16 mr10"   ng-if="param.appearArr[0] == true"></i>
+                单次</li>
+            <!--点击单次出现的内容-->
+            <div class="bgfff partialFiles" ng-show="param.appearArr[0]">
+                <p class="  ml30 h40 fs14 col888 bbl"><span class="fs16">设置折扣(折)</span><input type="text" placeholder="请输入0.1-1.0的折扣值" class="fr col99 fs14 tr mr15" ng-model="settingAddsome.editedRecharge.timeDiscount" ng-change="discount('timeDiscount')" ng-blur="discounts('timeDiscount')" style="width:60%"></p>
+                <p class="  ml30 h40 fs14 col888">
+                    <span class="fs16">设置适用范围</span>
+                    <span class="fr col99 fs14 tr mr15"  ui-sref="oneTime({url:'addrechargeCard',id:param.id})">适用范围 <img src="images/more.png" class="more"></span>
+                </p>
+            </div>
+            <li class="item" style="width:100%;"  ng-click="appear(1)"> <i class="icon ion-android-radio-button-off colff66 fs16 mr10"   ng-if="param.appearArr[1] != true"></i>
+                <i class="icon icon ion-ios-checkmark colff66 fs16 mr10"   ng-if="param.appearArr[1] == true"></i> 疗程卡</li>
+            <div class="bgfff partialFiles" ng-show="param.appearArr[1]">
+                <p class="  ml30 h40 fs14 col888 bbl"><span class="fs16">设置折扣(折)</span><input type="text" placeholder="请输入0.1-1.0的折扣值" class="fr col99 fs14 tr mr15" ng-model="settingAddsome.editedRecharge.periodDiscount" ng-change="discount('periodDiscount')" ng-blur="discounts('periodDiscount')" style="width:60%"></p>
+                <p class="  ml30 h40 fs14 col888">
+                    <span class="fs16">设置适用范围</span>
+                    <span class="fr col99 fs14 tr mr15" ui-sref="treatment({url:'addrechargeCard',id:param.id})">适用范围 <img src="images/more.png" class="more"></span>
+                </p>
+            </div>
+            <li class="item" style="width:100%;" ng-click="appear(2)"> <i class="icon ion-android-radio-button-off colff66 fs16 mr10"  ng-if="param.appearArr[2] != true"></i>
+                <i class="icon icon ion-ios-checkmark colff66 fs16 mr10" ng-if="param.appearArr[2] == true"></i> 产品</li>
+            <div class="bgfff partialFiles" ng-show="param.appearArr[2]">
+                <p class="  ml30 h40 fs14 col888 bbl"><span class="fs16">设置折扣(折)</span><input type="text" placeholder="请输入0.1-1.0的折扣值" class="fr col99 fs14 tr mr15" ng-model="settingAddsome.editedRecharge.productDiscount" ng-change="discount('productDiscount')" ng-blur="discounts('productDiscount')" style="width:60%"></p>
+                <p class="  ml30 h40 fs14 col888">
+                    <span class="fs16">设置适用范围</span>
+                    <span class="fr col99 fs14 tr mr15" ui-sref="productScope({url:'addrechargeCard',id:param.id})">适用范围 <img src="images/more.png" class="more"></span>
+                </p>
+            </div>
+            <li class="item" style="width:100%;">充值卡介绍</li>
+            <li class="item">
+                <textarea style="height:76px;width:100%;" type="text" placeholder="请输入充值卡介绍！" ng-model="settingAddsome.editedRecharge.introduce"></textarea>
+            </li>
+            <!--启用-->
+            <!--<li class="item item-toggle mb44">
+                启动
+                <label class="toggle toggle-assertive">
+                    <input type="checkbox" ng-model="param.status">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>-->
+        </div>
+    </ion-content>
+    <div class="bar bar-footer bgf66 colff fs16" ng-click="save()">
+        <div class="title">保存</div>
+    </div>
+</ion-view>

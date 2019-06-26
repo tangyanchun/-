@@ -1,0 +1,38 @@
+<ion-view>
+    <ion-content class="partialFiles">
+        <div style="border:solid 1px #e6e6e6;border-radius: 6px;width:90%;margin:10px auto 0;box-shadow: #e6e6e6 2px 2px " ng-repeat="item in [0,1,2]">
+            <ion-list>
+                <ion-item style="height:90px;border-radius:6px 6px 0 0" class="sb ">
+                    <div style="display: flex">
+                        <p style="height:70px;border:solid 1px #f6f6f6;width:75px;" class="mt10 ml10">
+                            <img src="">
+                        </p>
+                        <div class="ml10 mt10">
+                            <P class="fs14 col333 ">健肤小喷</P>
+                            <P class="fs12 col888 mt10">编号：</P>
+                            <P class="fs12 col888">
+                                <span>单位：件</span>
+                                <span class="ml30">规格：1000g</span>
+                            </P>
+                        </div>
+                    </div>
+                    <p>
+                        <img src="images/inventory/delTong.png" class="delTongPic mr10 mt10">
+                    </p>
+
+                </ion-item>
+            </ion-list>
+            <p class="h40 sb" style="background: #F6F6F6;border-radius: 0 0 6px 6px;">
+                <span class="ml10 fs14 col333">库存数量</span>
+                <input type="text" style="text-align: right" placeholder="请填写数量" class="mr10 col888 fs14">
+            </p>
+        </div>
+        <p style="width:90%;margin:20px auto 0" class="h50 colff66 fs14 bgfff center "  ng-click="inventoryGo()">
+            <img src="images/jia.png" class="closePic ">
+            选择更多产品盘点
+        </p>
+    </ion-content>
+    <p class="h45 center fs16 colfff bgff66 tabs" ng-click="inventoryRecordsDetailsGo()" >
+        完成
+    </p>
+</ion-view>

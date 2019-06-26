@@ -1,0 +1,26 @@
+<ion-view class="bg">
+    <ion-content>
+        <!--日期部分-->
+        <div class="bgRgb">
+            <ionic-datepicker input-obj="datepickerObjectEnd">
+                <img src="images/work/date.png" class="dateImg" >
+                <span class="date">{{param.date}}</span>
+                <img src="images/work/drop-down.png" class="dropImg">
+            </ionic-datepicker>
+        </div>
+        <div class="list" ng-repeat="item in storeExpenditure" ui-sref="oneIncomeAnalysis({sysShopId:item.sysShopId,date:param.date})">
+            <p class="item"  class="fs15 p10"><espan>{{item.sysShopName}}</espan><i style="float:right;font-size: 0.3rem" class="ion ion-ios-arrow-right"></i></p>
+            <p class="item"  class="fs12 p5">现金收益<span  class="fs14 colff66 ml5">+{{item.cashEarnings==null?0:item.cashEarnings}}</span></p>
+            <div class="row col33 bgfff tc p0 fs13" >
+                <div class="col col-50 bre5e5 pt10" >
+                    总收入
+                    <p class="mt5">{{item.allEarnings==null?0:item.allEarnings}}</p>
+                </div>
+                <div class="col col-50 mt10" >
+                    总支出
+                    <p class="mt5">****</p>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

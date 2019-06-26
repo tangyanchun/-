@@ -1,0 +1,37 @@
+<ion-view class="skin" >
+    <ion-content >
+        <ion-list>
+            <ion-item class="item-input" style="background: border-box;height: 40px; ">
+                <span class="item-input-wrapper" style="margin-right:12px;height:30px;" >
+                        <i class="icon ion-ios-search placeholder-icon" ></i>
+                        <input id="search" ng-model="extDiyMaterial.filterStr" type="search" placeholder="搜索产品名称" ng-change="search()" ng-model="extDiyMaterial.filterStr">
+                        <i class="icon ion-close-circled placeholder-icon" style="vertical-align: middle;"
+                           on-tap="clearSearch()"></i>
+                 </span>
+            </ion-item>
+        </ion-list>
+        <div>
+            <p style="color: #323232;font-size: 22px;margin: 10px" ng-if="extDiyMaterial.basalMaterials.length>0">基底原料：</p>
+            <div class="list" ng-repeat="item in extDiyMaterial.basalMaterials" style="background: #FFFFFF;margin-top: 10px;margin-bottom: 10px" >
+                <ion-item class="row" style="border-color:#FFFFFF!important;border-width:0px!important;border-style:none!important;">
+                    <div class="col col-40">
+                        <img  ng-src="{{item.picUrl}}"  style="width: 122px;height: 122px;margin-top: 15px">
+                    </div>
+                    <div class="col col-60" style="position: relative">
+                        <p style="font-family: PingFang-SC-Regular;font-size: 17px;color: #323232;letter-spacing: 0;line-height: 16px;margin-top: 10px"><span>{{item.chineseName}}</span></p>
+                        <p style="font-family: PingFang-SC-Regular;font-size: 14px;color: #323232;letter-spacing: 0;line-height: 16px;margin-top: 10px">英文名：{{item.englishName}}</p>
+                        <p style="font-family: PingFang-SC-Regular;font-size: 14px;color: #323232;letter-spacing: 0;line-height: 16px;margin-top: 10px">韩文名：{{item.koreanName}}</p>
+                        <p><span>产地:{{item.place}}</span><span style="margin-left: 10px">规格：{{item.spec}}{{item.specUnit}}</span></p>
+                        <p><span style="font-size: 16px;color: #87ad56">￥{{item.price}}</span>
+                            <img src="images/add.png" style="width: 26px;height: 26px;position: absolute;right: 10px;bottom: 10px" ng-click="orderChange(item)" ng-if="!item.orderExist"></p>
+                        <img src="images/reduce.png" style="width: 26px;height: 26px;position: absolute;right: 10px;bottom: 10px" ng-click="orderChange(item)" ng-if="item.orderExist"></p>
+                    </div>
+                </ion-item>
+            </div>
+        </div>
+        <br><br><br><br><br><br>
+    </ion-content>
+    <div style="width: 100%;background: #87ad56 ;position: absolute;left: 0px;bottom: 0px;right: 0px;height: 55px;text-align: center;color: #FFFFFF;line-height: 55px;">
+        <p ng-click="nextPage()">下一步</p>
+    </div>
+</ion-view>

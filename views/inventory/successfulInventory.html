@@ -1,0 +1,26 @@
+<ion-view>
+    <ion-content class="partialFiles bgfff bgf6" scroll="false">
+        <div>
+            <p style="height:160px;line-height: 160px;margin:20px auto 0;width:87px;" >
+                <img src="images/inventory/successfulInventory.png" class="successfulInventoryPic" >
+            </p>
+            <div ng-if="param.boundType=='inbound'">
+                <p class="fs16 col333 center">已成功入库！</p>
+                <p class="fs14 col333 center mt10">恭喜您，已成功将产品入库，</p>
+                <p class="fs14 col333 center mt10">您的仓库又增加了产品，赶快去查看下吧！</p>
+            </div>
+            <div ng-if="param.boundType=='outbound'">
+                <p class="fs16 col333 center">已成功出库！</p>
+                <p class="fs14 col333 center mt10">恭喜您，已成功将产品出库，</p>
+            </div>
+            <div class="center mt55" ng-if="param.boundType=='inbound'">
+                <p style="border-radius: 10px;border: solid #FF6666 1px; width:100px;height:25px;line-height: 25px;margin:auto;color: #FF6666" class="fs15" ng-click="detailsGo()">
+                    查看详情
+                </p>
+            </div>
+            <p>
+                <a style="width:180px;height:50px;line-height:50px;border-radius: 28px;margin:20px auto;background: #ff6666;color:#fff" class="center" ui-sref="chooseWarehouse({dateTime:param.timstamp})">返回仓库</a>
+            </p>
+        </div>
+    </ion-content>
+</ion-view>

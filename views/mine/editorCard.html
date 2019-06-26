@@ -1,0 +1,98 @@
+<ion-view class="bg">
+    <ion-content class="boss h">
+        <div class="list col33">
+            <li class="item"><span class="fs16">套卡名称 <span class="colff66">*</span></span><input type="text" placeholder="请输入项目名称"  class="fr col66 tr" ng-model="settingAddsome.editorCard.projectGroupName" style="width:75%"></li>
+            <li class="item" >
+                <span class="fs16">包含项目 <span class="colff66">*</span></span>
+                <span class="fr" ng-click="listOfItemsGo()">
+                    <img src="images/mine/add.png" style="width: 20px;height: 20px;display: inline-block ">
+                    <i class="ion ion-ios-arrow-right ml10 fs17"></i>
+                </span>
+            </li>
+            <li class="item" ng-repeat = 'item in settingAddsome.editorCard.shopProjectInfoDTOS'>
+
+                <img src="images/mine/delete.png" style="width: 11px;height: 11px;display: inline-block " ng-click="delList($index)">
+
+                <span class="fs12 col99 ml10">{{item.projectName}}</span>
+                <span class="fr">
+                    <input  type="number" min="1" inputmode="numeric" pattern="[0-9]*" title="Non-negative integral number" ng-model="item.serviceTimes"  class="center mr10" style=" width: 50px; display: inline-block;border: solid 1px #999; border-radius: 5px;" ng-change="numMarkerPrice()">
+                    <span class="fs12 col99">次</span>
+                </span>
+            </li>
+            <li class="item" ><span class="fs16">图片</span><span style="color: #3F3F3F;font-size: 16px;margin-left: 10px">(最多可上传6张)</span></li>
+            <li class="item" >
+                <ul style="" class="Htab-head">
+                    <li class="Htab-head-item " style="width:130px;position: relative;height:120px;" ng-repeat="item in settingAddsome.editorCard.imageList track by $index">
+                             <span  style="position: absolute;top: 0px;right: 5px;"  ng-click="delPic($index)">
+                                 <i class="ion-android-remove-circle colff66" style="font-size: 20px;"></i>
+                             </span>
+                        <input type="file" style="opacity: 0;position: absolute;top: 0px;left: 0px;width: 105px;height: 105px;" id="" disabled="disabled">
+                        <img ng-src="{{item}}" style="width: 105px;height: 105px;" class="ml10 mt10">
+                    </li>
+                    <li class="Htab-head-item ml10 bgfff" style="width:130px;position: relative;height:120px;display: inline-block;text-align: left" >
+                        <div style="width:130px;position: relative;height:120px;display: inline-block">
+                            <input type="file" style="opacity: 0;position: absolute;top: 0px;left: 0px;width: 105px;height: 105px;" id="uploadPic" onchange="angular.element(this).scope().img_upload(this.files)">
+                            <img src="images/mine/addPhoto.png" style="width: 105px;height: 105px;" class="mt10">
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="item"><span class="fs16">市场价格 <span class="colff66">*</span></span>
+                <span class="fr col66 tr">
+                     {{settingAddsome.editorCard.initialPrice}}
+                </span>
+            </li>
+            <li class="item"><span class="fs16">优惠价格<span class="colff66">*</span></span>
+                <input type="text"  placeholder="请输入优惠价格"  class="fr col66 tr" ng-model="settingAddsome.editorCard.marketPrice" ng-change="numLimit('marketPrice',settingAddsome.editorCard.marketPrice)"></li>
+
+            <li class="item"><span class="fs16">套卡活动有效期 <span class="colff66">*</span></span>
+                <p class="fr">
+                    <i class="icon ion-android-radio-button-off" style="color:#FF6666;font-size:20px;" ng-if="settingAddsome.editorCard.expirationDate!='0'" ng-click="expirationDate()"></i>
+                    <i class="icon icon ion-ios-checkmark" style="color:#FF6666;font-size:20px;" ng-if="settingAddsome.editorCard.expirationDate=='0'" ng-click="today()"></i>
+                    <span class="col99 fs14 ml5">不限</span>
+                    <span class=" ml10 col99 fs14">
+                        <ionic-datepicker input-obj="datepickerObjectEnd" ng-click="type('expirationDate')">
+                            <span> {{settingAddsome.editorCard.expirationDate=='0'?'':settingAddsome.editorCard.expirationDate}}<img src="images/more.png" class="more"></span>
+                        </ionic-datepicker>
+                    </span>
+                </p></li>
+            <li class="row bgfff">
+                <div class=" col col-20 fs15 col33 mt20">
+                    套卡说明
+                </div>
+                <div class="col col-80">
+                   <textarea style="height:76px;width:250px;font-size: 0.3rem;color: #333333;padding: 20px;border: 1px solid #CACACA;
+border-radius: 4px;" ng-model="settingAddsome.editorCard.detail"></textarea>
+                </div>
+            </li>
+            <!--启用-->
+            <li class="item item-toggle">
+                删除
+                <label class="toggle toggle-assertive">
+                    <input type="checkbox" ng-model="param.status">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            <li class="item item-toggle" ng-show="false">
+                小程序首页展示
+                <label class="toggle toggle-assertive">
+                    <input type="checkbox">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            <li class="item fs11 col33" style="margin-bottom: 50px">说明：目前版本中的美容师耗卡按照总金额/总次数=单次耗卡金额</li>
+        </div>
+    </ion-content>
+    <div class="tabs" style="padding-top: 0px" >
+        <a class="tab-item"  style="max-width: 50%;background: #ffffff;color: #ff6666"  ng-click="save(0)">
+            删除
+        </a>
+        <a class="tab-item" style="max-width: 50%;background: #ff6666;color: #ffffff" ng-click="save(1)">
+            保存
+        </a>
+    </div>
+</ion-view>

@@ -1,0 +1,49 @@
+<ion-view>
+    <ion-content class="partialFiles bgf6">
+        <div>
+            <div>
+                <P class="fs12 col333 h30  ml20">产品信息</P>
+                <div style="border:solid 1px #e6e6e6;border-radius: 6px;width:95%;margin:0 auto 10px;box-shadow: 0 2px 4px 0 rgba(153,153,153,0.20) " class="">
+                    <ion-list>
+                        <ion-item style="height:90px;border-radius:6px 6px 0 0" class="sb">
+                            <div style="display: flex">
+                                <p style="height:70px;border:solid 1px #f6f6f6;width:75px;" class="mt10 ml10">
+                                    <img ng-src="{{modifyLibrary.imageUrl}}">
+                                </p>
+                                <div class="ml10 mt10">
+                                    <P class="fs14 col333 ">{{modifyLibrary.shopProcName}}</P>
+                                    <P class="fs12 col888 mt10">编号：{{modifyLibrary.productCode}}</P>
+                                    <P class="fs12 col888">
+                                        <span>单位：{{modifyLibrary.productUnit}}</span>
+                                        <span class="ml50">规格：{{modifyLibrary.productSpec}}</span>
+                                    </P>
+                                </div>
+                            </div>
+                            <p></p>
+                        </ion-item>
+                    </ion-list>
+                    <p class=" sb bbl fs14 col33 h40 " style="background: #F6F6F6;">
+                          <span class="ml10 W33">类型</span>
+                          <span class=" center W33">初始</span>
+                          <span class="mr10 W33" style="text-align: right">实际</span>
+                    </p>
+                    <p class=" sb bbl fs14 col33 h40" style="background: #F6F6F6;">
+                        <span class="ml10 W33">入库数量</span>
+                        <span class="center  W33">{{modifyLibrary.stockNumber}}</span>
+                        <input type="text "  class="mr10 W33 col666" style="text-align: right" placeholder="请输入实际数量" ng-model="shopStockNumberDTO.actualStockNumber">
+                    </p>
+                    <p class=" sb bbl fs14 col33 h40" style="background: #F6F6F6;height:40px;">
+                        <span class="ml10 W33">单价</span>
+                        <span class=" center W33">{{modifyLibrary.stockPrice}}</span>
+                        <input type="text"  class="mr10 W33 col666" style="text-align: right" placeholder="请输入实际价格" ng-model="shopStockNumberDTO.actualStockPrice">
+                    </p>
+                    <p class="sb bbl fs14 col33 h40" style="background: #F6F6F6;">
+                        <span class="ml10">生产日期</span>
+                        <span class=" mr10">2018-04-13(带传：从前页)</span>
+                    </p>
+                </div>
+                <p style="width:165px;height:44px;margin:auto;background: #FF6666;box-shadow: 0 4px 4px 0 rgba(255,102,102,0.24);border-radius: 100px;line-height: 44px;margin-top:100px;" class="center colfff " ng-click="entryDetailsGo()">保存</p>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

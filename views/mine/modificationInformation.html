@@ -1,0 +1,42 @@
+<style>
+    input[checked="checked"]{
+        background: #FF6666;
+    }
+</style>
+<ion-view class="bg">
+    <ion-content style="margin-bottom: 45px">
+      <div class="list fs15">
+          <li class="item" style="position: relative;">
+              <span class="col33 mt20 disp">头像</span>
+              <input type="file" style="width: 80px;height: 80px;position: absolute;right: 16px;top: 15px;opacity: 0;" onchange="angular.element(this).scope().img_upload(this.files)">
+
+              <p style="width: 80px;height: 80px;background: url('{{userInfo.photo}}');background-size: contain;background-position: center center;background-repeat: no-repeat;" class="fr">
+
+              </p>
+          </li>
+          <label class="item item-input">
+              <span class="input-label">名字</span>
+              <input type="text"  class="tr" ng-model="userInfo.nickname">
+          </label>
+          <li class="item">
+              <span class="col33">性别 </span>
+              <span class="fr ">
+                  <input type="radio"   ng-checked="userInfo.sex == '女'"   name="names" ng-click="female()"   style="width: 15px;height: 15px;border: 1px solid #FF6666;border-radius: 50%"><span style="margin-left: 0.2rem;font-size: 0.3rem;color: #333333">女</span>
+                  <input type="radio" name="names" ng-click="male()"  style="width: 15px;height: 15px;border: 1px solid #FF6666; border-radius: 50%;margin-left: 0.1rem"  ng-checked="userInfo.sex == '男'"><span style="margin-left: 0.2rem;font-size: 0.3rem;color: #333333">男</span>
+              </span>
+          </li>
+          <li class="item"><span class="col33 ">手机号码</span><span class="col66 fr ">{{userInfo.mobile}}</span></li>
+         <!-- <li class="item"><span class="col33 ">所在院名</span><span class="col66 fr ">{{userInfo.currentBeautyShopName}}</span></li>-->
+          <li class="item"><span class="col33 ">所在院名</span><span class="col66 fr ">{{userInfo.currentShopName}}</span></li>
+          <li class="item"><span class="col33 ">我的职务</span><span class="col66 fr ">院长</span></li>
+          <label class="item item-input">
+              <span class="input-label">我的微信</span>
+              <input type="text" placeholder="请输入我的微信" class="tr" ng-model="userInfo.weChat">
+          </label>
+      </div>
+        <div style="text-align: center">
+            <button style="width:158px;height:39px;border-radius:0.46rem;color: #FFFFFF;background: #ff6666;font-size: 17px"
+                    class="button " ng-click="Preservation()">保存</button>
+        </div>
+    </ion-content>
+</ion-view>

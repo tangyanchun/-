@@ -1,0 +1,55 @@
+<ion-view class="bg scheduling">
+    <style>
+        .sorting div{width:30%;height:40px;line-height:40px;text-align: center}
+    </style>
+    <ion-content>
+        <div style="display: flex;justify-content: space-between;" class="sorting">
+            <div style="display: flex;justify-content: space-around" >
+                <p ng-class="{'colff66':param.findType == '001'}" ng-click=" sorting('001','0')">客单价</p>
+                <p style="margin-top:-5px;">
+                    <i class="ion-arrow-up-b col999" style='display: block;height: 10px;' ng-click=" sorting('001','1')" ng-class="{'colff66':param.findType == '001'&&param.doru=='1'}" ></i>
+                    <i class="ion-arrow-down-b col999" style='display: block;height: 10px;' ng-click=" sorting('001','0')" ng-class="{'colff66':param.findType == '001'&&param.doru=='0'}"></i>
+                </p>
+            </div>
+            <div style="display: flex;justify-content: space-around" >
+                <p style="" ng-class="{'colff66':param.findType == '002'}" ng-click=" sorting('002','0')">消费次数</p>
+                <p style="margin-top:-5px;">
+                    <i class="ion-arrow-up-b col999" style='display: block;height: 10px;' ng-click=" sorting('002','1')" ng-class="{'colff66':param.findType == '002'&&param.doru=='1'}" ></i>
+                    <i class="ion-arrow-down-b col999" style='display: block;height: 10px;' ng-click=" sorting('002','0')" ng-class="{'colff66':param.findType == '002'&&param.doru=='0'}"></i>
+                </p>
+            </div>
+            <div style="display: flex;justify-content: space-around" >
+                <p style="" ng-class="{'colff66':param.findType == '003'}" ng-click=" sorting('003','0')">余额</p>
+                <p style="margin-top:-5px;">
+                    <i class="ion-arrow-up-b col999" style='display: block;height: 10px;' ng-click=" sorting('003','1')" ng-class="{'colff66':param.findType == '003'&&param.doru=='1'}" ></i>
+                    <i class="ion-arrow-down-b col999" style='display: block;height: 10px;' ng-click=" sorting('003','0')" ng-class="{'colff66':param.findType == '003'&&param.doru=='0'}"></i>
+                </p>
+            </div>
+
+        </div>
+        <ion-list style="height:100%;" class="partialFiles">
+            <div ng-repeat="item in info">
+                <ion-item  class="h60 bgfff row" >
+                    <div class="col col-70" style="display: flex" ng-click="goActives(item.id)">
+                        <div class="sb" style="line-height: 49px;">
+                            <img ng-src="{{item.imageUrl}}" style="height:42px;width:42px;border-radius: 50%;" class="ml10" >
+                        </div>
+                        <div class="ml10" style="width: 100%;">
+                            <p class="fs16">{{item.sysUserName}}</p>
+                            <div style="display: flex;justify-content: space-between;">
+                                <p class="fs12 col666"> <img src="images/time.png" class="timePic mr5">上次到店时间：{{item.lastToShopTime|date:'yyyy-MM-dd'}}</p>
+                                <p ng-if="param.findType=='001'" class="colff66">{{item.averagePrice | number:2}}</p>
+                                <p ng-if="param.findType=='002'" class="colff66">{{item.consumeCount}}</p>
+                                <p ng-if="param.findType=='003'" class="colff66">{{item.sumAmount | number:2}}</p>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </ion-item>
+            </div>
+        </ion-list>
+    </ion-content>
+
+</ion-view>

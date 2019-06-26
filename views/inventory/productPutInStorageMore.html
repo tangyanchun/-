@@ -1,0 +1,87 @@
+<ion-view>
+    <ion-content class="partialFiles bgf6"  style="margin-bottom: 45px;" ng-click="all()">
+        <div>
+            <div >
+                <div class="h45 bgfff row fs14 bbl">
+                    <div class="col col-33 center" style="border-right: solid 1px #f6f6f6">
+                        <p style="margin-top:-10px" ng-class="{'colff66':param.type == 0}" ng-click="changeBtn(0);$event.stopPropagation()">客装产品
+                            <img src="{{param.type==0?'images/inventory/triangleRed.png':'images/inventory/triangleGray.png'}}" class="trianglePic ml20" ng-click="selNext();$event.stopPropagation()"></p>
+                    </div>
+                    <div class="col col-33 center" style="border-right: solid 1px #f6f6f6">
+                        <p style="margin-top:-10px" ng-click="changeBtn(1)" ng-class="{'colff66':param.type == 1}">院装产品
+                            <img src="{{param.type==1?'images/inventory/triangleRed.png':'images/inventory/triangleGray.png'}}" class="trianglePic ml20" ng-click="selNext();$event.stopPropagation()"></p>
+                    </div>
+                    <div class="col col-33 center">
+                        <p style="margin-top:-10px" ng-click="changeBtn(2)" ng-class="{'colff66':param.type == 2}">易耗品
+                            <img src="{{param.type==2?'images/inventory/triangleRed.png':'images/inventory/triangleGray.png'}}" class="trianglePic ml20" ng-click="selNext();$event.stopPropagation()"></p>
+                    </div>
+                </div>
+            </div>
+            <div style="position:relative ">
+                <div>
+                    <ion-list>
+                        <ion-item class="item-input" style="background: border-box;height: 40px; ">
+                        <span class="item-input-wrapper" style="margin-right:10px;height:30px;margin-left:10px;" >
+                                <i class="icon ion-ios-search placeholder-icon" ng-click="search()"></i>
+                                <input id="search" type="search" placeholder="搜索产品名称/产品编号" ng-model="searchCont.key" >
+                                <i class="icon ion-close-circled placeholder-icon" style="vertical-align: middle;"
+                                   on-tap="clearSearch()" ng-if="searchCont.key.length"></i>
+                        </span>
+                        </ion-item>
+                    </ion-list>
+                </div>
+                <div class="h30">
+                    <p class="fs12 col888 ml10">客装产品.可丽金.全部</p>
+                </div>
+                <div>
+                    <ion-list>
+                        <ion-item style="height:90px;width:95%;margin: 0px auto 10px; border-radius: 6px; box-shadow: 0 2px 4px 0 rgba(153,153,153,0.20)" class="sb " ng-repeat="item in [0,1,2,3,4]" ng-click="selProduct($index)">
+                            <div style="display: flex">
+                                <p style="height:70px;border:solid 1px #f6f6f6;width:75px;" class="mt10 ml10">
+                                    <img src="">
+                                </p>
+                                <div class="ml10 mt10">
+                                    <P class="fs14 col333 ">健肤小喷</P>
+                                    <P class="fs12 col888 mt10">编号：</P>
+                                    <P class="fs12 col888">
+                                        <span>单位：件</span>
+                                        <span class="ml50">规格：1000g</span>
+                                    </P>
+                                </div>
+                            </div>
+                            <p class="mr10 mt10">
+                                <i class="icon ion-ios-checkmark-outline" style="color:#FF6666;font-size:20px;" ng-if="param.ids.indexOf($index)==-1"></i>
+                                <i class="icon icon ion-ios-checkmark" style="color:#FF6666;font-size:20px;" ng-if="param.ids.indexOf($index)!=-1"></i>
+                            </p>
+                        </ion-item>
+                    </ion-list>
+                </div>
+                <div style="position: absolute;height:100%;background: #000;opacity: 0.2;top:0;width:100%;z-index: 100"  ng-show="param.flag"></div>
+                <div style="position: absolute;top:0;width:100%;z-index: 1000"  class="sb" ng-show="param.flag">
+                    <ul class="W33 col333 bgfff fs14">
+                        <li class="ml10 h40  col333 center bbl" ng-repeat="item in [0,1,2,3]" ng-click="selThree();$event.stopPropagation()">综合品牌</li>
+                    </ul>
+                    <ul style="width:77%;background: #F6F6F6;" class="fs14 col333">
+                        <li class="ml10 h40 sb" style="border-bottom: 1px solid #FFFFFF;" ng-click="threeMess();$event.stopPropagation()">
+                            <span>全部</span>
+                            <span class="mr10">(5)</span>
+                        </li>
+                        <li class="ml10 h40 sb" style="border-bottom: 1px solid #FFFFFF;" ng-click="threeMess();$event.stopPropagation()">
+                            <span>伊人</span>
+                            <span class="mr10">(1)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </ion-content>
+    <div class="h45 center fs16 colfff bgff66 tabs" >
+        <p ng-click="newLibraryGo()">下一步(0/30)</p>
+        <div style="position: absolute;height:100%;background: #000;opacity: 0.2;top:0;width:100%;z-index: 100" ng-show="param.flag"></div>
+    </div>
+</ion-view>

@@ -1,0 +1,23 @@
+<ion-view >
+    <ion-content class="bgf6">
+        <div>
+            <p style="font-family: PingFangSC-Regular;font-size: 16px;color: #333333;letter-spacing: 0;padding-left:12px;height:35px;line-height:35px;padding:0 12px;">
+                想和客人说些什么呢？</p>
+            <p style="">
+            <input style="font-family: PingFangSC-Regular;font-size: 15px;color: #999999;letter-spacing: 0;height:40px;line-height: 40px;padding:0 12px;background: #fff;width:100%;"placeholder="请输入标题" ng-model="shopBossSendMessageDTO.title">
+            </p>
+
+
+            <textarea placeholder="请输入内容" ng-model="shopBossSendMessageDTO.content"  style="background: #FFFFFF;height:160px;width:100%;padding:5px 12px;margin-top:1px;font-size: 15px;
+                color: #999999;">请输入内容
+            </textarea>
+            <p style="background: #FF6666;border-radius: 46px;width:150px;height:40px;line-height: 40px;margin: 40px auto;color:#fff;text-align: center" ng-click="sendMessageToUser()">发送</p>
+            <div style="padding:0 12px;">
+                <p style="font-family: PingFangSC-Regular;font-size: 16px;color: #4A90E2;letter-spacing: 0;line-height: 24px;">提示：</p>
+                <div style="font-family: PingFangSC-Regular;font-size: 14px;color: #3F3F3F;letter-spacing: 0;">
+                    点击发送后，编辑的内容将推送给已绑定本店的顾客。消息发出，不可撤回！
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

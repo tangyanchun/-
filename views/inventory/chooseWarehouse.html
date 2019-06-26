@@ -1,0 +1,15 @@
+<ion-view>
+    <ion-content class="partialFiles bgf6">
+        <div style="background: #F4F4F4;border-radius: 8px;height:455px;width:80%;position: absolute;top:40px;left:50%;margin-left:-40%;">
+              <P class="sb fs16 ">
+                  <span class="W33"></span>
+                  <span class="W33 center" style="margin-top:30px;">选择仓库</span>
+                  <span class="W33" style="text-align: right"><img src="images/close.png" ng-click="close()"  class="closePic mr20 mt20"></span>
+              </P>
+              <p class="h40 bgfff fs17 col666 center " style="width:80%;margin:10px auto 0;"
+                 ng-repeat="item in chooseWarehouse" ng-click="funAreaGo(item.id,item.name)">
+                 {{item.name}}
+              </p>
+        </div>
+    </ion-content>
+</ion-view>

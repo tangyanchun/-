@@ -1,0 +1,44 @@
+<ion-view class="scheduling bgf66">
+    <!--头部切换时间 切换店铺-->
+    <div style="width: 100%;height: 40px;line-height: 40px;position: relative">
+        <div  class="ma fs15 tc colf9">
+            <img src="images/work/leftSlip.png" style="width: 14px;height: 14px;display: inline-block" ng-click="subMonth()">
+            <span class="ml10 mr10">{{param.nowdate}}</span>
+            <img src="images/work/rightSlip.png" style="width: 14px;height: 14px;display: inline-block"  ng-click="addMonth()">
+        </div>
+    </div>
+    <!--排班的具体内容-->
+    <div class="bgfff" style="height: 100%;width: 100%;text-align: center">
+        <!--头部固定星期-->
+        <ul ng-repeat="item4 in tempUser" class="list " style="display: flex;flex-wrap: wrap;">
+            <li style="border-right: 1px solid #e5e5e5;width:14.28%;box-sizing: border-box;
+    border-bottom: 1px solid #e5e5e5;"><div style="line-height: 50px; width: 100%;border:none">周日</div></li>
+            <li style="border-right: 1px solid #e5e5e5;width:14.28%;box-sizing: border-box;
+    border-bottom: 1px solid #e5e5e5;"><div style="line-height: 50px; width: 100%;border:none">周一</div></li>
+            <li style="border-right: 1px solid #e5e5e5;width:14.28%;box-sizing: border-box;
+    border-bottom: 1px solid #e5e5e5;"><div style="line-height: 50px; width: 100%;border:none">周二</div></li>
+            <li style="border-right: 1px solid #e5e5e5;width:14.28%;box-sizing: border-box;
+    border-bottom: 1px solid #e5e5e5;"><div style="line-height: 50px; width: 100%;border:none">周三</div></li>
+            <li style="border-right: 1px solid #e5e5e5;width:14.28%;box-sizing: border-box;
+    border-bottom: 1px solid #e5e5e5;"><div style="line-height: 50px; width: 100%;border:none">周四</div></li>
+            <li style="border-right: 1px solid #e5e5e5;width:14.28%;box-sizing: border-box;
+    border-bottom: 1px solid #e5e5e5;"><div style="line-height: 50px; width: 100%;border:none">周五</div></li>
+           <li style="border-right: 1px solid #e5e5e5;width:14.28%;box-sizing: border-box;
+    border-bottom: 1px solid #e5e5e5;"><div style="line-height: 50px; width: 100%;border:none">周六</div></li>
+            <!--排班的具体内容-->
+            <li ng-repeat="infoItem in item4.clerkSchInfo track by $index" style="border-right: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;width:14.28%;box-sizing: border-box;">
+                <div class="employeeBox" style="width: 100%;border:none" ng-if="infoItem.scheduleDate!=''">
+                    <p style="font-size:15px" >{{infoItem.scheduleDate|date:'dd'}}</p>
+                    <p>
+                        <img ng-if="infoItem.scheduleType == 0" src="images/work/morning.png" style="width:20px;height:20px;margin-bottom: 4px">
+                        <img ng-if="infoItem.scheduleType == 1" src="images/work/middle.png" style="width:20px;height:20px;margin-bottom: 4px">
+                        <img ng-if="infoItem.scheduleType == 2" src="images/work/night.png" style="width:20px;height:20px;margin-bottom: 4px">
+                        <img ng-if="infoItem.scheduleType == 3" src="images/work/all.png" style="width:20px;height:20px;margin-bottom: 4px">
+                        <img ng-if="infoItem.scheduleType == 4" src="images/work/Rest.png" style="width:20px;height:20px;margin-bottom: 4px">
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</ion-view>

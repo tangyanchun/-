@@ -1,0 +1,85 @@
+<ion-view>
+    <ion-content class="partialFiles">
+        <div>
+            <div class="bgfff">
+                <p class="row">
+                    <span class="col col-25 fs14 col888">单号</span>
+                    <span class="col col-75 fs14 col333">{{param.shopOutboundDetails.flowNo}}</span>
+                </p>
+                <p class="row">
+                    <span class="col col-30 fs14 col888">出库时间</span>
+                    <span class="col col-75 fs14 col333">{{param.shopOutboundDetails.createDate|date:'yyyy-MM-dd HH:mm:ss'}}</span>
+                </p>
+                <p class="row">
+                    <span class="col col-30 fs14 col888">出库仓库</span>
+                    <span class="col col-75 fs14 col333">{{param.shopOutboundDetails.name}}</span>
+                </p>
+                <p class="row">
+                    <span class="col col-30 fs14 col888">出库类型</span>
+                    <span class="col col-75 fs14 col333" ng-if="param.shopOutboundDetails.stockType=='0'">采购入库</span>
+                    <span class="col col-75 fs14 col333" ng-if="param.shopOutboundDetails.stockType=='1'">内部员工出库</span>
+                    <span class="col col-75 fs14 col333" ng-if="param.shopOutboundDetails.stockType=='2'">顾客出库</span>
+                    <span class="col col-75 fs14 col333" ng-if="param.shopOutboundDetails.stockType=='3'">赠送</span>
+                    <span class="col col-75 fs14 col333" ng-if="param.shopOutboundDetails.stockType=='4'">报废</span>
+                    <span class="col col-75 fs14 col333" ng-if="param.shopOutboundDetails.stockType=='5'">院用</span>
+                    <span class="col col-75 fs14 col333" ng-if="param.shopOutboundDetails.stockType=='6'">退回供货商</span>
+                    <span class="col col-75 fs14 col333" ng-if="param.shopOutboundDetails.stockType=='7'">下发到店</span>
+                    <span class="col col-75 fs14 col333" ng-if="param.shopOutboundDetails.stockType=='8'">寄存出库</span>
+                </p>
+                <p class="row">
+                    <span ng-if="param.shopOutboundDetails.stockType=='8'" class="col col-30 fs14 col888">操作人</span>
+                    <span ng-if="param.shopOutboundDetails.stockType!='8'" class="col col-30 fs14 col888">申请人</span>
+                    <span class="col col-75 fs14 col333">{{param.shopOutboundDetails.applayUser}}</span>
+                </p>
+                <p class="row">
+                    <span ng-if="param.shopOutboundDetails.stockType=='8'" class="col col-30 fs14 col888">档案</span>
+                    <span ng-if="param.shopOutboundDetails.stockType!='8'" class="col col-30 fs14 col888">领取人</span>
+                    <span class="col col-75 fs14 col333">{{param.shopOutboundDetails.receiver}}</span>
+                </p>
+                <p class="row">
+                    <span class="col col-30 fs14 col888">状态</span>
+                    <span class="col col-75 fs14 col333" ng-if="param.shopOutboundDetails.stockStatus=='5'">已入库</span>
+                    <span class="col col-75 fs14 col333" ng-if="param.shopOutboundDetails.stockStatus=='6'">已出库</span>
+                </p>
+                <p class="row">
+                    <span  ng-if="param.shopOutboundDetails.stockType!='8'" class="col col-30 fs14 col888">备注</span>
+                    <span  ng-if="param.shopOutboundDetails.stockType!='8'" class="col col-75 fs14 col333">{{param.shopOutboundDetails.detail}}</span>
+                </p>
+            </div>
+            <br>
+            <div style="border:solid 1px #e6e6e6;border-radius: 6px;
+                              width:90%;margin:auto;box-shadow: 0 2px 4px 0 rgba(153,153,153,0.20)"
+                 ng-repeat="item in param.shopOutboundDetails.shopStockResponseDTO">
+                <ion-list>
+                    <ion-item style="height:90px;border-radius:6px 6px 0 0" class="sb">
+                        <div style="display: flex">
+                            <p style="height:70px;border:solid 1px #f6f6f6;width:75px;" class="mt10 ml10">
+                                <img style="height:70px;width:75px;" ng-src="{{item.imageUrl[0]}}">
+                            </p>
+                            <div class="ml10 mt10">
+                                <P class="fs14 col333 ">{{item.shopProcName}}</P>
+                                <P class="fs12 col888 mt10">编号：{{item.productCode}}</P>
+                                <P class="fs12 col888">
+                                    <span>单位：{{item.productUnit}}</span>
+                                    <span class="ml50">规格：{{item.productSpec}}</span>
+                                </P>
+                            </div>
+                        </div>
+                    </ion-item>
+                </ion-list>
+                <p class="h40 sb bbl" style="background: #F6F6F6;">
+                    <span class="ml20 fs14 col333">出库数量</span>
+                    <span class="mr20 fs14 col333">{{item.outStockNumber}}</span>
+                </p>
+             <!--   <p class="h40 sb bbl" style="background: #F6F6F6;">
+                    <span class="ml20 fs14 col333">生产日期</span>
+                    <span class="mr20 fs14 col333">{{item.productDate|date:'yyyy-MM-dd'}}</span>
+                </p>
+                <p class="h40 sb bbl" style="background: #F6F6F6;border-radius: 0 0 6px 6px;">
+                    <span class="ml20 fs14 col333">进货单价</span>
+                    <span class="mr20 fs14 col333">{{item.stockPrice}}</span>
+                </p>-->
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

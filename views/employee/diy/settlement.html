@@ -1,0 +1,69 @@
+<ion-view class="skin" style="background: #F2F2F2">
+    <ion-content>
+        <div class="bgDiv">
+            <div class="bgDiv2">
+                <p class="skin1" style="margin-top: 20px">
+                    您的皮肤类型： <span ng-repeat="item in skinType" style="margin-left: 5px">{{item.name}}</span></p>
+                <p class="demand1">需求：<span ng-repeat="item in skinDemand" style="margin-left: 5px">{{item.name}}</span></p>
+            </div>
+        </div>
+
+        <div style="margin-top: -60px;border-radius: 10px;min-height: 200px;background: #ffffff" >
+            <div ng-repeat="item in diyOrderDTO.demandDTOList">
+                <div class="list" style="background: #ffffff">
+                    <p style="padding-top: 10px;padding-left: 10px;color: #323232;font-weight: bold;" ng-if="item.basisMaterials.length>0||item.essenceMaterials.length>0||item.scentMaterials.length>0||item.basalMaterials.length>0">当前选择状态：{{item.extDiyProduct.name}}</p>
+                    <p style="padding-top: 5px;padding-left: 10px" ng-if="item.basisMaterials.length>0">您选择的基础原料：</p>
+                    <div class="row row-wrap">
+                        <div class="col col-50"  ng-repeat="item2 in item.basisMaterials">
+                            <img  ng-src="{{item2.picUrl}}" style="width: 168px;height: 168px;margin: auto;border-radius: 10px">
+                            <p style="font-family: PingFang-SC-Regular;font-size: 14px;color: #87ad56;letter-spacing: 0;line-height: 16px;margin-top: 10px">{{item2.chineseName}}</p>
+                            <p style="font-family: PingFang-SC-Regular;font-size: 14px;color: #87ad56;letter-spacing: 0;line-height: 16px;margin-top: 10px">
+                                <span>￥{{item2.price}}</span><img src="images/reduce.png" style="width: 22px;height: 22px;float: right;margin-right: 10px" ng-click="orderChange(item2,item.extDiyProduct.transactionId)"></p>
+                        </div>
+                    </div>
+                </div>
+                <!--精华-->
+                <div class="list" style="margin-top: 20px;background: #ffffff">
+                    <p style="padding-top: 10px;padding-left: 10px" ng-if="item.essenceMaterials.length>0">您选择的精华原料：</p>
+                    <div class="row row-wrap">
+                        <div class="col col-50"   ng-repeat="item2 in item.essenceMaterials">
+                            <img  ng-src="{{item2.picUrl}}" style="width: 168px;height: 168px;margin: auto;border-radius: 10px">
+                            <p style="font-family: PingFang-SC-Regular;font-size: 14px;color: #87ad56;letter-spacing: 0;line-height: 16px;margin-top: 10px">{{item2.chineseName}}</p>
+                            <p style="font-family: PingFang-SC-Regular;font-size: 14px;color: #87ad56;letter-spacing: 0;line-height: 16px;margin-top: 10px">
+                                <span>￥{{item2.price}}</span><img src="images/reduce.png" style="width: 22px;height: 22px;float: right;margin-right: 10px" ng-click="orderChange(item2,item.extDiyProduct.transactionId)"></p>
+                        </div>
+                    </div>
+                </div>
+                <!--香型-->
+                <div class="list" style="margin-top: 20px;background: #ffffff">
+                    <p style="padding-top: 10px;padding-left: 10px" ng-if="item.scentMaterials.length>0">您选择的香型原料：</p>
+                    <div class="row row-wrap">
+                        <div class="col col-50"   ng-repeat="item2 in item.scentMaterials">
+                            <img  ng-src="{{item2.picUrl}}" style="width: 168px;height: 168px;margin: auto;border-radius: 10px">
+                            <p style="font-family: PingFang-SC-Regular;font-size: 14px;color: #87ad56;letter-spacing: 0;line-height: 16px;margin-top: 10px">{{item2.chineseName}}</p>
+                            <p style="font-family: PingFang-SC-Regular;font-size: 14px;color: #87ad56;letter-spacing: 0;line-height: 16px;margin-top: 10px">
+                                <span>￥{{item2.price}}</span><img src="images/reduce.png" style="width: 22px;height: 22px;float: right;margin-right: 10px" ng-click="orderChange(item2,item.extDiyProduct.transactionId)"></p>
+                        </div>
+                    </div>
+                </div>
+                <!--基底-->
+                <div class="list" style="margin-top: 20px;background: #ffffff">
+                    <p style="padding-top: 10px;padding-left: 10px" ng-if="item.basalMaterials.length>0">您选择的基底原料：</p>
+                    <div class="row row-wrap">
+                        <div class="col col-50"   ng-repeat="item2 in item.basalMaterials">
+                            <img  ng-src="{{item2.picUrl}}" style="width: 168px;height: 168px;margin: auto;border-radius: 10px">
+                            <p style="font-family: PingFang-SC-Regular;font-size: 14px;color: #87ad56;letter-spacing: 0;line-height: 16px;margin-top: 10px">{{item2.chineseName}}</p>
+                            <p style="font-family: PingFang-SC-Regular;font-size: 14px;color: #87ad56;letter-spacing: 0;line-height: 16px;margin-top: 10px">
+                                <span>￥{{item2.price}}</span><img src="images/reduce.png" style="width: 22px;height: 22px;float: right;margin-right: 10px" ng-click="orderChange(item2,item.extDiyProduct.transactionId)"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--总计-->
+        <div style="height: 100px;margin-top: 20px">
+                <p><span style="margin-left: 22px;font-size: 20px;color: #323232;display: inline-block;margin-top: 5px">总计：<span style="color: #87ad56">￥{{price}}</span></span><span style="width: 120px;height: 44px;float: right;display: inline-block;background: #87ad56;border-bottom-left-radius: 20px;border-top-left-radius: 20px;color: #ffffff;font-size: 18px;text-align: center;line-height: 44px" ng-click="goPay()">结算</span></p>
+        </div>
+        <br><br><br>
+    </ion-content>
+</ion-view>

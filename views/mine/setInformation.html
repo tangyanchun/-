@@ -1,0 +1,20 @@
+<ion-view class="bg">
+    <ion-content>
+        <div class="list">
+            <p class="item" ng-click="basicSettingGo()"><img src="images/mine/Data.png" style="width: 21px;height: 20px;display: inline-block"><span class="ml10 fs15 col33 bold">基础资料设置</span><i style="float:right;font-size: 22px" class="ion ion-ios-arrow-right"></i></p>
+            <p class="item" ng-click="systemSetupGo()"><img src="images/mine/System.png" style="width: 21px;height: 20px;display: inline-block"><span class="ml10 fs15 col33 bold">系统设置</span><i style="float:right;font-size: 22px" class="ion ion-ios-arrow-right"></i></p>
+        </div>
+        <div style="width:100%;height:100%;position: absolute;background:rgba(0,0,0,0.2);top:0;z-index: 100" ng-show="param.flag" ng-click="dis()">
+            <div style="background: #F4F4F4;border-radius: 8px;height:455px;width:80%;position: absolute;top:50%;left:50%;margin-left:-40%;margin-top:-227px;z-index: 101;overflow-y: scroll">
+                <P class="sb fs16 ">
+                    <span class="W33"></span>
+                    <span class="W33 center" style="margin-top:30px;">选择店铺</span>
+                    <span class="W33" style="text-align: right"><img src="images/close.png" class="closePic mr20 mt20"></span>
+                </P>
+                <p class="h40 bgfff fs17 col666 center " style="width:80%;margin:10px auto 0;" ng-repeat="item in setInformation" ng-click="swichShop(item.sysShopId,item.sysShopName)">
+                    {{item.sysShopName}}
+                </p>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

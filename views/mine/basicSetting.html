@@ -1,0 +1,30 @@
+<ion-view class="bg">
+    <ion-content>
+         <div class="list">
+             <li class="item" ng-click="beautySettingGo()"><img src="images/mine/editShop.png" style="width: 25px;height: 25px;display: inline-block"><span class="fs16 ml10">美容院设置</span><i style="float:right;font-size: 0.3rem" class="ion ion-ios-arrow-right"></i></li>
+            <!-- <li class="item" ng-click="shopListGo()"><img src="images/mine/beauty.png" style="width: 25px;height: 25px;display: inline-block"><span class="fs16 ml10">编辑分店</span><i style="float:right;font-size: 0.3rem" class="ion ion-ios-arrow-right"></i></li>-->
+         </div>
+        <div class="list">
+            <li class="item"ng-click="projectBrandGo()"><img src="images/mine/project1.png" style="width: 25px;height: 25px;display: inline-block"><span class="fs16 ml10">项目大类设置</span><i style="float:right;font-size: 0.3rem" class="ion ion-ios-arrow-right"></i></li>
+            <li class="item" ng-click="addProjectGo()"><img src="images/mine/addProject.png" style="width: 25px;height: 25px;display: inline-block"><span class="fs16 ml10">添加项目</span><i style="float:right;font-size: 0.3rem" class="ion ion-ios-arrow-right"></i></li>
+            <li class="item" ng-click="projectListGo()"><img src="images/mine/deleteProject.png" style="width: 25px;height: 25px;display: inline-block"><span class="fs16 ml10">修改/删除项目</span><i style="float:right;font-size: 0.3rem" class="ion ion-ios-arrow-right"></i></li>
+        </div>
+        <div class="list">
+            <li class="item" ng-click="productBrandGo()"><img src="images/mine/product.png" style="width: 25px;height: 25px;display: inline-block"><span class="fs16 ml10">产品品牌设置</span><i style="float:right;font-size: 0.3rem" class="ion ion-ios-arrow-right"></i></li>
+            <li class="item" ng-click="addProductGo()"><img src="images/mine/addProduct.png" style="width: 25px;height: 25px;display: inline-block"><span class="fs16 ml10">添加产品</span><i style="float:right;font-size: 0.3rem" class="ion ion-ios-arrow-right"></i></li>
+            <li class="item" ui-sref="warehouseProducts"><img src="images/mine/deleteProduct.png" style="width: 25px;height: 25px;display: inline-block"><span class="fs16 ml10">修改/删除产品</span><i style="float:right;font-size: 0.3rem" class="ion ion-ios-arrow-right"></i></li>
+        </div>
+        <div class="list">
+            <li class="item"  ui-sref="addCards"><img src="images/mine/addTok.png" style="width: 25px;height: 25px;display: inline-block"><span class="fs16 ml10">添加套卡</span><i style="float:right;font-size: 0.3rem" class="ion ion-ios-arrow-right"></i></li>
+            <li class="item"  ui-sref="cardList"><img src="images/mine/deleteTok.png" style="width: 25px;height: 25px;display: inline-block"><span class="fs16 ml10">修改/删除套卡</span><i style="float:right;font-size: 0.3rem" class="ion ion-ios-arrow-right"></i></li>
+        </div>
+        <div class="list">
+            <li class="item" ui-sref="addrechargeCard"><img src="images/mine/addCard.png" style="width: 25px;height: 25px;display: inline-block"><span class="fs16 ml10">添加充值卡</span><i style="float:right;font-size: 0.3rem" class="ion ion-ios-arrow-right"></i></li>
+            <li class="item" ui-sref="rechargeList"><img src="images/mine/modCard.png" style="width: 25px;height: 25px;display: inline-block"><span class="fs16 ml10">修改/删除充值卡</span><i style="float:right;font-size: 0.3rem" class="ion ion-ios-arrow-right"></i></li>
+        </div>
+        <div class="list">
+            <!--<li class="item" ng-click="" ui-sref="reminderSettings"><img src="images/mine/Reminder.png" style="width: 25px;height: 25px;display: inline-block"><span class="fs16 ml10">提醒设置</span><i style="float:right;font-size: 0.3rem" class="ion ion-ios-arrow-right"></i></li>-->
+            <li class="item" ng-click="" ui-sref="reminder({sysShopName:param.sysShopName})"><img src="images/mine/Schedule.png" style="width: 25px;height: 25px;display: inline-block"><span class="fs16 ml10">排班设置</span><i style="float:right;font-size: 0.3rem" class="ion ion-ios-arrow-right"></i></li>
+        </div>
+    </ion-content>
+</ion-view>

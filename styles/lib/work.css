@@ -1,0 +1,236 @@
+/*基本样式*/
+.bg{background: #F6F6F6}
+.h60{height: 60px}
+.fs15{font-size: 15px}
+.fs12{font-size: 12px}
+.col88{color: #888888}
+.p5{padding: 5px}
+.colff66{color: #ff6666}
+.ml10{margin-left: 10px}
+.col66{color: #666666}
+.col88{color: #888888}
+.fs14{font-size: 14px}
+.mt20{margin-top: 20px}
+.fs16{font-size: 16px}
+.bgfff{background: #FFFFFF}
+.mt-20{margin-top:-20px}
+.ml-20{margin-left: -20px}
+.p10{padding: 10px}
+.mt5{margin-top: 5px}
+.mt10{margin-top: 10px}
+.br{border-right: 1px solid #e5e5e5}
+.p0{padding: 0px}
+.fs11{font-size: 11px}
+.bre5e5{border-right: 1px solid #e5e5e5}
+.m5{margin: 5px}
+.pr10{padding-right: 10px}
+.fr{float: right}
+.pt10{padding-top: 10px}
+.mt15{margin-top: 15px}
+.mb20{margin-bottom: 20px}
+.p8{padding: 8px}
+.Label{width: 44px;height: 16px;background: #F89E02;border-radius: 100px;line-height: 16px}
+.Label2{width: 44px;height: 16px;background: #9A9A9A;border-radius: 100px;line-height: 16px;margin-left: 13px}
+.Label3{width: 44px;height: 16px;background: orange;border-radius: 100px;line-height: 16px;margin-left: 13px}
+.Label4{width: 44px;height: 16px;background: #9A9A9A;border-radius: 100px;line-height: 16px;}
+.yearCard{width: 40px;height: 17px;}
+.ml16{margin-left: 16px}
+.ph{height: 36px;line-height: 36px}
+.ml17{margin-left: 17px}
+.ml20{margin-left: 20px}
+.h45{height: 45px;line-height: 45px}
+.h30{
+    height: 30px;line-height: 30px}
+.tabs-striped.tabs-color-assertive .tab-item{color: #333333;opacity:1;font-size: 0.3rem}
+.trianglePic{width:10px;height:8px;display: inline-block}
+/*业绩耗卡部分*/
+.businessBox{width: 100%;height: 110px;background:url("../../images/work/workHome.png");background-size: 100% 100%}
+.businessBox1{font-size: 0.3rem;width: 6.8rem;height: 1.05rem;color: #FFFFFF;margin: auto}
+.businessBox2{text-align: center;padding-top: 0.2rem;}
+
+.head{background: url("../../images/work/home2.png");background-size: 100% 100%;width: 85%;margin: auto;margin-top: 30px;border-radius: 6px; box-shadow :0px 12px 18px 0px rgba(255, 102, 102, 0.16);}
+.mu{margin: auto}
+.mt45{margin-top: 45px}
+.col33{color: #333333}
+.colfc{color:#fca29e}
+.fs13{font-size: 13px}
+.tc{text-align: center}
+/*今日工作 行政管理 店务分析*/
+.mt55{margin-top: 55px}
+.todayJob{background: #ffffff;width: 100%; height: 36px; color: #333333;line-height: 36px;padding-left: 10px;border-bottom: 1px solid #e5e5e5;font-size: 13px}
+.imageContent{width: 24px;height: 20px;margin: auto}
+.mt12{margin-top: 12px}
+.mt-9{margin-top: -9px}
+.mb10{margin-bottom: 10px}
+.mr10{margin-right: 10px}
+.bgf66{background: #ff6666}
+.fl{float: left}
+.col99{color: #999999}
+.ma{margin: auto}
+.colf9{color: #f9f9f9}
+.ml5{margin-left: 5px}
+.bold{font-weight: bold}
+.fs17{font-size: 17px}
+.mr20{margin-right: 20px}
+.disp{display: inline-block}
+.m5{margin: 5px}
+.tr{text-align: right}
+.mb44{margin-bottom: 44px}
+.bge5e5{background: #e5e5e5}
+.h .project1{display: inline-block;height: 24px;line-height: 24px;text-align: center;color: #ff6666;border: 1px solid #ff6666;width: 70px;padding:0;}
+.project2{display: inline-block;width: 70px;height: 24px;line-height: 24px;text-align: center;color: #ffffff;border: 1px solid #ff6666;
+    background: #ff6666;}
+/*综合分析页面*/
+.bgRgb{background:rgb(255,102,102);width: 100%;height: 40px;line-height: 40px}
+.dateImg{width: 15px;height: 14px;margin-left: 10px;display: inline-block;margin-top: -5px}
+.date{margin-left: 10px;font-size: 14px;color:#fff!important;}
+.dropImg{width: 11px;height: 6px;display: inline-block;margin-left: 20px}
+.achievementBox1{width: 100%;height: 121px;background: #ffffff;line-height: 121px}
+.achievementBox2{width:90%;height: 97px;background: rgb(255,102,102);margin: auto}
+.colff{color: #ffffff!important;}
+/*综合分析的业绩耗卡部分*/
+.comprehensiveBox{width: 100%;height: 97px;background:url("../../images/work/analysis.png");background-size: 100% 100%}
+.comprehensiveBox1{font-size: 0.3rem;width: 6.8rem;height: 1.05rem;color: #FFFFFF;margin: auto}
+.comprehensiveBox2{text-align: center;padding-top: 0.2rem;}
+.bgfff{background: #FFFFFF}
+
+/*收支分析*/
+.incomeAnalysisBox{width: 100%;height: 97px;background:url("../../images/work/analysis.png");background-size: 100% 100%;margin-bottom: 0px;}
+.incomeAnalysisBox1{font-size: 0.3rem;width: 6.8rem;height: 1.05rem;color: #FFFFFF;margin: auto}
+.incomeAnalysisBox2{text-align: center;padding-top: 0.2rem;}
+
+.employeeAnalysisBox .row .col{width: 100px;height: 45px;line-height: 36px;}
+.employeeAnalysisBox .row:nth-child(2n) .col{background: #f1f1f1}
+.redPacket_box{
+    background-color: rgba(0,0,0,0.42);
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    z-index: 10;
+}
+.redPacket{
+    position: relative;
+    overflow: hidden;
+    margin: 40px auto;
+}
+.redBox{background:url("../../images/work/analysis.png");background-size: 100% 100%;width: 90%;height: 97px;margin: auto;padding: 30px}
+.tabBox{ width:204px;height: 30px;margin: auto;border: 1px solid #ff6666;box-sizing: content-box;border-radius:5px}
+.tabBox button{width:33.33%;height: 30px;text-align: center;box-sizing: border-box;/*font-size: 14px*/;border-bottom-left-radius: 2px;border-top-left-radius: 2px}
+.h .activeCardType {
+    background-color: #ff6666;color: #ffffff;
+    border-right: 1px solid #ff6666;
+}
+.active{background: rgba(255,255,255,1)}
+.scheduling table  tr td div{
+    width: 70px;
+    height: 60px;
+    text-align: center;
+    border-right: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+}
+/*.scheduling table  tr td div:nth-child(1){
+    width: 75px;
+}*/
+.scheduling .listHead td{background: #ffffff}
+.scheduling table tbody  td{
+    background: #ffffff;
+}
+.scheduling table tbody tr td div{
+    /*line-height: 50px;*/
+}
+.scheduling table tbody tr td .employeeBox{
+    line-height: 20px;
+}
+.scheduling .list td img{width: 20px;height: 20px;margin: auto}
+.scheduling  #ofix1_tb_header thead td:nth-child(1){
+    padding-left: 75px;
+}
+.scheduling  #ofix1_tb_left tbody tr:nth-child(1) td div{
+    line-height: 0px;
+}
+.scheduling .shadow_box{
+    width:61px;
+    height:60px;
+    background-color:#ffffff;
+    position:absolute;
+    top:40px;
+    left:0px;
+    z-index:99900;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.scheduling .displayShopBox{
+    background-color: rgba(0,0,0,0.42);
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    z-index: 100000;
+}
+.scheduling  .displayShop{
+    position: absolute;
+    width: 100%;
+    background: #ffffff;
+    z-index: 100000;
+    bottom: 0px;
+    left: 0px;
+}
+/*diy项目样式*/
+.bgfff{background: #ffffff}
+/*置灰*/
+/*不置灰*/
+.skin .noChange{width: 160px;height: 176px;margin:0 auto;margin-bottom: 2%;}
+
+.skin .nextStep{width: 297px;height: 45px;line-height: 50px;text-align: center;
+    margin:20px auto;border-radius: 20px;background: #87ad56;color: #ffffff;}
+.skin .chooseSkin{width: 100px;height: 30px;text-align: center;color: #0bb20c;margin: 0 auto;}
+/*补水保湿样式*/
+.skin .demand{width: 100%;color: #d1d1d1;padding: 0px}
+.skin .noDemand{width: 100%;color: #87ad56;padding: 0px}
+/*护肤水 乳液 精华液*/
+.skin .skinImages{width: 158px;height: 158px;margin:0 auto;margin-bottom: 2%}
+/*列表详情页面的样式*/
+.skin .img_box{width: 100%;height: 298px}
+.skin .goodName{font-size: 20px;color: #323232;margin-top: 10px;margin-left: 10px}
+.skin .goodsPrice{font-size: 17px;color: #323232;margin-top: 13px;margin-left: 10px}
+.skin .describe{font-size: 13px;color: #323232;margin-left: 10px}
+.skin .pay{width: 60%;height: 44px;border-radius: 23px;background: #87ad56;color: #ffffff;font-size: 20px;margin: auto;text-align: center;line-height: 44px;margin-top: 20px}
+/*清单页面*/
+.skin .bgDiv{width:100%;height:200px;background-image:url('../../images/Detailed.png');background-size: 100% 100%;background-repeat: no-repeat;}
+.skin .bgDiv2{width: 100%;height: 100px;text-align: center;padding-top: 20px}
+.skin .bgDiv2 .skin1{font-size: 18px;color: #ffffff;font-weight: bold}
+.skin .bgDiv2 .demand1{font-size: 15px;color: #ffffff;font-weight: bold}
+.skin .bgDiv2 .state1{font-size: 15px;color: #ffffff;font-weight: bold}
+/*清单小票页面的样式*/
+.print #qrCode img{margin: 0 auto!important;}
+.skin .titleBox{width: 100%;background-image:url('../../images/printTop.png');background-size: 100% 100%;background-repeat: no-repeat;color: #ffffff;font-size: 23px;font-weight: bold;height: 67px;text-align: center;}
+
+.skin .topBox{width: 100%;background-image: url('../../images/printMinddle.png');background-size: 100% 100%;background-repeat: no-repeat;color: #323232;font-size: 16px}
+.skin .bottomBox{width: 100%;background-image: url('../../images/printBottom.png');background-size: 100% 100%;background-repeat: no-repeat;}
+.skin .printTitle{padding-top: 50px;margin-left: 26px;font-size: 23px;color: #ffffff;font-weight: bold}
+
+
+.skin .topBox img{width: 30px;height: 30px;margin-left: 20px;}
+.skin .topBox .contentBox p img{margin-right: 15px}
+.bottomBox .bottomTitle{padding-top: 13px;margin-left: 10px;font-size: 19px;color: #323232;font-weight: bold;display: inline-block}
+.center1{text-align: center;font-size: 18px;font-weight: bold;color: #323232}
+.center2{text-align: center;font-size: 15px;font-weight: bold}
+.skin .total{float: right;height: 30px;margin-right: 20px;margin-top: 30px}
+.skin .content1{color: #97b873;}
+
+/*支付页面的弹框*/
+.print .redPacket_box{position: absolute;top: 0px;right: 0px;left: 0px;bottom: 0px;z-index: 10;}
+.print .redPacket_box .redPacket{position: relative;  width: 80%; margin: auto;margin-top: 40%;background: #ffffff;border-radius: 10px;}
+.print .redPacket_box .redPacket .userName{color: #323232;font-size: 18px;margin-top: 26px;margin-left: 30px;font-weight: bold;margin-bottom: 20px}
+.print .redPacket_box .redPacket .userTell{color: #323232;font-size: 18px;margin-top: 20px;margin-left: 30px;font-weight: bold;margin-bottom: 20px}
+.print .redPacket_box .redPacket .inputName{width: 80%;height: 45px;border: 1px solid #F2F2F2;border-radius: 10px;margin: auto}
+.print .redPacket_box .redPacket .inputTell{width: 80%;height: 45px;border: 1px solid #F2F2F2;border-radius: 10px;margin: auto}
+.print .redPacket_box .redPacket .submit{width: 90%;height: 50px;margin-left: 15px;border-radius: 20px;margin-top: 41px;background: #87ad56;color: #ffffff;font-size: 20px;font-weight: bold;text-align: center;line-height: 50px;margin-bottom: 26px}
+.mt19{padding-top: 19px}
+.mt13{padding-top: 10px}
+
+
+

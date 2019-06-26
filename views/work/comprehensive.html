@@ -1,0 +1,56 @@
+0<ion-view class="bg">
+    <ion-content>
+      <!--日期部分-->
+        <div class="bgRgb sb">
+            <div class="sb">
+                <ionic-datepicker input-obj="datepickerObjectEnd" ng-click="selDate('startDate')">
+                    <img src="images/work/date.png" class="dateImg" >
+                    <span class="date">{{param.startDate}}</span>
+                </ionic-datepicker>
+                <span class="colfff center"  style="width:50px;display: inline-block">至</span>
+                <ionic-datepicker input-obj="datepickerObjectEnd" ng-click="selDate('endDate')">
+                    <span class="date">{{param.endDate}}</span>
+                </ionic-datepicker>
+            </div>
+            <div class="mr10 colfff fs15" ng-click="getInfo()">
+                筛选
+            </div>
+
+        </div>
+        <div >
+            <!--业绩耗卡-->
+            <div class="list" ng-click="sevenDayChartsViewClick()">
+                <a class="item">
+                    <div class="list comprehensiveBox" style="position: relative;border-radius: 10px;">
+                        <div class="row comprehensiveBox1">
+                            <div class=" comprehensiveBox2 col col-50">
+                                业绩
+                                <p class="colff">{{comprehensive.allIncome}}</p>
+                            </div>
+                            <div class=" comprehensiveBox2 col col-50" >
+                                耗卡
+                                <p class="colff">{{comprehensive.allExpenditure}}</p>
+                            </div>
+                        </div>
+                        <div  style="position: absolute;bottom: 15px;left: 36%;background: rgb(255,211,211);border-radius: 10px;width: 100px;height: 17px;font-size: 11px;text-align: center;color: #FF6666"><img src="images/work/map.png" style="width: 12px;height: 10px;display: inline-block;">近7日趋势图</div>
+                    </div>
+                </a>
+            </div>
+            <!--唯美度美容养生会所-->
+            <div class="list" ng-repeat="item in comprehensive.responsesList" ng-click="beautyAllGo(item.sysShopId)">
+                <p class="item"><span>{{item.sysShopName}}</span><i style="float:right;font-size: 0.3rem" class="ion ion-ios-arrow-right"></i></p>
+                <div class="row bgfff col33 tc p0">
+                    <div class="col col-50 bre5e5 pt10">
+                        业绩
+                        <p class="mt5">{{item.income}}</p>
+                    </div>
+                    <div class="col col-50 pt10" >
+                        耗卡
+                        <p class="mt5">{{item.expenditure}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,39 @@
+<ion-view class="bg">
+    <ion-content>
+        <!--日期部分-->
+        <div class="bgRgb sb">
+            <div class="sb">
+                <ionic-datepicker input-obj="datepickerObjectEnd" ng-click="selDate('startDate')">
+                    <img src="images/work/date.png" class="dateImg" >
+                    <span class="date">{{param.startDate}}</span>
+                </ionic-datepicker>
+                <span class="colfff center"  style="width:50px;display: inline-block">至</span>
+                <ionic-datepicker input-obj="datepickerObjectEnd" ng-click="selDate('endDate')">
+                    <!-- <img src="images/work/date.png" class="dateImg" >-->
+                    <span class="date">{{param.endDate}}</span>
+                </ionic-datepicker>
+            </div>
+            <div class="mr10 colfff" >
+                <span ng-click="getInfo()" class="fs14">筛选</span>
+            </div>
+        </div>
+        <!--美容师 业绩 耗卡-->
+        <div class="list" ng-repeat="item in allFamily" ng-click="beautyAllGo(item.sysShopClerkId)" ng-show="!param.picFlag">
+            <p class="item" style="padding: 6px"><img ng-src="{{item.photo}}" style="display: inline-block;width: 48px;height: 48px;border-radius: 50%">
+                <span style="margin-left: 10px">{{item.sysShopClerkName}}</span>
+                <span style="margin-left: 10px;padding:0px 5px;height: 20px;display: inline-block;border: 1px solid rgb(255,102,102);border-radius: 8px;text-align: center;line-height: 20px;color:#ff6666;font-size: 12px">{{item.role}}</span>
+                <img src="images/more.png" class="fr more" style="margin-top:20px;">
+            <div class="row" style="background: #FFFFFF;padding: 0px">
+                <div class="col col-50 col33 tc bre5e5">
+                    业绩
+                    <p>{{item.income}}</p>
+                </div>
+                <div class="col col-50 col33 tc">
+                    耗卡
+                    <p>{{item.expenditure}}</p>
+                </div>
+            </div>
+        </div>
+        <void-pic></void-pic>
+    </ion-content>
+</ion-view>

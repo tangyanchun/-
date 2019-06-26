@@ -1,0 +1,82 @@
+<ion-view class="bg">
+    <ion-content class="boss h">
+        <div class="list col33">
+            <li class="item" ng-click="selectionCategoryGO()"><span class="fs16">选择类别<span class="colff66">*</span></span><span class="fr tr">{{settingAddsome.extShopProjectInfoDTO.projectTypeOneName}}<i class="ion ion-ios-arrow-right ml10 fs17"></i></span></li>
+            <li class="item" ng-click="addProjectSeriesGo()"><span class="fs16">选择系列<span class="colff66">*</span></span><span class="fr">{{settingAddsome.extShopProjectInfoDTO.projectTypeTwoName}}<i class="ion ion-ios-arrow-right ml10 fs17"></i></span></li>
+            <li style="padding-top:6px;padding-bottom:6px;" class="row bgfff item"　>
+                <div class="col col-25" style="line-height: 40px;">
+                    <span class="fs16">卡类别<span class="colff66">*</span></span>
+                </div>
+                <div class="col col-70 fs13">
+                    <p style="margin-top:6px;">
+                        <span class="project1"   ng-class="{'activeCardType': settingAddsome.extShopProjectInfoDTO.cardType=='0'}"  ng-click="secondaryCard('0')" >次卡</span>
+                        <span class="project1 m5"  ng-class="{'activeCardType':settingAddsome.extShopProjectInfoDTO.cardType!='0'&&settingAddsome.extShopProjectInfoDTO.cardType!=5}" ng-click="secondaryCard('-1')">时效卡</span>
+                        <span class="project1 "  ng-class="{'activeCardType':settingAddsome.extShopProjectInfoDTO.cardType=='5'}"  ng-click="secondaryCard('5')">疗程卡</span>
+                    </p >
+                    <p ng-if="settingAddsome.extShopProjectInfoDTO.cardType!='0'&&settingAddsome.extShopProjectInfoDTO.cardType!=5" class="row row-wrap" style="padding:0;margin:0">
+                        <span class="project1 col col-30 mr5 mt5"  ng-click="secondaryCard('1',1)" ng-class="{'activeCardType':settingAddsome.extShopProjectInfoDTO.cardType=='1'}">月卡</span>
+                        <span class="project1 col col-30 mr5 mt5"  ng-click="secondaryCard('2',3)" ng-class="{'activeCardType':settingAddsome.extShopProjectInfoDTO.cardType=='2'}">季卡</span>
+                        <span class="project1 col col-30 mr5 mt5"  ng-click="secondaryCard('3',6)" ng-class="{'activeCardType':settingAddsome.extShopProjectInfoDTO.cardType=='3'}">半年卡</span>
+                        <span class="project1 col col-30 mt5"  ng-click="secondaryCard('4',12)" ng-class="{'activeCardType':settingAddsome.extShopProjectInfoDTO.cardType=='4'}">年卡</span>
+                    </p>
+                </div>
+            </li>
+            <!--有效期-->
+            <li class="item" ng-if="settingAddsome.extShopProjectInfoDTO.cardType!='0'&&settingAddsome.extShopProjectInfoDTO.cardType!=5">
+                <span class="fs16">有效期<span class="colff66">*</span></span><span class="fr">自购买日起至<input style="width: 27px;height: 24px;background: #e5e5e5;color: #333333;display: inline-block;margin-left: 10px;margin-right: 10px;text-align: center" ng-model="settingAddsome.extShopProjectInfoDTO.effectiveNumberMonth" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"  disabled="disabled"/>月有效</span></li>
+            <li class="item  fs16" style="padding-top:13px;padding-bottom: 13px"><span class="fs16 mt5" style="display: inline-block">项目名称<span class="colff66">*</span></span><input type="text"  class="fr tr " placeholder="" ng-model="settingAddsome.extShopProjectInfoDTO.projectName" style="width:70%;font-size: 16px;"></li>
+            <li class="item"><span class="fs16">图片</span><span style="color: #3F3F3F;font-size: 16px;margin-left: 10px">(最多可上传6张)</span></li>
+            <li class="item" >
+                <ul style="" class="Htab-head">
+                    <li class="Htab-head-item " style="width:130px;position: relative;height:120px;" ng-repeat="item in settingAddsome.extShopProjectInfoDTO.imageList track by $index">
+                             <span  style="position: absolute;top: 0px;right: 5px;"  ng-click="delPic($index)">
+                                 <i class="ion-android-remove-circle colff66" style="font-size: 20px;"></i>
+                             </span>
+                        <input type="file" style="opacity: 0;position: absolute;top: 0px;left: 0px;width: 105px;height: 105px;" id="" disabled="disabled">
+                        <img ng-src="{{item}}" style="width: 105px;height: 105px;" class="ml10 mt10">
+                    </li>
+                    <li class="Htab-head-item ml10 bgfff" style="width:130px;position: relative;height:120px;display: inline-block;text-align: left" >
+                        <div style="width:130px;position: relative;height:120px;display: inline-block">
+                            <input type="file" style="opacity: 0;position: absolute;top: 0px;left: 0px;width: 105px;height: 105px;" id="uploadPic" onchange="angular.element(this).scope().img_upload(this.files)">
+                            <img src="images/mine/addPhoto.png" style="width: 105px;height: 105px;" class="mt10">
+                        </div>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="item"><span class="fs16">时长(分)<span class="colff66">*</span></span>
+                <span class="fr">
+                    <i class="ion-ios-minus-outline" style="font-size: 20px;" ng-click="projectTheLength(0)"></i>
+                    <input type="text" ng-model="settingAddsome.extShopProjectInfoDTO.projectDuration"  style="display: inline-block;width: 50px;border-radius: 3px;height:20px;margin-top:-6px;" class="center">
+                    <i class="ion-ios-plus-outline" style="font-size: 20px;" ng-click="projectTheLength(1)"></i>
+                </span>
+            </li>
+            <li class="item"><span class="fs16">单次价格<span class="colff66">*</span></span><input type="text"   class="fr tr" ng-model="settingAddsome.extShopProjectInfoDTO.oncePrice"  ng-change="numLimit('oncePrice',settingAddsome.extShopProjectInfoDTO.oncePrice)"></li>
+            <li class="item"><span class="fs16">办卡价格<span class="colff66">*</span></span><input type="text" class="fr tr" ng-model="settingAddsome.extShopProjectInfoDTO.marketPrice" ng-change="numLimit('marketPrice',settingAddsome.extShopProjectInfoDTO.marketPrice)"></li>
+            <li class="item"  ng-show="settingAddsome.extShopProjectInfoDTO.cardType!='0'"><span class="fs16">包含次数</span><span class="colff66">*</span><input type="number" min="1" inputmode="numeric" pattern="[0-9]*" title="Non-negative integral number" class="fr tr" ng-model="settingAddsome.extShopProjectInfoDTO.serviceTimes"  ></li>
+            <li class="item" ><span class="fs16">回访天数</span><input type="number" min="1" inputmode="numeric" pattern="[0-9]*" title="Non-negative integral number" class="fr tr" ng-model="settingAddsome.extShopProjectInfoDTO.visitDateTime" placeholder="请输入回访天数" ></li>
+            <li class="row bgfff item">
+                <div class=" col col-20 fs15 col33 mt20">
+                    功能介绍
+                </div>
+                <div class="col col-80">
+                   <textarea style="height:76px;width:250px;font-size: 0.3rem;color: #333333;padding: 20px;border: 1px solid #CACACA;
+border-radius: 4px;" ng-model="settingAddsome.extShopProjectInfoDTO.functionIntr"></textarea>
+                </div>
+            </li>
+            <li class="item item-toggle mb44" >
+                删除
+                <label class="toggle toggle-assertive">
+                    <input type="checkbox" ng-model="param.status">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+        </div>
+    </ion-content>
+    <div class="bar bar-footer bgf66 colff fs16">
+        <div class="title" ng-click="Preservation()">保存</div>
+    </div>
+</ion-view>
+
